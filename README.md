@@ -33,7 +33,6 @@ Usuarios con membresía Premium. Estos usuarios tendrán las mismas posibilidade
 
 ### ¿Quiénes son nuestros usuarios?
 Nuestros usuarios son personas que:
-* Viven en Santiago, Chile. 
 * Que tienen entre 23 y 40 años.
 * Que tienen acceso a Internet y a tecnología celular de gama media-alta.
 * Que usan principalmente Redes Sociales como Facebook o Instagram para compartir su vida social.
