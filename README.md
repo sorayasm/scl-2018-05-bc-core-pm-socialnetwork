@@ -90,7 +90,7 @@ En esta etapa identificamos las necesidades de los usuarios y buscamos inspiraci
 * Encuesta de filtro.
 * Entrevistas.
 
-Revisa la Carpeta Drive de materiales de la [Etapa de Descubrimento e Ideación] (https://drive.google.com/open?id=1-3rGay23aCxQCRysHWXwCuTOOKAnvGEc)
+Revisa la Carpeta Drive de materiales de la [Etapa de Descubrimento e Ideación](https://drive.google.com/open?id=1-3rGay23aCxQCRysHWXwCuTOOKAnvGEc)
 
 ### 2. Etapa de Síntesis y Definición
 En esta fase usamos los datos coleccionados en la fase de investigación y descubrimiento buscando tendencias e insights valiosos para el desarrollo de nuestra red social. 
@@ -99,14 +99,14 @@ En esta etapa utilizamos las siguientes herramientas:
 * Análisis de usuario objetivo.
 * Creación de Pitch del proyecto.
 
-Revisa la Carpeta Drive de materiales de la [Etapa de Síntesis y Definición] (https://drive.google.com/open?id=1m-Jn5F54cgiOUBF7szqflun5zASXbSej)
+Revisa la Carpeta Drive de materiales de la [Etapa de Síntesis y Definición](https://drive.google.com/open?id=1m-Jn5F54cgiOUBF7szqflun5zASXbSej)
 
 ### 3. Etapa de Ideación
 En esta fase buscamos las mejores maneras para ejecutar/desarrollar las funcionalidades definidas en la fase de de Síntesis y Definición. Para lo cual utilizamos las siguientes herramientas:
 
 * Diagrama de flujo.
 
-Revisa la Carpeta Drive de materiales de la [Etapa de Ideación] (https://drive.google.com/open?id=1zsddyJvV6glVtZtdFz6zkip6evkRI1jL)
+Revisa la Carpeta Drive de materiales de la [Etapa de Ideación](https://drive.google.com/open?id=1zsddyJvV6glVtZtdFz6zkip6evkRI1jL)
 
 ### 4. Etapa de Prototipado
 En esta etapa elaboramos un prototipo que nos permitió probar nuestras ideas con usuarios para saber si estábamos resolviendo sus necesidades con nuestro producto. Para lo cual utilizamos las siguientes herramientas:
@@ -114,7 +114,7 @@ En esta etapa elaboramos un prototipo que nos permitió probar nuestras ideas co
 * Sketch de baja fidelidad.
 * Sketch de mediana fidelidad.
 
-Revisa la Carpeta Drive de materiales de la [Etapa de Prototipado] (https://drive.google.com/open?id=1lw1-n3r_OADvvW3hzx3b4CqSe2TN5yCT)
+Revisa la Carpeta Drive de materiales de la [Etapa de Prototipado](https://drive.google.com/open?id=1lw1-n3r_OADvvW3hzx3b4CqSe2TN5yCT)
 
 ### 5. Etapa de Testeo con usuarios
 
@@ -122,7 +122,7 @@ Para lo cual utilizamos las siguientes herramientas:
 
 * Test de usabilidad.
 
-Revisa la Carpeta Drive de materiales de la [Etapa de Testeo con usuarios] (https://drive.google.com/open?id=1jZLtug-Rhce0qRuRjp9y5lCKjWkthRUC)
+Revisa la Carpeta Drive de materiales de la [Etapa de Testeo con usuarios] https://drive.google.com/open?id=1jZLtug-Rhce0qRuRjp9y5lCKjWkthRUC)
 
 
 
