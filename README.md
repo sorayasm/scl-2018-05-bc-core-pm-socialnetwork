@@ -80,7 +80,8 @@ Realizaremos alianzas con entidades educativas y de formación para promover el 
 
 ## Proceso de Diseño del producto
 
-Durante todo el proceso de diseño hemos coordinado nuestras actividades a través de este tablero [Trello](https://trello.com/b/4gTOQVK8/red-social)
+Durante todo el proceso de diseño hemos coordinado nuestras actividades a través de este tablero [Trello](https://trello.com/b/4gTOQVK8/red-social) y la siguiente [Carpeta Drive](https://drive.google.com/open?id=1pmPQQZN5EpsXOd4EmAOZDn7eF__CiZF7) 
+
 
 ### 1. Etapa de descubrimiento e investigación
 En esta etapa identificamos las necesidades de los usuarios y buscamos inspiración para diseñar el producto. Para esto ulizamos las siguientes herramientas:
@@ -113,6 +114,7 @@ En esta etapa elaboramos un prototipo que nos permitió probar nuestras ideas co
 
 * Sketch de baja fidelidad.
 * Sketch de mediana fidelidad.
+* [Sketch de alta fidelidad]() // Agregar enlace
 
 Revisa la Carpeta Drive de materiales de la [Etapa de Prototipado](https://drive.google.com/open?id=1lw1-n3r_OADvvW3hzx3b4CqSe2TN5yCT)
 
@@ -122,7 +124,7 @@ Para lo cual utilizamos las siguientes herramientas:
 
 * Test de usabilidad.
 
-Revisa la Carpeta Drive de materiales de la [Etapa de Testeo con usuarios] https://drive.google.com/open?id=1jZLtug-Rhce0qRuRjp9y5lCKjWkthRUC)
+Revisa la Carpeta Drive de materiales de la [Etapa de Testeo con usuarios](https://drive.google.com/open?id=1jZLtug-Rhce0qRuRjp9y5lCKjWkthRUC)
 
 
 
