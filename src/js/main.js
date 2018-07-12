@@ -61,7 +61,7 @@ function facebookLoginWithFirebase() {
 
 //Logout
 
-function logoutWithFirebase() {
+window.logoutWithFirebase() {
     firebase.auth().signOut()
         .then(() => {
             console.log("Sesion finalizada")
