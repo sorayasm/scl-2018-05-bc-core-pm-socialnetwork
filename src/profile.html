@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bienvenida a 4edu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <section id="navbar">
+    </section>
+    <section id="content">
+        <!--Login-->
+        <div id="loggedIn">
+            <p id="username"></p>
+            <input id="logout" type="button" onclick="window.logoutWithFirebase()" value="LOGOUT">
+        </div>
+        <!--Autenticacion-->
+        <div id="loggedOut">
+            <input type="email" id="email">
+            <input type="password" id="password">
+            <input type="button" id="registerbutton" onclick="registerWithFirebase()" value="REGISTER">
+            <input type="button" id="loginbutton" onclick="loginWithFirebase()" value="LOGIN">
+            <input type="button" id="facebookbutton" onclick="facebookLoginWithFirebase()" value="FACEBOOK LOGIN">
+    </section>
+    <section id="footer">
+    </section>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDayZJ-EwSaKDG0008qD3o0DwwBWiTxVTY",
+            authDomain: "edu-ad4d1.firebaseapp.com",
+            databaseURL: "https://edu-ad4d1.firebaseio.com",
+            projectId: "edu-ad4d1",
+            storageBucket: "edu-ad4d1.appspot.com",
+            messagingSenderId: "129112114743"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/wall.js"></script>
+    <script src="js/friends.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/challenge.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+
+</html>
