@@ -12,6 +12,10 @@
 </head>
 
 <body>
+    <div id="loggedIn">
+        <p id="username"></p>
+        <input id="logout" type="button" onclick="logoutWithFirebase()" value="LOGOUT">
+    </div>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script>
         // Initialize Firebase

@@ -1,7 +1,7 @@
 window.onload = () => {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-            loggedIn.style.display = "block";
+            loggedIn.style.display = "block"; // ir al muro
             loggedOut.style.display = "none";
         } else {
             loggedIn.style.display = "none";
@@ -21,10 +21,10 @@ function registerWithFirebase() {
 
     firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
         .then(() => {
-            console.log("usuario se creo");
+            console.log("usuario se creo"); // mail de confirmacion y login
         })
         .catch((error) => {
-            console.log("Error de Firebase > Codigo > " + error.code);
+            console.log("Error de Firebase > Codigo > " + error.code); // alert error
             console.log("Error de Firebase > Mensaje > " + error.message);
         });
 }
@@ -64,7 +64,7 @@ function facebookLoginWithFirebase() {
 function logoutWithFirebase() {
     firebase.auth().signOut()
         .then(() => {
-            console.log("Sesion finalizada")
+            console.log("Sesion finalizada") // login
         })
         .catch((error) => {
             console.log("Error de Firebase > Codigo > " + error.code)
