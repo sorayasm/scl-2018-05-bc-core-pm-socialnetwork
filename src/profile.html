@@ -34,8 +34,33 @@
                 <input type="button" id="facebookbutton" onclick="facebookLoginWithFirebase()" value="FACEBOOK LOGIN">
             </div>
     </section>
+    <section id="escribirMensajePerfil">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                    <textarea id="textArea" type="text"></textarea>
+                    <input id="sendText" onclick="sendText()" type="button" value="PUBLICAR" data-="publicaciones">
+            </div>
+        </div>
+    </section>
+
+    <section id="contenedorMensajes">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div id="contenido"></div>
+            </div>
+        </div>
+    </section>
+    
     <section id="footer">
     </section>
+
+
+
+
+
+
+
+
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script>
         // Initialize Firebase
