@@ -61,10 +61,12 @@ window.onload = () =>{
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
     .on("child_added", (newPublicacion)=>{
-        contenido.innerHTML += `
+        contenedorMensajes.innerHTML = `
+        <img class="rounded-circle" src="${newPublicacion.val().photoURL}"></img>
         <p>${newPublicacion.val().creatorName}</p>
         <p>${newPublicacion.val().publicacionURL}</p>
-        `;
+       
+        ` + contenedorMensajes.innerHTML;
     
     });
     
@@ -78,6 +80,7 @@ function sendText(){
     firebase.database().ref(`publicaciones/${newTextKey}`).set({
         publicacionURL : textValue,
         creatorName : currentUser.displayName,
-        creator : currentUser.uid
+        creator : currentUser.uid,
+        photoUrl : currentUser.photoURL
     });
 }
