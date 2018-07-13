@@ -111,8 +111,8 @@ Revisa la Carpeta Drive de materiales de la [Etapa de Ideación](https://drive.g
 ### 4. Etapa de Prototipado
 En esta etapa elaboramos un prototipo que nos permitió probar nuestras ideas con usuarios para saber si estábamos resolviendo sus necesidades con nuestro producto. Para lo cual utilizamos las siguientes herramientas:
 
-* Sketch de baja fidelidad.
-* Sketch de mediana fidelidad.
+* [Sketch de baja fidelidad.](https://drive.google.com/open?id=1VD9cFnvZvDnW2weZGeHGEXr3cxOqBPlz)
+* [Sketch de mediana fidelidad.](https://drive.google.com/open?id=14zWfZHnBvTx60kiVXcattoJLXZ36oqqT)
 * [Sketch de alta fidelidad](https://marvelapp.com/4057h7j)
 
 Revisa la Carpeta Drive de materiales de la [Etapa de Prototipado](https://drive.google.com/open?id=1lw1-n3r_OADvvW3hzx3b4CqSe2TN5yCT)
