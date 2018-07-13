@@ -1,39 +1,75 @@
 body{  
   background-color: lightblue;
+  font-family: 'Lato', sans-serif;
+}
+a { color: #6ab04c;
+  font-weight: bold;
+}
+a:hover{
+  color: #ED6F0F;
 }
 
+/*Link con aspecto de boton*/
+a.falsebtn {
+  display:block;
+  background-color:#ED6F0F;
+  color:white;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: normal;
+  border-radius: 8px;
+}
+.falsebtn:hover {
+  background-color: #00A1B1;
+  text-decoration: none;
+}
+
+/*para que contenedor se vea blanco*/
 .whContainer{
   background-color: white;
   box-shadow: 1px 1px 3px #888888;
 }
 
-.logoContainer{
-  margin: 50px 0 50px 0;
-}
-
+/*botones*/
 .orange{
-  background-color: orange;
+  background-color: #ED6F0F;
+  color:white;
 }
 .orange:hover{
   background-color: cadetblue;
 }
 
+/*botón facebook*/
 .facebookBtn{
   background-color: #3b5998;
   font-size: 1.2em;
   color: white;
-
 }
-
 .facebookBtn i {
-  font-size: 1.6em;
-  padding-right:15px; 
- 
+  font-size: 1em;
+  padding-right:10px; 
 }
 
-p.signin {text-align: center;
-padding: 20px;}
-
-
-
+/*clases para index, register y login*/
+h3.signin{
+  text-align: center;
+  font-weight: lighter;
+  padding-bottom: 10px;
+}
+img.signin{
+  padding: 80px 0px 50px 0px;  
+}
+p.signin {
+  text-align: center;
+  padding: 10px;
+}
+.signin-help{
+  text-align: right;
+  padding: 15px;
+}
+.border{ /*barra de color en parte superior*/
+  border-top:#00A1B1 20px solid;
+}
 

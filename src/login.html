@@ -6,45 +6,53 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>4edu - Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/brands.css" integrity="sha384-7xAnn7Zm3QC1jFjVc1A6v/toepoG3JXboQYzbM0jrPzou9OFXm/fY6Z/XiIebl/k" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <!-- links de estilo para el header -->
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<!--fin estilos-->
 </head>
 
-<body class="text-center">
+<body>
   
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-6 whContainer">
-      <div>
-        <img src="img/logo.png" alt="4edu" class="img-fluid logoContainer">
+    <div class="container">
+        <div class="row">
+            <!--help alineado a la derecha-->
+            <div class="col col-md-4 whContainer border">
+              <div class="col signin-help">
+                <a href="help.html">
+                  <i class="far fa-question-circle"></i> Ayuda</a>
+              </div>
+           <div class="col">
+              <img src="img/logo.png" alt="4edu" class="img-responsive">
+            </div>
+            <form class="col">
+                <h3 class="signin">Inicia Sesión</h3>
+                
+              <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo electrónico*">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña*">
+                <small id="emailHelp" class="form-text text-muted">Campos obligatorios*</small>
+              </div>
+              <div class="form-group form-check">
+                <!-- /// <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                   <label class="form-check-label" for="exampleCheck1">Check me out</label> /// -->
+              </div>
+              <button type="submit" class="btn btn-lg btn-block orange">Iniciar sesión</button>
+              </br>
+              <button type="submit" class="btn btn-lg btn-block facebookBtn">
+                <i class="fab fa-facebook"></i> Iniciar sesión con Facebook
+              </button>
+              <p class="signin">
+                ¿Olvidaste tu contraseña?
+                <p>
+            </form>
+          </div>
+        </div>
       </div>
-      <form class="col col-md-10 offset-md-1">
-        <div class="form-group">
-          <h3>Entrar</h3>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo electrónico*">
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña*">
-          <small id="emailHelp" class="form-text text-muted">Campos obligatorios*</small>
-        </div>
-        <div class="form-group form-check">
-          <!-- /// <input type="checkbox" class="form-check-input" id="exampleCheck1">
-             <label class="form-check-label" for="exampleCheck1">Check me out</label> /// -->
-        </div>
-        <button type="submit" class="btn btn-lg btn-block orange">Iniciar sesión</button>
-        </br>
-        <button type="submit" class="btn btn-lg btn-block facebookBtn">
-          <i class="fab fa-facebook"></i> Iniciar sesión con Facebook
-        </button>
-        <p class="signin">
-          ¿Olvidaste tu contraseña?
-          <p>
-      </form>
-    </div>
-  </div>
-</div>
   
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script>
