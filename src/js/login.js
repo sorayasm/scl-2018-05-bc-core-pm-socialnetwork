@@ -1,17 +1,8 @@
+// Ver si usuario esta logueado
 window.onload = () => {
     firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            loggedIn.style.display = "block";
-            loggedOut.style.display = "none";
-        } else {
-            loggedIn.style.display = "none";
-            loggedOut.style.display = "block";
-        }
         console.log("User > " + JSON.stringify(user));
     });
-
-    // ejemplo
-
 }
 
 // Registro
@@ -21,10 +12,11 @@ function registerWithFirebase() {
 
     firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
         .then(() => {
-            console.log("usuario se creo");
+            console.log("usuario se creo"); // mail de confirmacion y login
+            window.location = "confirmaccount.html";
         })
         .catch((error) => {
-            console.log("Error de Firebase > Codigo > " + error.code);
+            console.log("Error de Firebase > Codigo > " + error.code); // alert error
             console.log("Error de Firebase > Mensaje > " + error.message);
         });
 }
@@ -37,6 +29,7 @@ function loginWithFirebase() {
     firebase.auth().signInWithEmailAndPassword(emailValue, passwordValue)
         .then(() => {
             console.log("Usuario inició sesión con éxito");
+            window.location = "wall.html";
         })
         .catch((error) => {
             console.log("Error de firebase > Código > " + error.code);
@@ -51,7 +44,8 @@ function facebookLoginWithFirebase() {
     })
     firebase.auth().signInWithPopup(provider)
         .then(() => {
-            console.log("login con Facebook exitoso")
+            console.log("login con Facebook exitoso");
+            window.location = "wall.html";
         })
         .catch((error) => {
             console.log("Error de firebase > Código > " + error.code);
@@ -65,9 +59,13 @@ function logoutWithFirebase() {
     firebase.auth().signOut()
         .then(() => {
             console.log("Sesion finalizada")
+            window.location = "index.html";
         })
         .catch((error) => {
             console.log("Error de Firebase > Codigo > " + error.code)
             console.log("Error de Firebase > Mensaje > " + error.message)
         });
 }
+
+
+// Validacion de cuenta por correo electronico

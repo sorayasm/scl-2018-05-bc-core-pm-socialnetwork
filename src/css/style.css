@@ -1,4 +1,3 @@
-
 /* Nav */
 .bg-light {
     background-color: #00A6B2!important;
@@ -17,3 +16,40 @@
 .nav-link{
 color: aliceblue;
 }
+
+body{  
+  background-color: lightblue;
+}
+
+.whContainer{
+  background-color: white;
+  box-shadow: 1px 1px 3px #888888;
+}
+
+.logoContainer{
+  margin: 50px 0 50px 0;
+}
+
+.orange{
+  background-color: orange;
+}
+.orange:hover{
+  background-color: cadetblue;
+}
+
+.facebookBtn{
+  background-color: #3b5998;
+  font-size: 1.2em;
+  color: white;
+
+}
+
+.facebookBtn i {
+  font-size: 1.6em;
+  padding-right:15px; 
+ 
+}
+
+p.signin {text-align: center;
+padding: 20px;}
+
