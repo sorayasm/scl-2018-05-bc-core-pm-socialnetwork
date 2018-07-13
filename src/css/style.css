@@ -1,0 +1,19 @@
+
+/* Nav */
+.bg-light {
+    background-color: #00A6B2!important;
+}
+
+/*Icono question */
+.fa-question-circle{
+    font-size: 30px;
+    color: white;
+}
+/* Icono Menu */
+.fa-bars{
+    font-size: 30px;
+    color: white;
+}
+.nav-link{
+color: aliceblue;
+}
