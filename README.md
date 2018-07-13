@@ -113,7 +113,7 @@ En esta etapa elaboramos un prototipo que nos permitió probar nuestras ideas co
 
 * Sketch de baja fidelidad.
 * Sketch de mediana fidelidad.
-* [Sketch de alta fidelidad]() // Agregar enlace
+* [Sketch de alta fidelidad](https://marvelapp.com/4057h7j)
 
 Revisa la Carpeta Drive de materiales de la [Etapa de Prototipado](https://drive.google.com/open?id=1lw1-n3r_OADvvW3hzx3b4CqSe2TN5yCT)
 
