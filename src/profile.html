@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>4edu - Confirmación de cuenta</title>
+    <title>Bienvenida a 4edu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -16,11 +16,39 @@
 </head>
 
 <body>
-    <div id="login-logout">
-        <h1>Gracias por registrarte, te hemos enviado un correo a tu cuenta.</h1>
-
-        <input type="button" id="loginbutton" onclick="location.href='login.html';" value="LOGIN">
-    </div>
+    <section id="navbar">
+    </section>
+    <section id="content">
+        <div id="login-logout">
+            <!--Logout-->
+            <div id="loggedIn">
+                <p id="username"></p>
+                <input id="logout" type="button" onclick="logoutWithFirebase()" value="LOGOUT">
+            </div>
+            <!--Autenticacion-->
+            <div id="loggedOut">
+                <input type="email" id="email">
+                <input type="password" id="password">
+                <input type="button" id="registerbutton" onclick="registerWithFirebase()" value="REGISTER">
+                <input type="button" id="loginbutton" onclick="loginWithFirebase()" value="LOGIN">
+                <input type="button" id="facebookbutton" onclick="facebookLoginWithFirebase()" value="FACEBOOK LOGIN">
+            </div>
+    </section>
+    <section id="footer">
+    </section>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDayZJ-EwSaKDG0008qD3o0DwwBWiTxVTY",
+            authDomain: "edu-ad4d1.firebaseapp.com",
+            databaseURL: "https://edu-ad4d1.firebaseio.com",
+            projectId: "edu-ad4d1",
+            storageBucket: "edu-ad4d1.appspot.com",
+            messagingSenderId: "129112114743"
+        };
+        firebase.initializeApp(config);
+    </script>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script>
         // Initialize Firebase

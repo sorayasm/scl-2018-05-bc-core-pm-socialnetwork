@@ -7,53 +7,62 @@
   <title>4edu - Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- links de estilo para el header -->
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<!--fin estilos-->
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <!--fin estilos-->
 </head>
 
 <body>
-  
-    <div class="container">
-        <div class="row">
-            <!--help alineado a la derecha-->
-            <div class="col col-md-4 whContainer border">
-              <div class="col signin-help">
-                <a href="help.html">
-                  <i class="far fa-question-circle"></i> Ayuda</a>
-              </div>
-           <div class="col">
-              <img src="img/logo.png" alt="4edu" class="img-responsive">
-            </div>
-            <form class="col">
-                <h3 class="signin">Inicia Sesión</h3>
-                
-              <div class="form-group">
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo electrónico*">
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña*">
-                <small id="emailHelp" class="form-text text-muted">Campos obligatorios*</small>
-              </div>
-              <div class="form-group form-check">
-                <!-- /// <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                   <label class="form-check-label" for="exampleCheck1">Check me out</label> /// -->
-              </div>
-              <button type="submit" class="btn btn-lg btn-block orange">Iniciar sesión</button>
-              </br>
-              <button type="submit" class="btn btn-lg btn-block facebookBtn">
-                <i class="fab fa-facebook"></i> Iniciar sesión con Facebook
-              </button>
-              <p class="signin">
-                ¿Olvidaste tu contraseña?
-                <p>
-            </form>
+  <div class="container">
+
+    <!--Login-->
+    <!--
+     <div id="loggedIn">
+        <p id="username"></p>
+        <input id="logout" type="button" onclick="window.logoutWithFirebase()" value="LOGOUT">>
+    </div>-->
+
+      <div class="row">
+        <!--help alineado a la derecha-->
+        <div class="col col-md-4 whContainer border">
+          <div class="col signin-help">
+            <a href="help.html">
+              <i class="far fa-question-circle"></i> Ayuda</a>
           </div>
+          <div class="col">
+            <img src="img/logo.png" alt="4edu" class="img-responsive">
+          </div>
+          <form class="col">
+            <h3 class="signin">Iniciar Sesión</h3>
+
+
+            <div class="form-group">
+              <!--input email-->
+              <input type="email" id="email" class="form-control" placeholder="Correo electrónico*">
+            </div>
+            <div class="form-group">
+
+              <!--input password-->
+              <input type="password" id="password" class="form-control" placeholder="Contraseña*">
+              <small id="emailHelp" class="form-text text-muted">Campos obligatorios*</small>
+            </div>
+            <!--login firebase-->
+            <input type="button" id="loginbutton" onclick="loginWithFirebase()" value="Iniciar Sesión" class="btn btn-lg btn-block orange">
+            </br>
+            <!--login facebook-->
+            <input type="button" id="facebookbutton" onclick="facebookLoginWithFirebase()" value="Iniciar Sesión con Facebook" class="btn btn-lg btn-block facebookBtn">
+            <p class="signin">
+              ¿Olvidaste tu contraseña?
+              <p>
+          </form>
         </div>
       </div>
-  
+    </div>
+
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script>
     // Initialize Firebase
@@ -67,9 +76,12 @@
     };
     firebase.initializeApp(config);
   </script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+    crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
   <script src="js/login.js"></script>
   <script src="js/wall.js"></script>

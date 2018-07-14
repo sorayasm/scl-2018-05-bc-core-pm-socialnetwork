@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>4edu - Confirmación de cuenta</title>
+    <title>4edu - Configurar mi perfil</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -16,10 +16,9 @@
 </head>
 
 <body>
-    <div id="login-logout">
-        <h1>Gracias por registrarte, te hemos enviado un correo a tu cuenta.</h1>
-
-        <input type="button" id="loginbutton" onclick="location.href='login.html';" value="LOGIN">
+    <div id="loggedIn">
+        <p id="username"></p>
+        <input id="logout" type="button" onclick="logoutWithFirebase()" value="LOGOUT">
     </div>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script>
