@@ -3,8 +3,6 @@ window.onload = () => {
     firebase.auth().onAuthStateChanged((user) => {
         console.log("User > " + JSON.stringify(user));
     });
-
-
 }
 
 // Registro

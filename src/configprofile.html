@@ -19,6 +19,22 @@
     <div id="loggedIn">
         <p id="username"></p>
         <input id="logout" type="button" onclick="logoutWithFirebase()" value="LOGOUT">
+        <br><br>
+        <!-- Foto, nombre a mostrar, descripcion, fecha de nacimiento, ubicacion-->
+
+        <!-- cambiar foto de perfil -->
+        <input id="photoFileSelector" type="file">
+        <input id="sendPhoto" type="button" value="Cambiar foto de perfil">
+        <br><br>
+
+
+        <form name="profileinfo" method="get" action="javascript:sendInfo()">
+            <!-- Cambiar info del perfil -->
+            <input id="profileName" type="text" name="profileName" placeholder="Nombre a mostrar:" maxlength="140" />
+            <input id="profileDescr" type="text" name="profileDescr" placeholder="Descripción breve de ti:" maxlength="140" />
+            <input id="DateOfBirth" type="date" name="DateOfBirth" placeholder="fecha de nacimiento:" />
+            <input id="SendInfo" type="submit" value="Enviar">
+        </form>
     </div>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script>
