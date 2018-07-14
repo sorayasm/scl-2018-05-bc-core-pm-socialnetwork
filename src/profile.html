@@ -38,19 +38,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="">Configurar Mi Perfil
+                        <a class="nav-link" href="configprofile.html">Configurar Mi Perfil
                             <span class="sr-only">(current)</span>
                         </a>
-                        <a class="nav-link" href="">Mis Amigos
+                        <a class="nav-link" href="friends.html">Mis Amigos
                                 <span class="sr-only">(current)</span>
                         </a>
                         <a class="nav-link" href="wall.html">Mi Muro
                                 <span class="sr-only">(current)</span>
                         </a>
-                        <a class="nav-link" href="">Mis Eventos Favoritos
+                        <a class="nav-link" href="myEventsFav.html">Mis Eventos Favoritos
                                 <span class="sr-only">(current)</span>
                         </a>
-                        <a class="nav-link" href="">Acerca de 4edu
+                        <a class="nav-link" href="about.html">Acerca de 4edu
                                 <span class="sr-only">(current)</span>
                         </a>
                         <a class="nav-link" onclick="window.logoutWithFirebase()" href="">Salir de 4edu
@@ -65,22 +65,6 @@
             </div>
         </nav>
     </header>
-    <section id="content">
-
-        <!--Login-->
-        <div id="loggedIn">
-            <p id="username"></p>
-            <input id="logout" type="button" onclick="window.logoutWithFirebase()" value="LOGOUT">
-        </div>
-        <!--Autenticacion-->
-        <div id="loggedOut">
-            <input type="email" id="email">
-            <input type="password" id="password">
-            <input type="button" id="registerbutton" onclick="registerWithFirebase()" value="REGISTER">
-            <input type="button" id="loginbutton" onclick="loginWithFirebase()" value="LOGIN">
-            <input type="button" id="facebookbutton" onclick="facebookLoginWithFirebase()" value="FACEBOOK LOGIN">
-
-
     <section id="content">
         <div id="login-logout">
             <!--Logout-->
@@ -114,8 +98,6 @@
         </div>
     </section>
     
-    <section id="footer">
-    </section>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script>
         // Initialize Firebase
@@ -142,12 +124,9 @@
         };
         firebase.initializeApp(config);
     </script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"crossorigin="anonymous"></script>
 
     <script src="js/main.js"></script>
     <script src="js/login.js"></script>

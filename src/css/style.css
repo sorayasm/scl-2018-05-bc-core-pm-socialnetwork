@@ -2,7 +2,31 @@
 .bg-light {
     background-color: #00A6B2!important;
 }
-
+@media (min-width: 3000px){
+  .navbar-collapse.collapse {
+      display: block!important;
+      height: auto!important;
+      padding-bottom: 0;
+      overflow: visible!important;
+  }}
+  @media (min-width: 3000px){
+  .navbar-collapse {
+      width: auto;
+      border-top: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+  }}
+  @media (min-width: 992px){
+  .navbar-expand-lg .navbar-toggler{
+    display: flex;
+  }}
+  .navbar-light .navbar-toggler {
+    color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+  }
+  .navbar-light .navbar-nav .nav-link {
+    color: white;
+  }
 /*Icono question */
 .fa-question-circle{
     font-size: 30px;
