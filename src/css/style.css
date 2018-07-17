@@ -2,28 +2,40 @@
 .bg-light {
     background-color: #00A6B2!important;
 }
-@media (min-width: 992px){
-.navbar-expand-lg .navbar-toggler{
-  display: flex;
-}}
-
-/* Para Quitarle el borde de color a los iconos en navbar */
-.navbar-light .navbar-toggler {
+@media (min-width: 3000px){
+  .navbar-collapse.collapse {
+      display: block!important;
+      height: auto!important;
+      padding-bottom: 0;
+      overflow: visible!important;
+  }}
+  @media (min-width: 3000px){
+  .navbar-collapse {
+      width: auto;
+      border-top: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+  }}
+  @media (min-width: 992px){
+  .navbar-expand-lg .navbar-toggler{
+    display: flex;
+  }}
+  /* Para Quitarle el borde de color a los iconos en navbar */
+  .navbar-light .navbar-toggler {
   color: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
-}
-.navbar{
-  margin-bottom: 0px;
-}
-/*Color blanco para los links de nav */
-.navbar-light .navbar-nav .nav-link {
-  color: white;
-}
-/* Tamaño del icono 4 */
-#imgFour{
-    width: 25px;
-}
-
+  }
+  .navbar{
+    margin-bottom: 0px;
+  }
+  /*Color blanco para los links de nav */
+  .navbar-light .navbar-nav .nav-link {
+    color: white;
+  }
+  /* Tamaño del icono 4 */
+  #imgFour{
+  width: 25px;
+  }
 /*Icono question */
 .fa-question-circle{
     font-size: 30px;
@@ -40,8 +52,7 @@ color: aliceblue;
 nav{
   margin-bottom: 0px;
 }
-
-/* Iconos y descripcion de cada uno */
+ /* Iconos y descripcion de cada uno */
 .fa-home{
   font-size: 30px;
   color: #333333;
@@ -115,8 +126,138 @@ nav{
   background-color: #5A6978;
 }
 
+
+body{  
+  background-color: lightblue;
+}
+
+.whContainer{
+  background-color: white;
+  box-shadow: 1px 1px 3px #888888;
+}
+
+.logoContainer{
+  margin: 50px 0 50px 0;
+}
+
+.orange{
+  background-color: orange;
+}
+.orange:hover{
+  background-color: cadetblue;
+}
+
+.facebookBtn{
+  background-color: #3b5998;
+  font-size: 1.2em;
+  color: white;
+
+}
+
+.facebookBtn i {
+  font-size: 1.6em;
+  padding-right:15px; 
+ 
+}
+
+p.signin {text-align: center;
+padding: 20px;}
+
+
+
 body{  
   background-color: #f8f9fa;
+  font-family: 'Lato', sans-serif;
+}
+a { color: #6ab04c;
+  font-weight: bold;
+}
+a:hover{
+  color: #ED6F0F;
+}
+
+/*Link con aspecto de boton*/
+a.falsebtn {
+  display:block;
+  background-color:#ED6F0F;
+  color:white;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: normal;
+  border-radius: 8px;
+}
+.falsebtn:hover {
+  background-color: #00A1B1;
+  text-decoration: none;
+}
+
+/*para que contenedor se vea blanco*/
+.whContainer{
+  background-color: white;
+  box-shadow: 1px 1px 3px #888888;
+}
+
+/*botones*/
+.orange{
+  background-color: #ED6F0F;
+  color:white;
+}
+.orange:hover{
+  background-color: cadetblue;
+}
+
+/*botón facebook*/
+.facebookBtn{
+  background-color: #3b5998;
+  font-size: 1.2em;
+  color: white;
+}
+.facebookBtn i {
+  font-size: 1em;
+  padding-right:10px; 
+}
+
+/*clases para index, register y login*/
+h3.signin{
+  text-align: center;
+  font-weight: lighter;
+  padding-bottom: 10px;
+}
+img.signin{
+  padding: 80px 0px 50px 0px;  
+}
+p.signin {
+  text-align: center;
+  padding: 10px;
+}
+.signin-help{
+  text-align: right;
+  padding: 15px;
+}
+.border{ /*barra de color en parte superior*/
+  border-top:#00A1B1 20px solid;
+}
+
+
+/* Nav */
+.bg-light {
+    background-color: #00A6B2!important;
+}
+
+/*Icono question */
+.fa-question-circle{
+    font-size: 30px;
+    color: white;
+}
+/* Icono Menu */
+.fa-bars{
+    font-size: 30px;
+    color: white;
+}
+.nav-link{
+color: aliceblue;
 }
 
 /*  ---- Informacion de Mi Perfil -----  */
@@ -218,6 +359,7 @@ body{
   align-items: center;
   
 }
+
 .whContainer{
   background-color: white;
   box-shadow: 1px 1px 3px #888888;
@@ -249,4 +391,3 @@ body{
 
 p.signin {text-align: center;
 padding: 20px;}
-
