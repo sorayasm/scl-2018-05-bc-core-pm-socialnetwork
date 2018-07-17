@@ -158,58 +158,140 @@ p.signin {
 
 /* Nav */
 .bg-light {
-    background-color: #00A6B2!important;
+  background-color: #00A6B2!important;
+}
+@media (min-width: 992px){
+.navbar-expand-lg .navbar-toggler{
+display: flex;
+}}
+
+/* Para Quitarle el borde de color a los iconos en navbar */
+.navbar-light .navbar-toggler {
+color: rgba(0, 0, 0, 0);
+border-color: rgba(0, 0, 0, 0);
+}
+.navbar{
+margin-bottom: 0px;
+}
+/*Color blanco para los links de nav */
+.navbar-light .navbar-nav .nav-link {
+color: white;
+}
+/* Tamaño del icono 4 */
+#imgFour{
+  width: 25px;
 }
 
 /*Icono question */
 .fa-question-circle{
-    font-size: 30px;
-    color: white;
+  font-size: 30px;
+  color: white;
 }
 /* Icono Menu */
 .fa-bars{
-    font-size: 30px;
-    color: white;
+  font-size: 30px;
+  color: white;
 }
 .nav-link{
 color: aliceblue;
 }
+nav{
+margin-bottom: 0px;
+}
+
+/* Iconos y descripcion de cada uno */
+.fa-home{
+font-size: 30px;
+color: #333333;
+}
+.inicio{
+color: #47525E;
+font-family: Lato;
+font-size: 13px;
+font-weight: 700;
+line-height: 16.5px;
+text-align: left;
+}
+.friends{
+color: #47525E;
+font-family: Lato;
+font-size: 13px;
+font-weight: 700;
+line-height: 16.5px;
+text-align: left;
+}
+.events{
+color: #47525E;
+font-family: Lato;
+font-size: 13px;
+font-weight: 700;
+line-height: 16.5px;
+text-align: left;
+}
+.challenge{
+color: #47525E;
+font-family: Lato;
+font-size: 13px;
+font-weight: 700;
+line-height: 16.5px;
+text-align: left;
+}
+.fa-user-friends{
+font-size: 30px;
+color: #333333;
+}
+.fa-calendar-alt{
+font-size: 30px;
+color: #333333;
+}
+.fa-medal{
+font-size: 30px;
+color: #333333;
+}
+#menu{
+font-size: 30px;
+color: #333333;
+margin-left: 15px;
+}
+/*Separador del menu*/
+.menuSeparador{
+height: 1px;
+width: auto;
+background-color: #5A6978;
+}
 
 body{  
-  background-color: lightblue;
+background-color: lightblue;
 }
 
 .whContainer{
-  background-color: white;
-  box-shadow: 1px 1px 3px #888888;
+background-color: white;
+box-shadow: 1px 1px 3px #888888;
 }
 
 .logoContainer{
-  margin: 50px 0 50px 0;
+margin: 50px 0 50px 0;
 }
 
 .orange{
-  background-color: orange;
+background-color: orange;
 }
 .orange:hover{
-  background-color: cadetblue;
+background-color: cadetblue;
 }
 
 .facebookBtn{
-  background-color: #3b5998;
-  font-size: 1.2em;
-  color: white;
+background-color: #3b5998;
+font-size: 1.2em;
+color: white;
 
 }
 
 .facebookBtn i {
-  font-size: 1.6em;
-  padding-right:15px; 
- 
+font-size: 1.6em;
+padding-right:15px; 
+
 }
 
 p.signin {text-align: center;
 padding: 20px;}
-
-
-
