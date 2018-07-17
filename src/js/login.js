@@ -15,6 +15,12 @@ function registerWithFirebase() {
             console.log("usuario se creo"); // mail de confirmacion y login
             window.location = "confirmaccount.html";
         })
+        /*.then(() => {
+            if (error# auth / weak - password) {
+                console.log("registro fallo por password");
+                document.getElementById("passwordLength").style.display = "block";
+            }
+        })*/
         .catch((error) => {
             console.log("Error de Firebase > Codigo > " + error.code); // alert error
             console.log("Error de Firebase > Mensaje > " + error.message);
