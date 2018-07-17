@@ -1,3 +1,4 @@
+
 /*//Agregar comentarios al local storage
 function agregarComentariosLocalStorage(mensaje){
     let texto;
@@ -96,9 +97,11 @@ function sendText(){
 
     const newTextKey = firebase.database().ref().child("publicaciones").push().key;
     const currentUser = firebase.auth().currentUser;
+    
     firebase.database().ref(`publicaciones/${newTextKey}`).set({
         publicacionURL : textValue,
-        creatorName : currentUser.displayName,
+        creatorName : currentUser.displayName ||
+                      currentUser.providerData[0].email,
         creator : currentUser.uid,
         photoUrl : currentUser.photoURL
     });
