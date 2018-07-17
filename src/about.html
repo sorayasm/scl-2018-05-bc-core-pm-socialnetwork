@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bienvenida a 4edu</title>
+    <title>Acerca de 4edu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -21,7 +21,8 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
 </head>
 
 <body>
@@ -86,7 +87,6 @@
           </div>
           <div class="menuSeparador"></div>
         </div>
-    
     </header>
 
     <section class="container" id="content">
@@ -105,42 +105,47 @@
                 <input type="button" id="facebookbutton" onclick="facebookLoginWithFirebase()" value="FACEBOOK LOGIN">
             </div>
     </section>
-    <section class="myProfile container">
-        <div class="row">
-            <div class="col-12 col-lg-8 informationInProfile">
-                <div class="imageInProfile">
-                </div>
-            </div>
-            <div class="col-12 col-lg-8 informationInProfile">
-                <div class="myName">
-                    <p>Nombre Apellido Apellido</p>
-                </div>
-            </div>
-            <div class="col-12 col-lg-8 informationInProfile">
-                <div class="myInterests">
-                    <p>Intereses, intereses, intereses</p>
-                </div>
+    
+    <section class="container"> 
+        <div class="row aboutTitle">
+            <div class="col-6 title">
+                <p>Acerca de 4edu</p>
             </div>
         </div>
-        <div class="menuSeparador"></div>
-    </section>
-
-
-    <section class="container" id="escribirMensajePerfil">
         <div class="row">
-            <div class="col-12 col-lg-8 areaPublicar">
-                <textarea class="publicarEstado" id="textArea" type="text"></textarea> 
-            </div>
-            <div class="col-12 col-lg-8 areaBotonPublicar">
-                <input class="botonPublicar" id="sendText" onclick="sendText()" type="button" value="PUBLICAR" data-="publicaciones">
+            <div class="col-12 subTitle">
+                <p>¿Qué es 4edu?</p>
             </div>
         </div>
-        <br>
-        
-    </section>
-
-    <section class="container" id="contenido">
-        
+        <div class="row">
+            <div class="col-12 simpleText">
+                <p>Descubrimos que cerca del 70% de los usuarios que utilizan redes sociales para compartir su vida personal están interesados en la educación. 4edu es una nueva red social para fomentar el aprendizaje y la enseñanza de una forma fácil, lúdica e innovadora a través de la tecnología.</p>
+                <p>4edu es una red social simple. Que permite a los usuarios compartir y revisar información sobre aprendizaje y educación, estar al día sobre eventos de formación y realizar desafíos mentales educativos.</p>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="col-12 subTitle">
+                <p>¿Quienes Somos?</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 simpleText">
+                <p>Somos un grupo de estudiantes de Laboratoria, en busca de una solución para personas interesadas en buscar nuevos retos en torno a la educación, asi como también, encontrarse con gente con gustos de aprendizaje similares. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 subTitle">
+                <p>Contáctanos</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 simpleText">
+                <p>¿Tienes dudas de algo? ¿Te gustaría hacer una sugerencia?</p>
+            </div>
+            <div class="col-12 colorText">
+                <p>Escribenos a: 4edu.social@gmail.com</p>
+            </div>
+        </div>
     </section>
 
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>

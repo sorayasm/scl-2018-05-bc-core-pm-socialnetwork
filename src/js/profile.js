@@ -1,3 +1,4 @@
+
 /*//Agregar comentarios al local storage
 function agregarComentariosLocalStorage(mensaje){
     let texto;
@@ -61,13 +62,32 @@ window.onload = () =>{
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
     .on("child_added", (newPublicacion)=>{
-        contenedorMensajes.innerHTML = `
-        <img class="rounded-circle" src="${newPublicacion.val().photoURL}"></img>
-        <p>${newPublicacion.val().creatorName}</p>
-        <p>${newPublicacion.val().publicacionURL}</p>
-       
-        ` + contenedorMensajes.innerHTML;
-    
+        contenido.innerHTML = `
+        <div class="row myPublishedData">
+            <div class="col ">
+                <div class="imageInProfileMessage">
+                    <img class="float-left" src="${newPublicacion.val().photoURL}"></img>
+                </div>
+            </div> 
+            <div class="col-6 myNameInpublications">
+                <p>${newPublicacion.val().creatorName}</p>
+            </div>
+            <div class="col trashIcon text-right">
+                <i class="far fa-trash-alt"></i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-8 myStatusPublished">
+                <p>${newPublicacion.val().publicacionURL}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <i class="far fa-heart"></i>
+            </div>
+        </div>
+        <div class="menuSeparador"></div>
+        ` + contenido.innerHTML;
     });
     
 };
@@ -85,5 +105,4 @@ function sendText(){
         creator : currentUser.uid,
         photoUrl : currentUser.photoURL
     });
-    
 }
