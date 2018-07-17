@@ -28,13 +28,30 @@
     }
 }
 
+
+/* Para Quitarle el borde de color a los iconos en navbar */
+
 .navbar-light .navbar-toggler {
     color: rgba(0, 0, 0, 0);
     border-color: rgba(0, 0, 0, 0);
 }
 
+.navbar {
+    margin-bottom: 0px;
+}
+
+
+/*Color blanco para los links de nav */
+
 .navbar-light .navbar-nav .nav-link {
     color: white;
+}
+
+
+/* Tamaño del icono 4 */
+
+#imgFour {
+    width: 25px;
 }
 
 
@@ -55,6 +72,100 @@
 
 .nav-link {
     color: aliceblue;
+}
+
+nav {
+    margin-bottom: 0px;
+}
+
+
+/* Iconos y descripcion de cada uno */
+
+.fa-home {
+    font-size: 30px;
+    color: #333333;
+}
+
+.inicio {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16.5px;
+    text-align: left;
+}
+
+.friends {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16.5px;
+    text-align: left;
+}
+
+.events {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16.5px;
+    text-align: left;
+}
+
+.challenge {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16.5px;
+    text-align: left;
+}
+
+.fa-user-friends {
+    font-size: 30px;
+    color: #333333;
+}
+
+.fa-calendar-alt {
+    font-size: 30px;
+    color: #333333;
+}
+
+.fa-medal {
+    font-size: 30px;
+    color: #333333;
+}
+
+.fa-trash-alt {
+    color: #00A6B2;
+    font-size: 25px;
+}
+
+.fa-heart {
+    font-size: 25px;
+    color: #95C623;
+}
+
+.trashIcon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#menu {
+    font-size: 30px;
+    color: #333333;
+    margin-left: 15px;
+}
+
+
+/*Separador del menu*/
+
+.menuSeparador {
+    height: 1px;
+    width: auto;
+    background-color: #5A6978;
 }
 
 body {
@@ -95,7 +206,7 @@ p.signin {
 }
 
 body {
-    background-color: lightblue;
+    background-color: #f8f9fa;
     font-family: 'Lato', sans-serif;
 }
 
@@ -217,8 +328,121 @@ p.signin {
     color: aliceblue;
 }
 
-body {
-    background-color: lightblue;
+
+/*  ---- Informacion de Mi Perfil -----  */
+
+.informationInProfile {
+    justify-content: center;
+    display: flex;
+}
+
+.imageInProfile {
+    border-radius: 50px;
+    background-color: #888888;
+    width: 93px;
+    height: 93px;
+}
+
+
+/*Avatar pequeño  de publicaciones en Perfil */
+
+.imageInProfileMessage {
+    border-radius: 50px;
+    width: 65px;
+    height: 65px;
+}
+
+.myName {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 28px;
+    width: 270px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+/*Nombre que se muestra en publicaciones*/
+
+.myNameInpublications {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.myInterests {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 13.5px;
+    font-weight: 400;
+    line-height: 17.5px;
+    text-align: center;
+}
+
+
+/* Boton Publicar Pequeño */
+
+.botonPublicar {
+    background-color: #FF6901;
+    border-radius: 4px;
+    width: 80.43px;
+    height: 29.66px;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 8px;
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+}
+
+.publicarEstado {
+    background-color: #e5e9f2a8;
+    border-radius: 15px;
+    width: 92%;
+    height: 69.89px;
+    margin-top: 10px;
+}
+
+.areaPublicar {
+    justify-content: center;
+    display: flex;
+    padding-bottom: 10px;
+    width: 80%;
+}
+
+.areaBotonPublicar {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 7%;
+    padding-left: 7%;
+}
+
+.myStatusPublished {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16.5px;
+    width: 321.5px;
+    text-align: left;
+}
+
+.myPublishedData {
+    display: flex;
+    align-items: center;
 }
 
 .whContainer {
@@ -252,11 +476,4 @@ body {
 p.signin {
     text-align: center;
     padding: 20px;
-}
-
-
-/* Esconder texto o div*/
-
-.hidden {
-    display: none;
 }

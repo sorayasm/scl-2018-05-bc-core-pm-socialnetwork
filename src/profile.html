@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/brands.css" integrity="sha384-7xAnn7Zm3QC1jFjVc1A6v/toepoG3JXboQYzbM0jrPzou9OFXm/fY6Z/XiIebl/k" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
@@ -20,7 +21,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Logo</a>
+            <a class="navbar-brand media-body"><img id="imgFour" src="img/four_resize.png" alt="" srcset=""></a>
             <a class="navbar-toggler" href="help.html">
                 <i class="far fa-question-circle"></i>
             </a>
@@ -57,8 +58,31 @@
 
             </div>
         </nav>
+        <div class="container">
+            <div id="menu" class="row justify-content-md-center">
+                <div class="col">
+                    <a href="wall.html"><i class="fas fa-home"></i></a>
+                    <p class="inicio">Inicio</p>
+                </div>
+                <div class="col">
+                    <a href="friends.html"><i class="fas fa-user-friends"></i></a>
+                    <p class="friends">Amigos</p>
+                </div>
+                <div class="col">
+                    <a href="events.html"><i class="far fa-calendar-alt"></i></a>
+                    <p class="events">Eventos</p>
+                </div>
+                <div class="col">
+                    <a href="challenger.html"><i class="fas fa-medal"></i></a>
+                    <p class="challenge">Desafíos</p>
+                </div>
+            </div>
+            <div class="menuSeparador"></div>
+        </div>
+
     </header>
-    <section id="content">
+
+    <section class="container" id="content">
         <div id="login-logout">
             <!--Logout-->
             <div id="loggedIn">
@@ -74,21 +98,42 @@
                 <input type="button" id="facebookbutton" onclick="facebookLoginWithFirebase()" value="FACEBOOK LOGIN">
             </div>
     </section>
-    <section id="escribirMensajePerfil">
+    <section class="myProfile container">
         <div class="row">
-            <div class="col-12 col-lg-8">
-                <textarea id="textArea" type="text"></textarea>
-                <input id="sendText" onclick="sendText()" type="button" value="PUBLICAR" data-="publicaciones">
+            <div class="col-12 col-lg-8 informationInProfile">
+                <div class="imageInProfile">
+                </div>
+            </div>
+            <div class="col-12 col-lg-8 informationInProfile">
+                <div class="myName">
+                    <p>Nombre Apellido Apellido</p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-8 informationInProfile">
+                <div class="myInterests">
+                    <p>Intereses, intereses, intereses</p>
+                </div>
             </div>
         </div>
+        <div class="menuSeparador"></div>
     </section>
 
-    <section id="contenedorMensajes">
+
+    <section class="container" id="escribirMensajePerfil">
         <div class="row">
-            <div class="col-12 col-lg-8">
-                <div id="contenido"></div>
+            <div class="col-12 col-lg-8 areaPublicar">
+                <textarea class="publicarEstado" id="textArea" type="text"></textarea>
+            </div>
+            <div class="col-12 col-lg-8 areaBotonPublicar">
+                <input class="botonPublicar" id="sendText" onclick="sendText()" type="button" value="PUBLICAR" data-="publicaciones">
             </div>
         </div>
+        <br>
+
+    </section>
+
+    <section class="container" id="contenido">
+
     </section>
 
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
