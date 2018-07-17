@@ -10,6 +10,6 @@ function sendInfo() {
         creatorEmail: currentUser.displayName || currentUser.providerData[0].email,
         creatorDescr: descrValue,
         creatorBirth: dateOfBirthValue,
-        creatorPhoto: photoFile
+       // creatorPhoto: photoFile
     });
 }
