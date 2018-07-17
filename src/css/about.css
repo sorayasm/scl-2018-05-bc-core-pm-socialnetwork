@@ -1,0 +1,38 @@
+.title{
+    color: #47525E;
+    font-family: Lato;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 36px;
+    width: 310.5px;
+    text-align: center;
+}
+.aboutTitle{
+    justify-content: center;
+    padding: 15px;
+}
+.subTitle{
+  color: #47525E;
+  font-family: Lato;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 16.5px;
+  text-align: left;
+}
+.simpleText{
+  color: #47525E;
+  font-family: Lato;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16.5px;
+  width: 330.5px;
+  text-align: left;
+}
+.colorText{
+  color: #FF6901;
+  font-family: Lato;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16.5px;
+  text-align: left;
+}
