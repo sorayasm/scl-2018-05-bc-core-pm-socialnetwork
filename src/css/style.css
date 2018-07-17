@@ -2,13 +2,6 @@
 .bg-light {
     background-color: #00A6B2!important;
 }
-@media (min-width: 3000px){
-  .navbar-collapse.collapse {
-      display: block!important;
-      height: auto!important;
-      padding-bottom: 0;
-      overflow: visible!important;
-  }}
   @media (min-width: 3000px){
   .navbar-collapse {
       width: auto;
@@ -20,6 +13,12 @@
   .navbar-expand-lg .navbar-toggler{
     display: flex;
   }}
+  @media (min-width: 768px){
+    .navbar-collapse.collapse {
+    display: none!important;
+  }}
+
+
   /* Para Quitarle el borde de color a los iconos en navbar */
   .navbar-light .navbar-toggler {
   color: rgba(0, 0, 0, 0);
@@ -35,11 +34,42 @@
   /* Tamaño del icono 4 */
   #imgFour{
   width: 25px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   }
+  .dropdown-menu{
+    transform: translate3d(-131px, 45px, 0px);
+
+  }
+  .dropdown-item{
+    height: 40px;
+    font-size: 20px;
+  }
+  .btn:hover {
+    color: #00A6B2;
+  }
+  .btn-secondary {
+    color: #fff;
+    background-color: #00A6B2;
+    border-color: #00A6B2;
+}
+.btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: #00A6B2;
+  border-color: #00A6B2;
+}
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #00A6B2;
+  border-color: #00A6B2;
+}
 /*Icono question */
 .fa-question-circle{
     font-size: 30px;
     color: white;
+    padding-right: 14px;
 }
 /* Icono Menu */
 .fa-bars{
@@ -100,6 +130,18 @@ nav{
 .fa-medal{
   font-size: 30px;
   color: #333333;
+}
+.navbarPropiedades{
+  display: flex;
+  align-items: center;
+}
+.navbarFondo{
+  background-color: #00A6B2;
+  display: flex;
+  align-items: center;
+}
+.navbarIconos{
+  display: contents;
 }
 .fa-trash-alt{
   color: #00A6B2;
