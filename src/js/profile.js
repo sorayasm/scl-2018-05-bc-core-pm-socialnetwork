@@ -91,6 +91,11 @@ window.onload = () =>{
     });
     
 };
+//Para que al publicar se borre lo escrito en text área
+boton.addEventListener('click', () => {
+    let comments = document.getElementById('textArea').value;
+    document.getElementById('textArea').value = '';
+});
 
 function sendText(){
     const textValue = textArea.value;
@@ -106,3 +111,4 @@ function sendText(){
         photoUrl : currentUser.photoURL
     });
 }
+
