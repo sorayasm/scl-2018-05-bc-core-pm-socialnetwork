@@ -46,19 +46,12 @@ boton.addEventListener('click', () => {
     let comments = document.getElementById('textArea').value;
     document.getElementById('textArea').value = '';
 });
- function paintHeart(e){
-    const heart = document.getElementById('corazon');
-    if(e.target.id === heart){
-        heart.classList.e.target('green');
-    }
-    
-};
-    
-/*  function paintHeart(){
+ function paintHeart(){
     const heart = document.getElementById('corazon');
 
     heart.classList.toggle('green');
-}; */
+};
+    
 
 /*const heart = document.getElementById("corazon");
 heart.addEventListener('click', () =>{
