@@ -1,13 +1,13 @@
-window.onload = () =>{
+window.onload = () => {
     //Base de datos para consultar 1 vez
-    firebase.database().ref("publicaciones")
-    .once("value")
-    .then((publicaciones) => {
-        console.log("Publicaciones >" +JSON.stringify(publicaciones))
-    })
-    .catch((error) =>{
-        console.log("Database error >" +error);
-    });
+    /*firebase.database().ref("publicaciones")
+        .once("value")
+        .then((publicaciones) => {
+            console.log("Publicaciones >" + JSON.stringify(publicaciones))
+        })
+        .catch((error) => {
+            console.log("Database error >" + error);
+        });*/
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
     .on("child_added", (newPublicacion)=>{
@@ -33,13 +33,12 @@ window.onload = () =>{
         <div class="row">
             <div class="col">
                 <i class="fa fa-heart" id="corazon" onclick='paintHeart()'></i>
-                
             </div>
         </div>
-        <div class="menuSeparador"></div>
+   
         ` + contenido.innerHTML;
-    });
-    
+        });
+
 };
 
 //Para que al publicar se borre lo escrito en text área
@@ -48,37 +47,28 @@ boton.addEventListener('click', () => {
     let comments = document.getElementById('textArea').value;
     document.getElementById('textArea').value = '';
 });
- function paintHeart(e){
-    const heart = document.getElementById('corazon');
-    if(e.target.id === heart){
-        e.target.toggle("green");
-    }
 
-};
-
-/*function paintHeart(){
-    const heart = document.getElementById('corazon');
-    
+//Pintar corazon
+function paintHeart(key) {
+    const heart = document.getElementById("cora-" + key);
     heart.classList.toggle('green');
-};*/
-    
 
-/*const heart = document.getElementById("corazon");
-heart.addEventListener('click', () =>{
-    heart.classList.toggle('green');
-});*/
 
-function sendText(){
+}
+
+//publicar
+function sendText() {
     const textValue = textArea.value;
-
     const newTextKey = firebase.database().ref().child("publicaciones").push().key;
     const currentUser = firebase.auth().currentUser;
-    
+
     firebase.database().ref(`publicaciones/${newTextKey}`).set({
-        publicacionURL : textValue,
-        creatorName : currentUser.displayName ||
-                      currentUser.providerData[0].email,
-        creator : currentUser.uid,
-        photoUrl : currentUser.photoURL
+        publicacionURL: textValue,
+        creatorName: currentUser.displayName ||
+            currentUser.providerData[0].email,
+        creator: currentUser.uid,
+        photoUrl: currentUser.photoURL
     });
 }
+
+
