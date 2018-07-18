@@ -4,37 +4,202 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>4edu - Ayuda</title>
+    <title> 4edu -¿Necesitas Ayuda?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/brands.css" integrity="sha384-7xAnn7Zm3QC1jFjVc1A6v/toepoG3JXboQYzbM0jrPzou9OFXm/fY6Z/XiIebl/k" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/help.css">
 </head>
 
 <body>
-    <section id="navbar">
-    </section>
-    <section id="content">
-        <div id="login-logout">
-            <!--Logout-->
-            <div id="loggedIn">
-                <p id="username"></p>
-                <input id="logout" type="button" onclick="logoutWithFirebase()" value="LOGOUT">
+    <header>
+        <div class="navbarFondo">
+            <div class="container ">
+                <div class="row navbarPropiedades">
+                    <div class="col-8 col-lg-9">
+                        <img id="imgFour" src="img/four_resize.png" alt="" srcset="">
+                    </div>
+                    <div class="col-4 col-lg-3 navbarIconos">
+                        <a href="help.html">
+                            <i class="far fa-question-circle"></i>
+                        </a>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="configprofile.html">Configurar Perfil</a>
+                                <a class="dropdown-item" href="friends.html">Mis Amigos</a>
+                                <a class="dropdown-item" href="profile.html">Mi Muro</a>
+                                <a class="dropdown-item" href="wall.html">Muro Publico</a>
+                                <a class="dropdown-item" href="myEventsFav.html">Mis Eventos Favoritos</a>
+                                <a class="dropdown-item" href="about.html">Acerca de 4edu</a>
+                                <a class="dropdown-item" id="logout" onclick="window.logoutWithFirebase()" value="LOGOUT" href="">Salir de 4edu </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!--Autenticacion-->
-            <div id="loggedOut">
-                <input type="email" id="email">
-                <input type="password" id="password">
-                <input type="button" id="registerbutton" onclick="registerWithFirebase()" value="REGISTER">
-                <input type="button" id="loginbutton" onclick="loginWithFirebase()" value="LOGIN">
-                <input type="button" id="facebookbutton" onclick="facebookLoginWithFirebase()" value="FACEBOOK LOGIN">
+        </div>
+
+        <div class="container">
+            <div id="menu" class="row justify-content-md-center">
+                <div class="col">
+                    <a href="wall.html">
+                        <i class="fas fa-home"></i>
+                    </a>
+                    <p class="inicio">Inicio</p>
+                </div>
+                <div class="col">
+                    <a href="friends.html">
+                        <i class="fas fa-user-friends"></i>
+                    </a>
+                    <p class="friends">Amigos</p>
+                </div>
+                <div class="col">
+                    <a href="events.html">
+                        <i class="far fa-calendar-alt"></i>
+                    </a>
+                    <p class="events">Eventos</p>
+                </div>
+                <div class="col">
+                    <a href="challenger.html">
+                        <i class="fas fa-medal"></i>
+                    </a>
+                    <p class="challenge">Desafíos</p>
+                </div>
             </div>
-    </section>
-    <section id="footer">
+            <div class="menuSeparador"></div>
+        </div>
+
+    </header>
+
+    <section class="container">
+        <div class="row">
+            <div class="col">
+                <!--Accordion wrapper-->
+                <div class="col accordion" id="help" role="tablist" aria-multiselectable="true">
+
+                    <!-- Accordion card -->
+                    <div class="card">
+
+                        <!-- Card header -->
+                        <div class="card-header" role="tab" id="headingOne">
+                            <a data-toggle="collapse" data-parent="#help" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <h5 class="mb-0">
+                                    ¿Cómo crear una cuenta? <i class="fa fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                        </div>
+
+                        <!-- Card body -->
+                        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#help">
+                            <div class="card-body">
+                                Puedes crear una cuenta a través de registro, ingresando los campos que te pide o a través de Facebook o por Gmail
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Accordion card -->
+
+                    <!-- Accordion card -->
+                    <div class="card">
+
+                        <!-- Card header -->
+                        <div class="card-header" role="tab" id="headingTwo">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#help" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <h5 class="mb-0">
+                                    ¿Qué es 4edu? <i class="fa fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                        </div>
+
+                        <!-- Card body -->
+                        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#help">
+                            <div class="card-body">
+                                Descubrimos que cerca del 70% de los usuarios que utilizan redes sociales para compartir su vida personal están interesados en la educación. 4edu es una nueva red social para fomentar el aprendizaje y la enseñanza de una forma fácil, lúdica e innovadora
+                                a través de la tecnología.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Accordion card -->
+
+                    <!-- Accordion card -->
+                    <div class="card">
+
+                        <!-- Card header -->
+                        <div class="card-header" role="tab" id="headingThree">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#help" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <h5 class="mb-0">
+                                    ¿Cómo eliminar un post? <i class="fa fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                        </div>
+
+                        <!-- Card body -->
+                        <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#help">
+                            <div class="card-body">
+                                Para eliminar un post de propio muro solo debes hacer click en el basurero que aparece debajo del post. Solo puedes eliminar tus post personales, no puedes eliminar post de otras personas.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Accordion card -->
+
+                    <!-- Accordion card -->
+                    <div class="card">
+
+                        <!-- Card header -->
+                        <div class="card-header" role="tab" id="headingFour">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#help" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                <h5 class="mb-0">
+                                    ¿Cómo tener una cuenta premium? <i class="fa fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                        </div>
+
+                        <!-- Card body -->
+                        <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#help">
+                            <div class="card-body">
+                                Para tener una cuenta premium sin publicidad y ser parte de una lista de usuarios con beneficios y descuentos en las tiendas y servicios aliados de 4edu, escríbenos a 4edu.social@gmail.com.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Accordion card -->
+
+                    <!-- Accordion card -->
+                    <div class="card">
+
+                        <!-- Card header -->
+                        <div class="card-header" role="tab" id="headingFive">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#help" href="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                                <h5 class="mb-0">
+                                    ¿Tienes más preguntas? <i class="fa fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                        </div>
+
+                        <!-- Card body -->
+                        <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive" data-parent="#help">
+                            <div class="card-body">
+                                Escríbenos a 4edu.social@gmail.com.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Accordion card -->
+
+
+                </div>
+                <!--/.Accordion wrapper-->
+            </div>
+        </div>
     </section>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script>
@@ -52,14 +217,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/wall.js"></script>
-    <script src="js/friends.js"></script>
-    <script src="js/events.js"></script>
-    <script src="js/challenge.js"></script>
-    <script src="js/profile.js"></script>
-    <script src="js/configprofile.js"></script>
 
 </body>
 

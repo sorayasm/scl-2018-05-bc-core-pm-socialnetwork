@@ -16,10 +16,32 @@
 </head>
 
 <body>
-    <div id="loggedIn">
+    <section class="container" id="content">
+        <div class="logged">
+            <!--Autenticacion-->
+            <p class="signin">¿Ya tienes cuenta?<a href="login.html">Inicia Sesión</a>
+                <p>
+        </div>
+    </section>
+    <div id="">
         <p id="username"></p>
-        <input id="logout" type="button" onclick="logoutWithFirebase()" value="LOGOUT">
+        <!-- Foto, nombre a mostrar, descripcion, fecha de nacimiento, ubicacion-->
+
+        <!-- cambiar foto de perfil -->
+        <input id="photoFileSelector" type="file">
+        <input id="sendPhoto" type="button" value="Cambiar foto de perfil">
+        <br><br>
+
+
+        <form name="profileinfo" method="get" action="javascript:sendInfo()">
+            <!-- Cambiar info del perfil -->
+            <input id="profileName" type="text" name="profileName" placeholder="Nombre a mostrar:" maxlength="140" />
+            <input id="profileDescr" type="text" name="profileDescr" placeholder="Descripción breve de ti:" maxlength="140" />
+            <input id="DateOfBirth" type="date" name="DateOfBirth" placeholder="fecha de nacimiento:" />
+            <input id="SendInfo" type="submit" value="Enviar">
+        </form>
     </div>
+
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script>
         // Initialize Firebase
@@ -38,10 +60,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
     <script src="js/login.js"></script>
-    <script src="js/wall.js"></script>
-    <script src="js/friends.js"></script>
-    <script src="js/events.js"></script>
-    <script src="js/challenge.js"></script>
     <script src="js/profile.js"></script>
     <script src="js/configprofile.js"></script>
 

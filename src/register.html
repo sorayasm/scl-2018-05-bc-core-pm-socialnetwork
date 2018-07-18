@@ -2,87 +2,77 @@
 <html>
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Bienvenida a 4edu</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- links de estilo para el header -->
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <!--fin estilos-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bienvenida a 4edu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- links de estilo para el header -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!--fin estilos-->
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <!--help alineado a la derecha-->
-      <div class="col col-md-4 whContainer border">
-        <div class="col signin-help">
-          <a href="help.html">
-            <i class="far fa-question-circle"></i> Ayuda</a>
-        </div>
-        <div class="col">
-          <img src="img/logo.png" alt="4edu" class="img-responsive">
-        </div>
-        <form class="col">
-          <h3 class="signin">Crear una Cuenta</h3>
-          <div class="form-group">
-            <!--input usuario-->
-            <input type="text" id="user" class="form-control" placeholder="Nombre de Usuario*">
-          </div>
-          <div class="form-group">
-            <!--input email-->
-            <input type="email" id="email" class="form-control" placeholder="Correo electrónico*">
-          </div>
-          <div class="form-group">
-            <!--input password-->
-            <input type="password" id="password" class="form-control" placeholder="Contraseña*">
-            <small id="emailHelp" class="form-text text-muted">Campos obligatorios*</small>
-          </div>
-          <!--boton registro-->
-          <input type="button" id="registerbutton" onclick="registerWithFirebase()" value="Registrate" class="btn btn-lg btn-block orange">
-          </br>
-          <!--boton registro CON FACEBOOK-->
-          <input type="button" id="facebookbutton" onclick="facebookLoginWithFirebase()" value="Continua con Facebook" class="btn btn-lg btn-block facebookBtn">
+    <div class="container">
+        <div class="row">
+            <!--help alineado a la derecha-->
+            <div class="col col-md-4 whContainer border">
+                <div class="col signin-help">
+                    <a href="help.html">
+                        <i class="far fa-question-circle"></i> Ayuda</a>
+                </div>
+                <div class="col">
+                    <img src="img/logo01.png" alt="4edu" class="img-responsive">
+                </div>
+                <form class="col">
+                    <h3 class="signin">Crear una Cuenta</h3>
+                    <div class="form-group">
+                        <!--input usuario-->
+                        <input type="text" id="username" class="form-control" placeholder="Nombre de Usuario*">
+                    </div>
+                    <div class="form-group">
+                        <!--input email-->
+                        <input type="email" id="email" class="form-control" placeholder="Correo electrónico*">
+                    </div>
+                    <div class="form-group">
+                        <!--input password-->
+                        <input type="password" id="password" class="form-control" placeholder="Contraseña*">
+                        <small id="emailHelp" class="form-text text-muted">Campos obligatorios*</small>
+                    </div>
+                    <!--boton registro-->
+                    <input type="button" id="registerbutton" onclick="registerWithFirebase()" value="Registrate" class="btn btn-lg btn-block orange">
+                    </br>
+                    <!--boton registro CON FACEBOOK-->
+                    <input type="button" id="facebookbutton" onclick="facebookLoginWithFirebase()" value="Continua con Facebook" class="btn btn-lg btn-block facebookBtn">
 
-          <!--link a login-->
-          <p class="signin">
-            ¿Ya tienes cuenta?
-            <a href="login.html">Inicia Sesión</a>
-            <p>
-        </form>
-      </div>
+                    <!--link a login-->
+                    <div class="logged">
+                        <!--Autenticacion-->
+                        <p class="signin">¿Ya tienes cuenta? <a href="login.html">Inicia Sesión</a>
+                            <p>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyDayZJ-EwSaKDG0008qD3o0DwwBWiTxVTY",
-      authDomain: "edu-ad4d1.firebaseapp.com",
-      databaseURL: "https://edu-ad4d1.firebaseio.com",
-      projectId: "edu-ad4d1",
-      storageBucket: "edu-ad4d1.appspot.com",
-      messagingSenderId: "129112114743"
-    };
-    firebase.initializeApp(config);
-  </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
-  <script src="js/login.js"></script>
-  <script src="js/wall.js"></script>
-  <script src="js/friends.js"></script>
-  <script src="js/events.js"></script>
-  <script src="js/challenge.js"></script>
-  <script src="js/profile.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDayZJ-EwSaKDG0008qD3o0DwwBWiTxVTY",
+            authDomain: "edu-ad4d1.firebaseapp.com",
+            databaseURL: "https://edu-ad4d1.firebaseio.com",
+            projectId: "edu-ad4d1",
+            storageBucket: "edu-ad4d1.appspot.com",
+            messagingSenderId: "129112114743"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>
