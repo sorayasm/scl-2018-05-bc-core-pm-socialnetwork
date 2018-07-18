@@ -1,442 +1,530 @@
 /* Nav */
+
 .bg-light {
     background-color: #00A6B2!important;
 }
-  @media (min-width: 3000px){
-  .navbar-collapse {
-      width: auto;
-      border-top: 0;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-  }}
-  @media (min-width: 992px){
-  .navbar-expand-lg .navbar-toggler{
-    display: flex;
-  }}
-  @media (min-width: 768px){
+
+@media (min-width: 3000px) {
+    .navbar-collapse {
+        width: auto;
+        border-top: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-toggler {
+        display: flex;
+    }
+}
+
+@media (min-width: 768px) {
     .navbar-collapse.collapse {
-    display: none!important;
-  }}
+        display: none!important;
+    }
+}
 
 
-  /* Para Quitarle el borde de color a los iconos en navbar */
-  .navbar-light .navbar-toggler {
-  color: rgba(0, 0, 0, 0);
-  border-color: rgba(0, 0, 0, 0);
-  }
-  .navbar{
+/* Para Quitarle el borde de color a los iconos en navbar */
+
+.navbar-light .navbar-toggler {
+    color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.navbar {
     margin-bottom: 0px;
-  }
-  /*Color blanco para los links de nav */
-  .navbar-light .navbar-nav .nav-link {
-    color: white;
-  }
-  /* Tamaño del icono 4 */
-  #imgFour{
-  width: 25px;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  }
-  .dropdown-menu{
-    transform: translate3d(-131px, 45px, 0px);
+}
 
-  }
-  .dropdown-item{
+
+/*Color blanco para los links de nav */
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+
+/* Tamaño del icono 4 */
+
+#imgFour {
+    width: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.dropdown-menu {
+    transform: translate3d(-131px, 45px, 0px);
+}
+
+.dropdown-item {
     height: 40px;
     font-size: 20px;
-  }
-  .btn:hover {
+}
+
+.btn:hover {
     color: #00A6B2;
-  }
-  .btn-secondary {
+}
+
+.btn-secondary {
     color: #fff;
     background-color: #00A6B2;
     border-color: #00A6B2;
 }
-.btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
-  color: #fff;
-  background-color: #00A6B2;
-  border-color: #00A6B2;
+
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show>.btn-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: #00A6B2;
+    border-color: #00A6B2;
 }
+
 .btn-secondary:hover {
-  color: #fff;
-  background-color: #00A6B2;
-  border-color: #00A6B2;
+    color: #fff;
+    background-color: #00A6B2;
+    border-color: #00A6B2;
 }
+
+
 /*Icono question */
-.fa-question-circle{
+
+.fa-question-circle {
     font-size: 30px;
     color: white;
     padding-right: 14px;
 }
+
+
 /* Icono Menu */
-.fa-bars{
+
+.fa-bars {
     font-size: 30px;
     color: white;
 }
-.nav-link{
-color: aliceblue;
+
+.nav-link {
+    color: aliceblue;
 }
-nav{
-  margin-bottom: 0px;
+
+nav {
+    margin-bottom: 0px;
 }
- /* Iconos y descripcion de cada uno */
-.fa-home{
-  font-size: 30px;
-  color: #333333;
+
+
+/* Iconos y descripcion de cada uno */
+
+.fa-home {
+    font-size: 30px;
+    color: #333333;
 }
-.inicio{
-  color: #47525E;
-  font-family: Lato;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 16.5px;
-  text-align: left;
+
+.inicio {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16.5px;
+    text-align: left;
 }
-.friends{
-  color: #47525E;
-  font-family: Lato;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 16.5px;
-  text-align: left;
+
+.friends {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16.5px;
+    text-align: left;
 }
-.events{
-  color: #47525E;
-  font-family: Lato;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 16.5px;
-  text-align: left;
+
+.events {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16.5px;
+    text-align: left;
 }
-.challenge{
-  color: #47525E;
-  font-family: Lato;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 16.5px;
-  text-align: left;
+
+.challenge {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16.5px;
+    text-align: left;
 }
-.fa-user-friends{
-  font-size: 30px;
-  color: #333333;
+
+.fa-user-friends {
+    font-size: 30px;
+    color: #333333;
 }
-.fa-calendar-alt{
-  font-size: 30px;
-  color: #333333;
+
+.fa-calendar-alt {
+    font-size: 30px;
+    color: #333333;
 }
-.fa-medal{
-  font-size: 30px;
-  color: #333333;
+
+.fa-medal {
+    font-size: 30px;
+    color: #333333;
 }
-.navbarPropiedades{
-  display: flex;
-  align-items: center;
+
+.navbarPropiedades {
+    display: flex;
+    align-items: center;
 }
-.navbarFondo{
-  background-color: #00A6B2;
-  display: flex;
-  align-items: center;
+
+.navbarFondo {
+    background-color: #00A6B2;
+    display: flex;
+    align-items: center;
 }
-.navbarIconos{
-  display: contents;
+
+.navbarIconos {
+    display: contents;
 }
-.fa-trash-alt{
-  color: #00A6B2;
-  font-size: 25px;
+
+.fa-trash-alt {
+    color: #00A6B2;
+    font-size: 25px;
 }
-.fa-heart{
-  font-size: 25px;
-  color: #95C623;
+
+.fa-heart {
+    font-size: 25px;
+    color: #95C623;
 }
-.trashIcon{
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+
+.trashIcon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
-#menu{
-  font-size: 30px;
-  color: #333333;
-  margin-left: 15px;
+
+#menu {
+    font-size: 30px;
+    color: #333333;
+    margin-left: 15px;
 }
+
+
 /*Separador del menu*/
-.menuSeparador{
-  height: 1px;
-  width: auto;
-  background-color: #5A6978;
+
+.menuSeparador {
+    height: 1px;
+    width: auto;
+    background-color: #5A6978;
 }
 
-
-body{  
-  background-color: lightblue;
+.whContainer {
+    background-color: white;
+    box-shadow: 1px 1px 3px #888888;
 }
 
-.whContainer{
-  background-color: white;
-  box-shadow: 1px 1px 3px #888888;
+.logoContainer {
+    margin: 50px 0 50px 0;
 }
 
-.logoContainer{
-  margin: 50px 0 50px 0;
+.orange {
+    background-color: orange;
 }
 
-.orange{
-  background-color: orange;
-}
-.orange:hover{
-  background-color: cadetblue;
+.orange:hover {
+    background-color: cadetblue;
 }
 
-.facebookBtn{
-  background-color: #3b5998;
-  font-size: 1.2em;
-  color: white;
-
+.facebookBtn {
+    background-color: #3b5998;
+    font-size: 1.2em;
+    color: white;
 }
 
 .facebookBtn i {
-  font-size: 1.6em;
-  padding-right:15px; 
- 
+    font-size: 1.6em;
+    padding-right: 15px;
 }
 
-p.signin {text-align: center;
-padding: 20px;}
 
+/* Estilos Generales*/
 
+body {
+    background-color: #f8f9fa;
+    font-family: 'Lato', sans-serif;
+}
 
-body{  
-  background-color: #f8f9fa;
-  font-family: 'Lato', sans-serif;
+a {
+    color: #6ab04c;
+    font-weight: bold;
 }
-a { color: #6ab04c;
-  font-weight: bold;
+
+a:hover {
+    color: #ED6F0F;
 }
-a:hover{
-  color: #ED6F0F;
+
+p.signin {
+    text-align: center;
+    padding: 20px;
 }
+
 
 /*Link con aspecto de boton*/
+
 a.falsebtn {
-  display:block;
-  background-color:#ED6F0F;
-  color:white;
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-  font-size: 1.5em;
-  font-weight: normal;
-  border-radius: 8px;
+    display: block;
+    background-color: #ED6F0F;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: normal;
+    border-radius: 8px;
 }
+
 .falsebtn:hover {
-  background-color: #00A1B1;
-  text-decoration: none;
+    background-color: #00A1B1;
+    text-decoration: none;
 }
+
 
 /*para que contenedor se vea blanco*/
-.whContainer{
-  background-color: white;
-  box-shadow: 1px 1px 3px #888888;
+
+.whContainer {
+    background-color: white;
+    box-shadow: 1px 1px 3px #888888;
 }
+
 
 /*botones*/
-.orange{
-  background-color: #ED6F0F;
-  color:white;
+
+.orange {
+    background-color: #ED6F0F;
+    color: white;
 }
-.orange:hover{
-  background-color: cadetblue;
+
+.orange:hover {
+    background-color: cadetblue;
 }
+
 
 /*botón facebook*/
-.facebookBtn{
-  background-color: #3b5998;
-  font-size: 1.2em;
-  color: white;
-}
-.facebookBtn i {
-  font-size: 1em;
-  padding-right:10px; 
+
+.facebookBtn {
+    background-color: #3b5998;
+    font-size: 1.2em;
+    color: white;
 }
 
+.facebookBtn i {
+    font-size: 1em;
+    padding-right: 10px;
+}
+
+
 /*clases para index, register y login*/
-h3.signin{
-  text-align: center;
-  font-weight: lighter;
-  padding-bottom: 10px;
+
+h3.signin {
+    text-align: center;
+    font-weight: lighter;
+    padding-bottom: 10px;
 }
-img.signin{
-  padding: 80px 0px 50px 0px;  
+
+img.signin {
+    padding: 80px 0px 50px 0px;
 }
+
 p.signin {
-  text-align: center;
-  padding: 10px;
+    text-align: center;
+    padding: 10px;
 }
-.signin-help{
-  text-align: right;
-  padding: 15px;
+
+.signin-help {
+    text-align: right;
+    padding: 15px;
 }
-.border{ /*barra de color en parte superior*/
-  border-top:#00A1B1 20px solid;
+
+.border {
+    /*barra de color en parte superior*/
+    border-top: #00A1B1 20px solid;
 }
 
 
 /* Nav */
+
 .bg-light {
     background-color: #00A6B2!important;
 }
 
+
 /*Icono question */
-.fa-question-circle{
+
+.fa-question-circle {
     font-size: 30px;
     color: white;
 }
+
+
 /* Icono Menu */
-.fa-bars{
+
+.fa-bars {
     font-size: 30px;
     color: white;
 }
-.nav-link{
-color: aliceblue;
+
+.nav-link {
+    color: aliceblue;
 }
+
 
 /*  ---- Informacion de Mi Perfil -----  */
-.informationInProfile{
-  justify-content: center;
-  display: flex;
+
+.informationInProfile {
+    justify-content: center;
+    display: flex;
 }
-.imageInProfile{
-  border-radius: 50px;
-  background-color: #888888;
-  width: 93px;
-  height: 93px;
+
+.imageInProfile {
+    border-radius: 50px;
+    background-color: #888888;
+    width: 93px;
+    height: 93px;
 }
+
+
 /*Avatar pequeño  de publicaciones en Perfil */
-.imageInProfileMessage{
-  border-radius: 50px;
-  width: 65px;
-  height: 65px;
+
+.imageInProfileMessage {
+    border-radius: 50px;
+    width: 65px;
+    height: 65px;
 }
-.myName{
-  color: #47525E;
-  font-family: Lato;
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 28px;
-  width: 270px;
-  text-align: center;
-  margin-top: 5px;
+
+.myName {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 28px;
+    width: 270px;
+    text-align: center;
+    margin-top: 5px;
 }
+
+
 /*Nombre que se muestra en publicaciones*/
-.myNameInpublications{
-  color: #47525E;
-  font-family: Lato;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 18px;
-  text-align: left;
-  display: flex;
-  align-items: center;
+
+.myNameInpublications {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: left;
+    display: flex;
+    align-items: center;
 }
-.myInterests{
-  color: #47525E;
-  font-family: Lato;
-  font-size: 13.5px;
-  font-weight: 400;
-  line-height: 17.5px;
-  text-align: center;
+
+.myInterests {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 13.5px;
+    font-weight: 400;
+    line-height: 17.5px;
+    text-align: center;
 }
+
 
 /* Boton Publicar Pequeño */
-.botonPublicar{
-  background-color: #FF6901;
-  border-radius: 4px;
-  width: 80.43px;
-  height: 29.66px;
-  color: #FFFFFF;
-  font-family: Roboto;
-  font-size: 13.5px;
-  font-weight: 500;
-  line-height: 8px;
-  text-align: center;
-  padding-left: 0px;
-  padding-right: 0px;
-  border-right-width: 0px;
-  border-left-width: 0px;
-  border-bottom-width: 0px;
-  border-top-width: 0px;
-}
-.publicarEstado{
-  background-color: #e5e9f2a8;
-  border-radius: 15px;
-  width: 92%;
-  height: 69.89px;
-  margin-top: 10px;
-}
-.areaPublicar{
-  justify-content: center;
-  display: flex;
-  padding-bottom: 10px;
-  width: 80%;
-}
-.areaBotonPublicar{
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 7%;
-  padding-left: 7%;
-}
-.myStatusPublished{
-  color: #47525E;
-  font-family: Lato;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 16.5px;
-  width: 321.5px;
-  text-align: left;
-}
-.myPublishedData{
-  display: flex;
-  align-items: center;
-  
+
+.botonPublicar {
+    background-color: #FF6901;
+    border-radius: 4px;
+    width: 80.43px;
+    height: 29.66px;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 8px;
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-bottom-width: 0px;
+    border-top-width: 0px;
 }
 
-.whContainer{
-  background-color: white;
-  box-shadow: 1px 1px 3px #888888;
+.publicarEstado {
+    background-color: #e5e9f2a8;
+    border-radius: 15px;
+    width: 92%;
+    height: 69.89px;
+    margin-top: 10px;
 }
 
-.logoContainer{
-  margin: 50px 0 50px 0;
+.areaPublicar {
+    justify-content: center;
+    display: flex;
+    padding-bottom: 10px;
+    width: 80%;
 }
 
-.orange{
-  background-color: orange;
-}
-.orange:hover{
-  background-color: cadetblue;
+.areaBotonPublicar {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 7%;
+    padding-left: 7%;
 }
 
-.facebookBtn{
-  background-color: #3b5998;
-  font-size: 1.2em;
-  color: white;
+.myStatusPublished {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16.5px;
+    width: 321.5px;
+    text-align: left;
+}
 
+.myPublishedData {
+    display: flex;
+    align-items: center;
+}
+
+.whContainer {
+    background-color: white;
+    box-shadow: 1px 1px 3px #888888;
+}
+
+.logoContainer {
+    margin: 50px 0 50px 0;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.orange:hover {
+    background-color: cadetblue;
+}
+
+.facebookBtn {
+    background-color: #3b5998;
+    font-size: 1.2em;
+    color: white;
 }
 
 .facebookBtn i {
-  font-size: 1.6em;
-  padding-right:15px; 
- 
+    font-size: 1.6em;
+    padding-right: 15px;
 }
 
-p.signin {text-align: center;
-padding: 20px;}
 
 /* Corazon cambia al apretar */
-.green{
-  color: red;
-  cursor: pointer;
-}
 
+.green {
+    color: red;
+    cursor: pointer;
+}
