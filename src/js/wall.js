@@ -24,7 +24,7 @@ window.onload = () => {
                 </div>
                 <div class="row">
                     <div class="col-12 col-lg-8 myStatusPublished">
-                        <p>${newPublicacion.val().publicacionURL}</p>
+                        <p>${newPublicacion.val().publicacionUrl}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -68,5 +68,3 @@ function sendText() {
         photoUrl: currentUser.photoURL
     });
 }
-
-

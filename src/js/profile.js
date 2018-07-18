@@ -42,9 +42,7 @@ window.onload = () => {
         </div>
     </div>
     <div class="menuSeparador"></div>
-</div>
-
-        ` + contenido.innerHTML;
+</div>` + contenido.innerHTML;
         });
 
 };
