@@ -50,17 +50,15 @@ function elementosDom(mensajeRecibido){
 
 window.onload = () => {
     //Base de datos para consultar 1 vez
-    firebase.database().ref("publicaciones")
+    /*firebase.database().ref("publicaciones")
         .once("value")
         .then((publicaciones) => {
             console.log("Publicaciones >" + JSON.stringify(publicaciones))
         })
         .catch((error) => {
             console.log("Database error >" + error);
-        });
-    firebase.database().ref("publicaciones").on("child_removed", (deletedPublicacion) => {
-        console.log(deletedPublicacion);
-    });
+        });*/
+
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
         .on("child_added", (newPublicacion) => {
@@ -86,7 +84,7 @@ window.onload = () => {
                 </div>
                 <div class="row">
                     <div class="col">
-                    <button onclick="paintHeart('${newPublicacion.key}')" >  <i class="far fa-heart" id="cora-${newPublicacion.key}"></i></button>
+                    <button onclick="paintHeart('${newPublicacion.key}')"><i class="far fa-heart" id="cora-${newPublicacion.key}"></i></button>
                     </div>
                 </div>
         </div>
@@ -95,16 +93,15 @@ window.onload = () => {
         });
 
 };
+
 //Para que al publicar se borre lo escrito en text área
 boton.addEventListener('click', () => {
     let comments = document.getElementById('textArea').value;
     document.getElementById('textArea').value = '';
 });
 
-function load(){
-    
-}
 
+//para realizar publicaciones
 function sendText() {
     const textValue = textArea.value;
 
@@ -120,14 +117,20 @@ function sendText() {
     });
 }
 
-function paintHeart(key){
-    const heart=document.getElementById("cora-"+key);
+
+//para pintar el corazon
+function paintHeart(key) {
+    const heart = document.getElementById("cora-" + key);
     heart.classList.toggle('green');
 }
 
-function deleteText(key){
+//para borrar un comentario
+function deleteText(key) {
     firebase.database().ref(`publicaciones/${key}`).remove()
-    const publi=document.getElementById("publicacion-"+key);
+    const publi = document.getElementById("publicacion-" + key);
     publi.remove();
 }
 
+/*firebase.database().ref("publicaciones").on("child_removed", (deletedPublicacion) => {
+    console.log(deletedPublicacion);
+});*/
