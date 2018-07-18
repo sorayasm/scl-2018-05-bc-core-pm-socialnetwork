@@ -13,9 +13,10 @@ window.onload = () => {
         console.log(deletedPublicacion);
     });*/
 
+
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
-        .then()
+        //.then()
         .on("child_added", (newPublicacion) => {
             contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
