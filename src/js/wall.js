@@ -1,13 +1,13 @@
 window.onload = () => {
     //Base de datos para consultar 1 vez
-    firebase.database().ref("publicaciones")
+    /*firebase.database().ref("publicaciones")
         .once("value")
         .then((publicaciones) => {
             console.log("Publicaciones >" + JSON.stringify(publicaciones))
         })
         .catch((error) => {
             console.log("Database error >" + error);
-        });
+        });*/
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
         .on("child_added", (newPublicacion) => {
@@ -16,6 +16,7 @@ window.onload = () => {
                 <div class="row myPublishedData">
                     <div class="col ">
                         <div class="imageInProfileMessage">
+                        <img class="float-left img-circle" src="${newPublicacion.val().photoUrl}"></img>
                         </div>
                     </div>
                     <div class="col-6 myNameInpublications">
@@ -24,7 +25,7 @@ window.onload = () => {
                 </div>
                 <div class="row">
                     <div class="col-12 col-lg-8 myStatusPublished">
-                        <p>${newPublicacion.val().publicacionUrl}</p>
+                        <p>${newPublicacion.val().publicacionURL}</p>
                     </div>
                 </div>
                 <div class="row">

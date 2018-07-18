@@ -19,30 +19,36 @@ window.onload = () => {
             contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
-      
-        <div class="col-6 myNameInpublications">
-            <p>${newPublicacion.val().creatorName}</p>
+                    <div class="imageInProfileMessage">
+                        <img class="float-left img-circle" src="${newPublicacion.val().photoUrl}"></img>
+                    </div>
+                    <div class="col-6 myNameInpublications">
+                        <p>${newPublicacion.val().creatorName}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-8 myStatusPublished">
+                    <p>${newPublicacion.val().publicacionURL}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button onclick="paintHeart('${newPublicacion.key}')">
+                        <i class="far fa-heart" id="cora-${newPublicacion.key}"></i>
+                    </button>
+                </div>
+                <div class="col trashIcon text-right">
+                    <button onclick="deleteText('${newPublicacion.key}')">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="menuSeparador">
+            </div>
         </div>
-        <div class="col trashIcon text-right">
-            <button onclick="deleteText('${newPublicacion.key}')">
-                <i class="far fa-trash-alt"></i>
-            </button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 col-lg-8 myStatusPublished">
-            <p>${newPublicacion.val().publicacionUrl}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <button onclick="paintHeart('${newPublicacion.key}')">
-                <i class="far fa-heart" id="cora-${newPublicacion.key}"></i>
-            </button>
-        </div>
-    </div>
-    <div class="menuSeparador"></div>
-</div>` + contenido.innerHTML;
+
+        ` + contenido.innerHTML;
         });
 
 };
@@ -57,6 +63,7 @@ let boton = addEventListener('click', () => {
 //Funcion publicar
 function sendText() {
     const textValue = textArea.value;
+
     const newTextKey = firebase.database().ref().child("publicaciones").push().key;
     const currentUser = firebase.auth().currentUser;
 
