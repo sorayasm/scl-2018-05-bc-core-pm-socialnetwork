@@ -58,32 +58,37 @@ window.onload = () => {
         .catch((error) => {
             console.log("Database error >" + error);
         });
+    firebase.database().ref("publicaciones").on("child_removed", (deletedPublicacion) => {
+        console.log(deletedPublicacion);
+    });
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
         .on("child_added", (newPublicacion) => {
             contenido.innerHTML = `
-        <div class="row myPublishedData">
-            <div class="col ">
-                <div class="imageInProfileMessage">
-                    <img class="float-left" src="${newPublicacion.val().photoURL}"></img>
+            <div id="publicacion-${newPublicacion.key}">
+                <div class="row myPublishedData">
+                    <div class="col ">
+                        <div class="imageInProfileMessage">
+                            <img class="float-left" src="${newPublicacion.val().photoURL}"></img>
+                        </div>
+                    </div> 
+                    <div class="col-6 myNameInpublications">
+                        <p>${newPublicacion.val().creatorName}</p>
+                    </div>
+                    <div class="col trashIcon text-right">
+                        <button onclick="deleteText('${newPublicacion.key}')"><i class="far fa-trash-alt"></i></button>
+                    </div>
                 </div>
-            </div> 
-            <div class="col-6 myNameInpublications">
-                <p>${newPublicacion.val().creatorName}</p>
-            </div>
-            <div class="col trashIcon text-right">
-                <i class="far fa-trash-alt"></i>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-8 myStatusPublished">
-                <p>${newPublicacion.val().publicacionURL}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <i class="far fa-heart"></i>
-            </div>
+                <div class="row">
+                    <div class="col-12 col-lg-8 myStatusPublished">
+                        <p>${newPublicacion.val().publicacionURL}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                    <button onclick="paintHeart('${newPublicacion.key}')" >  <i class="far fa-heart" id="cora-${newPublicacion.key}"></i></button>
+                    </div>
+                </div>
         </div>
         <div class="menuSeparador"></div>
         ` + contenido.innerHTML;
@@ -95,6 +100,10 @@ boton.addEventListener('click', () => {
     let comments = document.getElementById('textArea').value;
     document.getElementById('textArea').value = '';
 });
+
+function load(){
+    
+}
 
 function sendText() {
     const textValue = textArea.value;
@@ -109,5 +118,16 @@ function sendText() {
         creator: currentUser.uid,
         photoUrl: currentUser.photoURL
     });
+}
+
+function paintHeart(key){
+    const heart=document.getElementById("cora-"+key);
+    heart.classList.toggle('green');
+}
+
+function deleteText(key){
+    firebase.database().ref(`publicaciones/${key}`).remove()
+    const publi=document.getElementById("publicacion-"+key);
+    publi.remove();
 }
 
