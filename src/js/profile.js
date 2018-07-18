@@ -90,15 +90,25 @@ window.onload = () => {
         });
 
 };
+
 //Para que al publicar se borre lo escrito en text área
+const boton = document.getElementById('sendText');
 boton.addEventListener('click', () => {
     let comments = document.getElementById('textArea').value;
     document.getElementById('textArea').value = '';
 });
 
+function validarTexto(){
+const entradaDeTexto = textArea.value;
+if(!entradaDeTexto.replace(/\s/g, '').length){
+    alert("Tu mensaje no puede estar vacío")
+}else{
+    sendText()
+}
+};
+
 function sendText() {
     const textValue = textArea.value;
-
     const newTextKey = firebase.database().ref().child("publicaciones").push().key;
     const currentUser = firebase.auth().currentUser;
 
@@ -110,4 +120,6 @@ function sendText() {
         photoUrl: currentUser.photoURL
     });
 }
+
+
 

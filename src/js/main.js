@@ -6,4 +6,5 @@ window.onload = () => {
             window.location = "index.html";
         }
     });
+
 }

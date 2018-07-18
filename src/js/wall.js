@@ -32,7 +32,7 @@ window.onload = () =>{
         </div>
         <div class="row">
             <div class="col">
-                <i class="fa fa-heart" id="corazon" onclick='paintHeart()'></i>
+                <i class="far fa-heart" id="corazon" onclick='paintHeart()'></i>
             </div>
         </div>
         <div class="menuSeparador"></div>
@@ -58,6 +58,14 @@ heart.addEventListener('click', () =>{
     heart.classList.toggle('green');
 });*/
 
+function validarTexto(){
+    const entradaDeTexto = textArea.value;
+    if(!entradaDeTexto.replace(/\s/g, '').length){
+        alert("Tu mensaje no puede estar vacío")
+    }else{
+        sendText()
+    }
+    };
 function sendText(){
     const textValue = textArea.value;
 
