@@ -1,31 +1,3 @@
-/* Nav */
-
-.bg-light {
-    background-color: #00A6B2!important;
-}
-
-@media (min-width: 3000px) {
-    .navbar-collapse {
-        width: auto;
-        border-top: 0;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-    }
-}
-
-@media (min-width: 992px) {
-    .navbar-expand-lg .navbar-toggler {
-        display: flex;
-    }
-}
-
-@media (min-width: 768px) {
-    .navbar-collapse.collapse {
-        display: none!important;
-    }
-}
-
-
 /* Para Quitarle el borde de color a los iconos en navbar */
 
 .navbar-light .navbar-toggler {
@@ -527,4 +499,32 @@ p.signin {
 .green {
     color: red;
     cursor: pointer;
+}
+
+
+/* Nav */
+
+.bg-light {
+    background-color: #00A6B2!important;
+}
+
+@media (min-width: 3000px) {
+    .navbar-collapse {
+        width: auto;
+        border-top: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-toggler {
+        display: flex;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
 }
