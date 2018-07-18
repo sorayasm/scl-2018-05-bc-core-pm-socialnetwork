@@ -35,27 +35,39 @@ window.onload = () => {
                         </button>
                     </div>
                 </div>
-             <div class="menuSeparador"></div>
-        </div>
+                <div class="menuSeparador"></div>
+            </div>
    
         ` + contenido.innerHTML;
         });
 
 };
-const boton = document.getElementById('sendText');
-//Para que al publicar se borre lo escrito en text área
-boton.addEventListener('click', () => {
-    let comments = document.getElementById('textArea').value;
-    document.getElementById('textArea').value = '';
-});
 
+// Para pintar el corazon
 function paintHeart(key) {
     const heart = document.getElementById("cora-" + key);
     heart.classList.toggle('green');
 
 }
 
+//Para que al publicar se borre lo escrito en text área
+const boton = document.getElementById('sendText');
+boton.addEventListener('click', () => {
+    let comments = document.getElementById('textArea').value;
+    document.getElementById('textArea').value = '';
+});
 
+// Para validar texto
+function validarTexto() {
+    const entradaDeTexto = textArea.value;
+    if (!entradaDeTexto.replace(/\s/g, '').length) {
+        alert("Tu mensaje no puede estar vacío")
+    } else {
+        sendText()
+    }
+};
+
+// Para publicar texto
 function sendText() {
     const textValue = textArea.value;
     const newTextKey = firebase.database().ref().child("publicaciones").push().key;

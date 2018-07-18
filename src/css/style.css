@@ -244,6 +244,10 @@ button {
     border: none;
 }
 
+.myPublishedData {
+    padding: 15px;
+}
+
 
 /*Link con aspecto de boton*/
 
@@ -494,9 +498,10 @@ p.signin {
 }
 
 .facebookBtn i {
-  font-size: 1.6em;
-  padding-right:15px;  
+    font-size: 1.6em;
+    padding-right: 15px;
 }
+
 
 /* Corazon cambia al apretar */
 
