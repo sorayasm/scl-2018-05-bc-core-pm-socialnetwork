@@ -15,6 +15,7 @@ window.onload = () => {
 
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
+        .then()
         .on("child_added", (newPublicacion) => {
             contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
