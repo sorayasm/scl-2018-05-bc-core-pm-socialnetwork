@@ -1,10 +1,3 @@
-// Ver si usuario esta logueado
-window.onload = () => {
-    firebase.auth().onAuthStateChanged((user) => {
-        console.log("User > " + JSON.stringify(user));
-    });
-}
-
 // Registro
 function registerWithFirebase() {
     const emailValue = email.value;
