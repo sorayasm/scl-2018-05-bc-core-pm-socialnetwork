@@ -430,12 +430,12 @@ color: aliceblue;
   padding-right:15px;  
 }
 
-p.signin {
-  text-align: center;
-  padding: 20px;
-}
+p.signin {text-align: center;
+padding: 20px;}
 
+/* Corazon cambia al apretar */
 .green{
   color: red;
   cursor: pointer;
 }
+
