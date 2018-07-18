@@ -15,7 +15,7 @@ window.onload = () =>{
         <div class="row myPublishedData">
             <div class="col ">
                 <div class="imageInProfileMessage">
-                    <img class="float-left" src="${newPublicacion.val().photoURL}"></img>
+                    <img class="float-left" src="${newPublicacion.val().photoUrl}"></img>
                 </div>
             </div> 
             <div class="col-6 myNameInpublications">
@@ -33,6 +33,7 @@ window.onload = () =>{
         <div class="row">
             <div class="col">
                 <i class="fa fa-heart" id="corazon" onclick='paintHeart()'></i>
+                
             </div>
         </div>
         <div class="menuSeparador"></div>
@@ -40,17 +41,26 @@ window.onload = () =>{
     });
     
 };
-const boton = document.getElementById('sendText');
+
 //Para que al publicar se borre lo escrito en text área
+const boton = document.getElementById('sendText');
 boton.addEventListener('click', () => {
     let comments = document.getElementById('textArea').value;
     document.getElementById('textArea').value = '';
 });
- function paintHeart(){
+ function paintHeart(e){
     const heart = document.getElementById('corazon');
+    if(e.target.id === heart){
+        e.target.toggle("green");
+    }
 
-    heart.classList.toggle('green');
 };
+
+/*function paintHeart(){
+    const heart = document.getElementById('corazon');
+    
+    heart.classList.toggle('green');
+};*/
     
 
 /*const heart = document.getElementById("corazon");
