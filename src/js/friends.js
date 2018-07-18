@@ -1,4 +1,4 @@
-function addFriend(friendUID) {// friendUID es mi amigo -  funcion solicitud amistad
+/*function addFriend(friendUID) {// friendUID es mi amigo -  funcion solicitud amistad
   const newFriendKey = firebase.database().ref().child("amistades").push().key; //trae los hijos de amistades
   const currentUser = firebase.auth().currentUser;
   firebase.database().ref(`amistades/${newFriendKey}`).set({ //set guarda los valores (me serviría para guardar datos de una imagen)
@@ -99,4 +99,4 @@ function getDatosAmigo(uid){
 window.onload  = () => {
   const currentUser = firebase.auth().currentUser;
   imprimirAmigosPendientes();
-};
+};*/
