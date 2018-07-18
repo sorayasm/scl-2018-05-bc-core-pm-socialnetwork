@@ -1,7 +1,7 @@
-
 window.onload = () => {
+
     //Base de datos para consultar 1 vez
-    firebase.database().ref("publicaciones")
+    /*firebase.database().ref("publicaciones")
         .once("value")
         .then((publicaciones) => {
             console.log("Publicaciones >" + JSON.stringify(publicaciones))
@@ -11,7 +11,8 @@ window.onload = () => {
         });
     firebase.database().ref("publicaciones").on("child_removed", (deletedPublicacion) => {
         console.log(deletedPublicacion);
-    });
+    });*/
+
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
         .on("child_added", (newPublicacion) => {
@@ -30,7 +31,7 @@ window.onload = () => {
     </div>
     <div class="row">
         <div class="col-12 col-lg-8 myStatusPublished">
-            <p>${newPublicacion.val().publicacionURL}</p>
+            <p>${newPublicacion.val().publicacionUrl}</p>
         </div>
     </div>
     <div class="row">
@@ -47,35 +48,38 @@ window.onload = () => {
         });
 
 };
+
+
 //Para que al publicar se borre lo escrito en text área
 let boton = addEventListener('click', () => {
     let comments = document.getElementById('textArea').value;
     document.getElementById('textArea').value = '';
 });
 
+//Funcion publicar
 function sendText() {
     const textValue = textArea.value;
-
     const newTextKey = firebase.database().ref().child("publicaciones").push().key;
     const currentUser = firebase.auth().currentUser;
 
     firebase.database().ref(`publicaciones/${newTextKey}`).set({
         publicacionURL: textValue,
         creatorName: currentUser.displayName ||
-        currentUser.providerData[0].email,
+            currentUser.providerData[0].email,
         creator: currentUser.uid,
         photoUrl: currentUser.photoURL
     });
 }
 
-function paintHeart(key){
-    const heart=document.getElementById("cora-"+key);
+// Funcion pintar corazon
+function paintHeart(key) {
+    const heart = document.getElementById("cora-" + key);
     heart.classList.toggle('green');
 }
 
-function deleteText(key){
+// funcion borrar publicaciones
+function deleteText(key) {
     firebase.database().ref(`publicaciones/${key}`).remove()
-    const publi=document.getElementById("publicacion-"+key);
+    const publi = document.getElementById("publicacion-" + key);
     publi.remove();
 }
-

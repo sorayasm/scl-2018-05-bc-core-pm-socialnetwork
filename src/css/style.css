@@ -239,6 +239,11 @@ p.signin {
     padding: 20px;
 }
 
+button {
+    background-color: transparent;
+    border: none;
+}
+
 
 /*Link con aspecto de boton*/
 
@@ -500,6 +505,7 @@ p.signin {
     color: red;
     cursor: pointer;
 }
+
 
 /* Nav */
 
