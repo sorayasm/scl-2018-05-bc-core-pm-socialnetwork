@@ -115,6 +115,17 @@ function sendText() {
     });
 }
 
+function addFriend(friendUID) {
+    const textValue = textArea.value;
+
+    const newFriendKey = firebase.database().ref().child("publicaciones").push().key;
+    const currentUser = firebase.auth().currentUser;
+
+    firebase.database().ref(`publicaciones/${newFriendKey}`).set({
+        userID: currentUser.uid,
+        friendUID: friendUID
+    });
+}
 
 function paintHeart(key){
     const heart=document.getElementById("cora-"+key);
