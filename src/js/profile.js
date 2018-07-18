@@ -1,3 +1,4 @@
+
 window.onload = () => {
     //Base de datos para consultar 1 vez
     firebase.database().ref("publicaciones")
