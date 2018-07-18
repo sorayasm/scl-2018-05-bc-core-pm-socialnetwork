@@ -4,7 +4,13 @@ function registerWithFirebase() {
     const passwordValue = password.value;
 
     firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
-        .then(() => {
+        .then((userData) => {
+            firebase.database().ref(`usuarios/${userData.user.uid}`).set({ //set guarda los valores (me serviría para guardar datos de una imagen)
+                mail: userData.user.email,// guarda quien creo la solicitud de amistad
+                uid: userData.user.uid, // persona asociada a la amistad (amigo 1)
+                username: userData.user.email, //persona asociada a la amistad (amigo 2)
+                
+            });
             console.log("usuario se creo"); // mail de confirmacion y login
             window.location = "confirmaccount.html";
         })
