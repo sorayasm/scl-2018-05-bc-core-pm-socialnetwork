@@ -1,61 +1,60 @@
 .title{
-    color: #47525E;
-    font-family: Lato;
-    font-size: 28px;
-    font-weight: 300;
-    line-height: 34px;
-    text-align: center;
+  color: #47525E;
+  font-family: Lato;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 34px;
+  text-align: center;
+  padding: 10px;
+}
+.input-group-append {
+    margin-left: -1px;
+    display: initial;
+}
+.custom-file{
+    width: 100%;
+}
+.input-group>.custom-file {
+    display: -ms-flexbox;
+    
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+}
+.custom-file-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    
+    height: 32px;
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+.botonConfigurarPerfil {
+    display: block;
+    background-color: #ED6F0F;
+    color: white;
+    width: 100%;
     padding: 10px;
-  }
-  .input-group-append {
-      margin-left: -1px;
-      display: initial;
-  }
-  .custom-file{
-      width: 100%;
-  }
-  .input-group>.custom-file {
-      display: -ms-flexbox;
-      
-      -ms-flex-align: center;
-      align-items: center;
-      width: 100%;
-  }
-  .custom-file-label {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: 79;
-      height: 32px;
-      padding: .375rem .75rem;
-      line-height: 1.5;
-      color: #495057;
-      background-color: #fff;
-      border: 1px solid #ced4da;
-      border-radius: .25rem;
-  }
-  .botonConfigurarPerfil {
-      display: block;
-      background-color: #ED6F0F;
-      color: white;
-      width: 100%;
-      padding: 10px;
-      text-align: center;
-      font-size: 1.5em;
-      font-weight: normal;
-      border-radius: 8px;
-      border-width: 0px;
-  }
-  .botonSubirImagen{
-      display: block;
-      background-color: #b9bfc5;
-      color: white;
-      width: 100%;
-      text-align: center;
-      font-size: 1.5em;
-      font-weight: normal;
-      border-radius: 8px;
-      border-width: 0px;
-  }
-  
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: normal;
+    border-radius: 8px;
+    border-width: 0px;
+}
+.botonSubirImagen{
+    display: block;
+    background-color: #b9bfc5;
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: normal;
+    border-radius: 8px;
+    border-width: 0px;
+}
