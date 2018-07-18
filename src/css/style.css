@@ -515,11 +515,19 @@ p.signin {
         -webkit-box-shadow: none;
         box-shadow: none;
     }
+    .accordion {
+        padding-top: 15px;
+        width: auto;
+    }
 }
 
 @media (min-width: 992px) {
     .navbar-expand-lg .navbar-toggler {
         display: flex;
+    }
+    .accordion {
+        padding-top: 15px;
+        width: auto;
     }
 }
 
@@ -527,4 +535,16 @@ p.signin {
     .navbar-collapse.collapse {
         display: none!important;
     }
+    .accordion {
+        padding-top: 15px;
+        width: auto;
+    }
+}
+
+
+/* Acordion Help */
+
+.accordion {
+    padding-top: 15px;
+    width: 100%;
 }
