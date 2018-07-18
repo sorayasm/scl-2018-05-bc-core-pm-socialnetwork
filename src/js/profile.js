@@ -1,6 +1,7 @@
 
 window.onload = () => {
     //Base de datos para consultar 1 vez
+    
     firebase.database().ref("publicaciones")
         .once("value")
         .then((publicaciones) => {
@@ -46,6 +47,7 @@ window.onload = () => {
         ` + contenido.innerHTML;
         });
 
+       
 };
 //Para que al publicar se borre lo escrito en text área
 let boton = addEventListener('click', () => {
@@ -79,3 +81,9 @@ function deleteText(key){
     publi.remove();
 }
 
+//----------------DANGER-------------------//
+// tratando de mostrar el current user //
+function showUser(){
+    let myUserId = firebase.auth().currentUser.uid;
+    console.log(myUserId);
+    document.getElementById("myName").innerHTML=myUserId;}
