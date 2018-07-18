@@ -15,7 +15,7 @@ window.onload = () =>{
         <div class="row myPublishedData">
             <div class="col ">
                 <div class="imageInProfileMessage">
-                    <img class="float-left" src="${newPublicacion.val().photoUrl}"></img>
+                    <img class="float-left img-circle"  src="${newPublicacion.val().photoUrl}"></img>
                 </div>
             </div> 
             <div class="col-6 myNameInpublications">
