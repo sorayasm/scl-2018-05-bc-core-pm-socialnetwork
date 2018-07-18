@@ -1,34 +1,3 @@
-/* Nav */
-
-.bg-light {
-    background-color: #00A6B2!important;
-}
-
-@media (min-width: 3000px) {
-    .navbar-collapse.collapse {
-        display: block!important;
-        height: auto!important;
-        padding-bottom: 0;
-        overflow: visible!important;
-    }
-}
-
-@media (min-width: 3000px) {
-    .navbar-collapse {
-        width: auto;
-        border-top: 0;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-    }
-}
-
-@media (min-width: 992px) {
-    .navbar-expand-lg .navbar-toggler {
-        display: flex;
-    }
-}
-
-
 /* Para Quitarle el borde de color a los iconos en navbar */
 
 .navbar-light .navbar-toggler {
@@ -52,6 +21,42 @@
 
 #imgFour {
     width: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.dropdown-menu {
+    transform: translate3d(-131px, 45px, 0px);
+}
+
+.dropdown-item {
+    height: 40px;
+    font-size: 20px;
+}
+
+.btn:hover {
+    color: #00A6B2;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #00A6B2;
+    border-color: #00A6B2;
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show>.btn-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: #00A6B2;
+    border-color: #00A6B2;
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #00A6B2;
+    border-color: #00A6B2;
 }
 
 
@@ -60,6 +65,7 @@
 .fa-question-circle {
     font-size: 30px;
     color: white;
+    padding-right: 14px;
 }
 
 
@@ -137,6 +143,21 @@ nav {
     color: #333333;
 }
 
+.navbarPropiedades {
+    display: flex;
+    align-items: center;
+}
+
+.navbarFondo {
+    background-color: #00A6B2;
+    display: flex;
+    align-items: center;
+}
+
+.navbarIconos {
+    display: contents;
+}
+
 .fa-trash-alt {
     color: #00A6B2;
     font-size: 25px;
@@ -168,10 +189,6 @@ nav {
     background-color: #5A6978;
 }
 
-body {
-    background-color: lightblue;
-}
-
 .whContainer {
     background-color: white;
     box-shadow: 1px 1px 3px #888888;
@@ -200,10 +217,8 @@ body {
     padding-right: 15px;
 }
 
-p.signin {
-    text-align: center;
-    padding: 20px;
-}
+
+/* Estilos Generales*/
 
 body {
     background-color: #f8f9fa;
@@ -217,6 +232,11 @@ a {
 
 a:hover {
     color: #ED6F0F;
+}
+
+p.signin {
+    text-align: center;
+    padding: 20px;
 }
 
 
@@ -473,17 +493,37 @@ p.signin {
     padding-right: 15px;
 }
 
-p.signin {
-    text-align: center;
-    padding: 20px;
+
+/* Corazon cambia al apretar */
+
+.green {
+    color: red;
+    cursor: pointer;
 }
 
-p.signin {
-    text-align: center;
-    padding: 20px;
+/* Nav */
+
+.bg-light {
+    background-color: #00A6B2!important;
 }
 
+@media (min-width: 3000px) {
+    .navbar-collapse {
+        width: auto;
+        border-top: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
 
-.green{
-    color:red;
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-toggler {
+        display: flex;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
 }

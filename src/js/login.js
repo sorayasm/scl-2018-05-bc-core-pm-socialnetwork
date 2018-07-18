@@ -1,17 +1,3 @@
-// Ver si usuario esta logueado
-window.onload = () => {
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            loggedIn.style.display = "block";
-            loggedOut.style.display = "none";
-        } else {
-            loggedIn.style.display = "none";
-            loggedOut.style.display = "block";
-        }
-        console.log("User > " + JSON.stringify(user));
-    });
-}
-
 // Registro
 function registerWithFirebase() {
     const emailValue = email.value;
@@ -29,8 +15,10 @@ function registerWithFirebase() {
             window.location = "confirmaccount.html";
         })
         .catch((error) => {
+            alert("Revisa todos los datos ingresados. La contraseña debe tener al menos 6 caracteres.");
             console.log("Error de Firebase > Codigo > " + error.code); // alert error
             console.log("Error de Firebase > Mensaje > " + error.message);
+
         });
 }
 
@@ -38,6 +26,7 @@ function registerWithFirebase() {
 function loginWithFirebase() {
     const emailValue = email.value;
     const passwordValue = password.value;
+    const usernameValue = username.value;
 
     firebase.auth().signInWithEmailAndPassword(emailValue, passwordValue)
         .then(() => {
@@ -47,6 +36,7 @@ function loginWithFirebase() {
         .catch((error) => {
             console.log("Error de firebase > Código > " + error.code);
             console.log("Error de firebase > Mensaje > " + error.message);
+            alert("Revisa todos los datos ingresados. Correo y contraseña son obligatorios.");
         });
 }
 //Login with Facebook
@@ -63,6 +53,7 @@ function facebookLoginWithFirebase() {
         .catch((error) => {
             console.log("Error de firebase > Código > " + error.code);
             console.log("Error de firebase > Mensaje > " + error.message);
+            alert("Revisa todos los datos ingresados. Hubo un problema con el registro de Facebook.");
         })
 };
 

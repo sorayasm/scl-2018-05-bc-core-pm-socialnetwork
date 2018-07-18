@@ -4,22 +4,101 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>4edu - Muro</title>
+    <title>Bienvenida a 4edu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/brands.css" integrity="sha384-7xAnn7Zm3QC1jFjVc1A6v/toepoG3JXboQYzbM0jrPzou9OFXm/fY6Z/XiIebl/k" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
 <body>
-    <div id="loggedIn">
-        <p id="username"></p>
-        <input id="logout" type="button" onclick="logoutWithFirebase()" value="LOGOUT">
-    </div>
+    <header>
+        <div class="navbarFondo">
+            <div class="container ">
+                <div class="row navbarPropiedades">
+                    <div class="col-8 col-lg-9">
+                        <img id="imgFour" src="img/four_resize.png" alt="" srcset="">
+                    </div>
+                    <div class="col-4 col-lg-3 navbarIconos">
+                        <a href="help.html">
+                            <i class="far fa-question-circle"></i>
+                        </a>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="configprofile.html">Configurar Perfil</a>
+                                <a class="dropdown-item" href="friends.html">Mis Amigos</a>
+                                <a class="dropdown-item" href="profile.html">Mi Muro</a>
+                                <a class="dropdown-item" href="wall.html">Muro Publico</a>
+                                <a class="dropdown-item" href="myEventsFav.html">Mis Eventos Favoritos</a>
+                                <a class="dropdown-item" href="about.html">Acerca de 4edu</a>
+                                <a class="dropdown-item" id="logout" onclick="window.logoutWithFirebase()" value="LOGOUT" href="">Salir de 4edu </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="menu" class="row justify-content-md-center">
+                <div class="col">
+                    <a href="wall.html">
+                        <i class="fas fa-home"></i>
+                    </a>
+                    <p class="inicio">Inicio</p>
+                </div>
+                <div class="col">
+                    <a href="friends.html">
+                        <i class="fas fa-user-friends"></i>
+                    </a>
+                    <p class="friends">Amigos</p>
+                </div>
+                <div class="col">
+                    <a href="events.html">
+                        <i class="far fa-calendar-alt"></i>
+                    </a>
+                    <p class="events">Eventos</p>
+                </div>
+                <div class="col">
+                    <a href="challenger.html">
+                        <i class="fas fa-medal"></i>
+                    </a>
+                    <p class="challenge">Desafíos</p>
+                </div>
+            </div>
+            <div class="menuSeparador"></div>
+        </div>
+
+    </header>
+    <section class="container" id="escribirMensajePerfil">
+        <div class="row">
+            <div class="col-12 areaPublicar">
+                <textarea class="publicarEstado" id="textArea" type="text"></textarea>
+            </div>
+            <div class="col-12 areaBotonPublicar">
+                <input class="botonPublicar" id="sendText" onclick="sendText()" type="button" value="PUBLICAR" data-="publicaciones">
+            </div>
+        </div>
+        <br>
+
+    </section>
+
+    <section class="container" id="contenido">
+
+    </section>
+
+
+
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script>
         // Initialize Firebase
@@ -37,13 +116,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
-    <script src="js/login.js"></script>
     <script src="js/wall.js"></script>
-    <script src="js/friends.js"></script>
-    <script src="js/events.js"></script>
-    <script src="js/challenge.js"></script>
-    <script src="js/profile.js"></script>
-    <script src="js/configprofile.js"></script>
 
 </body>
 

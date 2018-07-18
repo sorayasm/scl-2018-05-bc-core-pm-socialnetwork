@@ -95,6 +95,11 @@ window.onload = () => {
         });
 
 };
+//Para que al publicar se borre lo escrito en text área
+boton.addEventListener('click', () => {
+    let comments = document.getElementById('textArea').value;
+    document.getElementById('textArea').value = '';
+});
 
 function load(){
     
@@ -115,18 +120,6 @@ function sendText() {
     });
 }
 
-function addFriend(friendUID) {
-    const textValue = textArea.value;
-
-    const newFriendKey = firebase.database().ref().child("publicaciones").push().key;
-    const currentUser = firebase.auth().currentUser;
-
-    firebase.database().ref(`publicaciones/${newFriendKey}`).set({
-        userID: currentUser.uid,
-        friendUID: friendUID
-    });
-}
-
 function paintHeart(key){
     const heart=document.getElementById("cora-"+key);
     heart.classList.toggle('green');
@@ -137,3 +130,4 @@ function deleteText(key){
     const publi=document.getElementById("publicacion-"+key);
     publi.remove();
 }
+
