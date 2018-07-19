@@ -7,16 +7,16 @@ window.onload = () => {
         }
 
 
-    var myUsermail = firebase.auth().currentUser.providerData[0].email;
-    var myUsername = firebase.auth().currentUser.displayName ;
+        var myUsermail = firebase.auth().currentUser.providerData[0].email;
+        var myUsername = firebase.auth().currentUser.displayName;
 
-   
-    console.log(myUsermail);
-    console.log(myUsername);
-    if (myUsername===null){
-        document.getElementById("myName").innerHTML=myUsermail;
 
-    }else{document.getElementById("myName").innerHTML=myUsername;}
+        console.log(myUsermail);
+        console.log(myUsername);
+        if (myUsername === null) {
+            document.getElementById("myName").innerHTML = myUsermail;
+
+        } else { document.getElementById("myName").innerHTML = myUsername; }
     });
 
 }
