@@ -1,21 +1,29 @@
 window.onload = () => {
+    // para mostrar nombre y mail
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+        } else {
+            window.location = "index.html";
+        }
 
-    //Base de datos para consultar 1 vez
-    firebase.database().ref("publicaciones")
-        .once("value")
-        .then((publicaciones) => {
-            const myUserId = JSON.stringify(firebase.auth().currentUser.uid);
-            const wall = JSON.stringify(publicaciones);
+        const myUsermail = firebase.auth().currentUser.providerData[0].email;
+        const myUsername = firebase.auth().currentUser.displayName;
 
-            console.log("Publicaciones >" + wall);
-        })
-        .catch((error) => {
-            console.log("Database error >" + error);
-        })
 
-    //Base de datos para consultar MAS veces
+        console.log(myUsermail);
+        console.log(myUsername);
+        if (myUsername === null) {
+            document.getElementById("myName").innerHTML = myUsermail;
+
+        } else { document.getElementById("myName").innerHTML = myUsername; }
+    });
+
+    //Base de datos 
     firebase.database().ref("publicaciones")
         .on("child_added", (newPublicacion) => {
+            const wall = newPublicacion.val().creator;
+            console.log(wall)
             contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
@@ -105,4 +113,15 @@ function deleteText(key) {
     firebase.database().ref(`publicaciones/${key}`).remove()
     const publi = document.getElementById("publicacion-" + key);
     publi.remove();
+}
+
+
+// convertir objeto en array
+function objectToArray(object) {
+    const array2d = [];
+    const properties = Object.keys(object);
+    for (i = 0; i < properties.length; i++) {
+        array2d.push([properties[i], object[properties[i]]]);
+    }
+    return array2d;
 }
