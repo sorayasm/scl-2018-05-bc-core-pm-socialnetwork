@@ -1,5 +1,7 @@
 window.onload = () => {
 
+        
+    
     //Base de datos para consultar 1 vez
     /*firebase.database().ref("publicaciones")
         .once("value")
@@ -51,6 +53,13 @@ window.onload = () => {
         ` + contenido.innerHTML;
         });
 
+        const currentUser = firebase.auth().currentUser;
+        console.log(currentUser.uid);
+        /*firebase.database().ref(`${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}`)*/
+        document.getElementById("imageInProfile").value = firebase.auth().currentUser;
+       
+        console.log("Holi");
+
 };
 
 // Para pintar el corazon
@@ -98,3 +107,6 @@ function deleteText(key) {
     const publi = document.getElementById("publicacion-" + key);
     publi.remove();
 }
+
+
+
