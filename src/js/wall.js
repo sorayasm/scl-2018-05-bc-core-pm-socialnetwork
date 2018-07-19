@@ -25,8 +25,7 @@ window.onload = () => {
                 </div>
                 <div class="row">
                     <div class="col-12 col-lg-12 myStatusPublished">
-                        <p>${newPublicacion.val().publicacionURL}</p>
-                   
+                        <p>${newPublicacion.val().publicacionURL}</p>      
                     </div>
                 </div>
                 <div class="row">
