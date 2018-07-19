@@ -29,7 +29,7 @@
         <div class="navbarFondo">
             <div class="container ">
                 <div class="row navbarPropiedades">
-                    <div class="col-8 col-lg-9">
+                    <div class="col-7 col-sm-8 col-md-10 col-lg-10">
                         <img id="imgFour" src="img/four_resize.png" alt="" srcset="">
                     </div>
                     <div class="col-4 col-lg-3 navbarIconos">
@@ -58,25 +58,25 @@
         </div>
         <div class="container">
             <div id="menu" class="row justify-content-md-center">
-                <div class="col">
+                <div class="col iconGroup">
                     <a href="wall.html">
                         <i class="fas fa-home"></i>
                     </a>
                     <p class="inicio">Inicio</p>
                 </div>
-                <div class="col">
+                <div class="col iconGroup">
                     <a href="friends.html">
                         <i class="fas fa-user-friends"></i>
                     </a>
                     <p class="friends">Amigos</p>
                 </div>
-                <div class="col">
+                <div class="col iconGroup">
                     <a href="events.html">
                         <i class="far fa-calendar-alt"></i>
                     </a>
                     <p class="events">Eventos</p>
                 </div>
-                <div class="col">
+                <div class="col iconGroup">
                     <a href="challenger.html">
                         <i class="fas fa-medal"></i>
                     </a>
@@ -116,60 +116,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-
-                    <label class="" for="escogeUnaFoto">Escoge una Imagen</label>
-                    <input class="" type="file" name="" id="escogeUnaFoto">
-
-                    
-                        <div class="input-group-append">
-                            <span class="botonSubirImagen" id="sendPhoto">Subir</span>
-                        </div>
-                    </div>
-        
-
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <form name="profileinfo" method="get" action="javascript:sendInfo()">
-                        <!-- Cambiar info del perfil -->
-                    </form>
-                </div>
-                <div class="col-12">
-                    <div class="input-group input-group-sm mb-3">
-                        <input id="profileName" name="profileName" type="text" placeholder="Nombre a mostrar:" class="form-control" maxlength="140"
-                            aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="input-group input-group-sm mb-3">
-                        <input id="profileDescr" name="profileDescr" type="text" placeholder="Descripción breve de ti:" class="form-control" maxlength="140"
-                            aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="input-group input-group-sm mb-3">
-                        <input id="DateOfBirth" name="DateOfBirth" type="date" placeholder="Fecha de nacimiento:" class="form-control" maxlength="140"
-                            aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-
-                </div>
-                <div class="col-12">
-                    <button class="botonConfigurarPerfil" onclick="sendInfo()"id="SendInfo" type="submit" value="Enviar"> Enviar </button>
-                </div>
-            </div>
-        </div>
-
-
                     <div class="input-group mb-3">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="inputGroupFile02">
                             <label class="custom-file-label" for="inputGroupFile02">Escoge una Imagen</label>
                         </div>
                         <div class="input-group-append">
-                            <span class="botonSubirImagen" id="sendPhoto" onclick="sendPhoto()">Subir</span>
+                            <span class="botonSubirImagen" id="sendPhoto">Subir</span>
                         </div>
                     </div>
-        
+                </div>
 
             </div>
             <div class="row">
@@ -191,18 +147,17 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <div class="input-group input-group-sm mb-3">
-                        <input id="DateOfBirth" name="DateOfBirth" type="date" placeholder="Fecha de nacimiento:" class="form-control" maxlength="140"
-                            aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-
+                        <div class="input-group input-group-sm mb-3">
+                                <input id="DateOfBirth" name="DateOfBirth" type="date" placeholder="Fecha de nacimiento:" class="form-control" maxlength="140"
+                                    aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            </div>
+                    
                 </div>
                 <div class="col-12">
-                    <button class="botonConfigurarPerfil" onclick="sendInfo()" id="sendInfo" type="submit" value="Enviar"> Enviar </button>
+                    <button class="botonConfigurarPerfil" id="SendInfo" type="submit" value="Enviar"> Enviar </button>
                 </div>
             </div>
         </div>
-
 
     </section>
 
