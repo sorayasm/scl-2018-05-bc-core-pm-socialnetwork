@@ -65,6 +65,7 @@ function facebookLoginWithFirebase() {
             console.log("Error de firebase > Mensaje > " + error.message);
 
         })
+        return;
 };
 
 
@@ -94,4 +95,6 @@ function facebookLoginWithFirebase() {
         }
       };*/
 
-module.exports = loginWithFirebase
+module.exports = facebookLoginWithFirebase;
+module.exports = loginWithFirebase;
+module.exports = registerWithFirebase;
