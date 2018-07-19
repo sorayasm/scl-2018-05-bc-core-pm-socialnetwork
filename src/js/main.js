@@ -19,9 +19,6 @@ window.onload = () => {
     }else{document.getElementById("myName").innerHTML=myUsername;}
     });
 
-
-    
-
 }
 
 //Logout
