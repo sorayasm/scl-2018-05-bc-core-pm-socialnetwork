@@ -1,62 +1,81 @@
 window.onload = () => {
 
-        
-    
     //Base de datos para consultar 1 vez
+
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+        } else {
+            window.location = "index.html";
+        }
+
+
+    const myUsermail = firebase.auth().currentUser.providerData[0].email;
+    const myUsername = firebase.auth().currentUser.displayName ;
+
+   
+    console.log(myUsermail);
+    console.log(myUsername);
+    if (myUsername===null){
+        document.getElementById("myName").innerHTML=myUsermail;
+
+    }else{document.getElementById("myName").innerHTML=myUsername;}
+    });
+
+
+
+
+
     firebase.database().ref("publicaciones")
         .once("value")
         .then((publicaciones) => {
-            var myUserId = firebase.auth().currentUser.uid;
-            console.log("Publicaciones >" + JSON.stringify(publicaciones + myUserId))
+            const myUserId = JSON.stringify(firebase.auth().currentUser.uid);
+            const wall = JSON.stringify(publicaciones);
+
+            console.log("Publicaciones >" + wall);
         })
         .catch((error) => {
             console.log("Database error >" + error);
-        });
-
+        })
 
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
-
-    .on("child_added", (newPublicacion) => {
-        contenido.innerHTML = `
+        .on("child_added", (newPublicacion) => {
+            contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
-                    <div class="imageInProfileMessage">
+                    <div class="col-2 myPublishedPhoto ">
+                        <div class="imageInProfileMessage">
                         <img width="60px" class="float-left img-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
+                        </div>
                     </div>
-                    <div class="col-6 myNameInpublications">
+                    <div class="col-8 myNameInpublications">
                         <p>${newPublicacion.val().creatorName}</p>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-lg-8 myStatusPublished">
-                        <p>${newPublicacion.val().publicacionURL}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button onclick="paintHeart('${newPublicacion.key}')">
-                            <i class="far fa-heart" id="cora-${newPublicacion.key}"></i>
-                        </button>
-                    </div>
-                    <div class="col trashIcon text-right">
+                    <div class="col-2 trashIcon text-right">
                         <button onclick="deleteText('${newPublicacion.key}')">
                             <i class="far fa-trash-alt"></i>
                         </button>
                     </div>
                 </div>
-                <div class="menuSeparador">
+                <div class="row">
+                    <div class="col-12 col-lg-12 myStatusPublished">
+                        <p>${newPublicacion.val().publicacionURL}</p>      
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col myLikePublished">
+                        <button onclick="paintHeart('${newPublicacion.key}')">
+                            <i class="far fa-heart" id="cora-${newPublicacion.key}"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="menuSeparador"></div>
             </div>
+   
         ` + contenido.innerHTML;
-    });
-
-        const currentUser = firebase.auth().currentUser;
-        console.log(currentUser.uid);
-        /*firebase.database().ref(`${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}`)*/
-        document.getElementById("imageInProfile").value = firebase.auth().currentUser;
-       
-        console.log("Holi");
+        });
 
 };
 
@@ -84,6 +103,14 @@ function validarTexto() {
     }
 };
 
+function validarTexto() {
+    const entradaDeTexto = textArea.value;
+    if (!entradaDeTexto.replace(/\s/g, '').length) {
+        alert("Tu mensaje no puede estar vacío")
+    } else {
+        sendText()
+    }
+};
 // Para publicar texto
 function sendText() {
     const textValue = textArea.value;
@@ -95,10 +122,11 @@ function sendText() {
         creatorName: currentUser.displayName ||
             currentUser.providerData[0].email,
         creator: currentUser.uid,
-        photoUrl: currentUser.photoURL ||
-            currentUser.photoUrl // --> modificar
+        photoUrl: currentUser.photoURL
     });
-}
+};
+
+
 
 // funcion borrar publicaciones
 function deleteText(key) {
