@@ -13,13 +13,12 @@ function registerWithFirebase() {
 
             });
             console.log("usuario se creo"); // mail de confirmacion y login
-            sendSignInLinkToEmail
             window.location = "confirmaccount.html";
         })
         .catch((error) => {
-            alert("Revisa todos los datos ingresados. La contraseña debe tener al menos 6 caracteres.");
             console.log("Error de Firebase > Codigo > " + error.code); // alert error
             console.log("Error de Firebase > Mensaje > " + error.message);
+            alert("Revisa todos los datos ingresados. La contraseña debe tener al menos 6 caracteres.");
 
         });
 }
@@ -51,10 +50,15 @@ function facebookLoginWithFirebase() {
             console.log("login con Facebook exitoso");
             window.location = "wall.html";
         })
+        .then(() => {
+            if (passwordValue.length <= 6) {
+                alert("Revisa todos los datos ingresados. Hubo un problema con el registro de Facebook.");
+            }
+        })
         .catch((error) => {
             console.log("Error de firebase > Código > " + error.code);
             console.log("Error de firebase > Mensaje > " + error.message);
-            alert("Revisa todos los datos ingresados. Hubo un problema con el registro de Facebook.");
+
         })
 };
 

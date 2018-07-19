@@ -13,8 +13,10 @@ window.onload = () => {
         console.log(deletedPublicacion);
     });*/
 
+
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
+        //.then()
         .on("child_added", (newPublicacion) => {
             contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
@@ -86,8 +88,8 @@ function sendText() {
         creatorName: currentUser.displayName ||
             currentUser.providerData[0].email,
         creator: currentUser.uid,
-        photoUrl: currentUser.photoURL ||
-            currentUser.photoUrl // --> modificar
+        photoUrl: currentUser.photoURL||
+        currentUser.photoUrl // --> modificar
     });
 }
 
