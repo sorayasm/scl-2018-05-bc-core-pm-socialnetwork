@@ -10,6 +10,7 @@ window.onload = () => {
         const myUsermail = firebase.auth().currentUser.providerData[0].email;
         const myUsername = firebase.auth().currentUser.displayName;
 
+<<<<<<< HEAD
 
         console.log(myUsermail);
         console.log(myUsername);
@@ -17,6 +18,23 @@ window.onload = () => {
             document.getElementById("myName").innerHTML = myUsermail;
 
         } else { document.getElementById("myName").innerHTML = myUsername; }
+=======
+    const myUsermail = firebase.auth().currentUser.providerData[0].email;
+    const myUsername = firebase.auth().currentUser.displayName ;
+    const myPicture = firebase.auth().currentUser.photoURL;
+
+   
+    console.log(myUsermail);
+    console.log(myUsername);
+    console.log(myPicture);
+    if (myUsername===null){
+        document.getElementById("myName").innerHTML=myUsermail;
+        document.getElementById("imageInProfile").innerHTML=`<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
+    }else{
+        document.getElementById("myName").innerHTML=myUsername;
+        document.getElementById("imageInProfile").innerHTML=`<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
+    }
+>>>>>>> 1413066196f7de11d574a1ea0a37aa0abfec3f0b
     });
 
     //Base de datos 
@@ -110,12 +128,29 @@ function sendText() {
 
 // funcion borrar publicaciones
 function deleteText(key) {
-    firebase.database().ref(`publicaciones/${key}`).remove()
-    const publi = document.getElementById("publicacion-" + key);
-    publi.remove();
+    swal({
+        title: "¿Estás seguro que deseas eliminar esta publicación?",
+        text: "Una vez borrado, no la podrás ver nunca más",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                firebase.database().ref(`publicaciones/${key}`).remove()
+                const publi = document.getElementById("publicacion-" + key);
+                publi.remove();
+                swal("Poof! ¡Tu comentario ha sido eliminado!", {
+                    icon: "success",
+                });
+            } else {
+                swal("¡Tu comentario no se ha borrado!");
+            }
+        });
 }
 
 
+<<<<<<< HEAD
 // convertir objeto en array
 function objectToArray(object) {
     const array2d = [];
@@ -125,3 +160,7 @@ function objectToArray(object) {
     }
     return array2d;
 }
+=======
+module.exports = validarTexto;
+
+>>>>>>> 1413066196f7de11d574a1ea0a37aa0abfec3f0b
