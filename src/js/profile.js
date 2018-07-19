@@ -1,6 +1,32 @@
 window.onload = () => {
 
     //Base de datos para consultar 1 vez
+
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+        } else {
+            window.location = "index.html";
+        }
+
+
+    const myUsermail = firebase.auth().currentUser.providerData[0].email;
+    const myUsername = firebase.auth().currentUser.displayName ;
+
+   
+    console.log(myUsermail);
+    console.log(myUsername);
+    if (myUsername===null){
+        document.getElementById("myName").innerHTML=myUsermail;
+
+    }else{document.getElementById("myName").innerHTML=myUsername;}
+    });
+
+
+
+
+
     firebase.database().ref("publicaciones")
         .once("value")
         .then((publicaciones) => {
@@ -100,9 +126,12 @@ function sendText() {
     });
 };
 
+
+
 // funcion borrar publicaciones
 function deleteText(key) {
     firebase.database().ref(`publicaciones/${key}`).remove()
     const publi = document.getElementById("publicacion-" + key);
     publi.remove();
 }
+
