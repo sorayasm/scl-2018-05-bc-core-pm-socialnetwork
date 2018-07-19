@@ -2,6 +2,7 @@ window.onload = () => {
 
     //Base de datos para consultar 1 vez
 
+
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
@@ -21,6 +22,7 @@ window.onload = () => {
 
     }else{document.getElementById("myName").innerHTML=myUsername;}
     });
+
 
 
 
@@ -48,10 +50,10 @@ window.onload = () => {
                         <img width="60px" class="float-left img-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
                         </div>
                     </div>
-                    <div class="col-10 myNameInpublications">
+                    <div class="col-8 myNameInpublications">
                         <p>${newPublicacion.val().creatorName}</p>
                     </div>
-                    <div class="col trashIcon text-right">
+                    <div class="col-2 trashIcon text-right">
                         <button onclick="deleteText('${newPublicacion.key}')">
                             <i class="far fa-trash-alt"></i>
                         </button>
@@ -124,8 +126,12 @@ function sendText() {
     });
 };
 
-function deleteText(key){
+
+
+// funcion borrar publicaciones
+function deleteText(key) {
     firebase.database().ref(`publicaciones/${key}`).remove()
-    const publi=document.getElementById("publicacion-"+key);
+    const publi = document.getElementById("publicacion-" + key);
     publi.remove();
 }
+
