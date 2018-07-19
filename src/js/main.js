@@ -7,6 +7,9 @@ window.onload = () => {
         }
     });
 
+
+  
+
     function ads() {
 
     }

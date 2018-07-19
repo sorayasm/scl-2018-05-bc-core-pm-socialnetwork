@@ -1,7 +1,9 @@
-
 window.onload = () => {
-    //Base de datos para consultar 1 vez
+
     
+
+  
+    //Base de datos para consultar 1 vez
     firebase.database().ref("publicaciones")
         .once("value")
         .then((publicaciones) => {
@@ -83,7 +85,18 @@ function deleteText(key){
 
 //----------------DANGER-------------------//
 // tratando de mostrar el current user //
-function showUser(){
-    let myUserId = firebase.auth().currentUser.uid;
-    console.log(myUserId);
-    document.getElementById("myName").innerHTML=myUserId;}
+/*function showUser(){
+    
+    let myUsermail = firebase.auth().currentUser.providerData[0].email;
+    let myUsername = firebase.auth().currentUser.displayName ;
+
+   
+    console.log(myUsermail);
+    console.log(myUsername);
+    if (myUsername===null){
+        document.getElementById("myName").innerHTML=myUsermail;
+
+    }else{document.getElementById("myName").innerHTML=myUsername;}
+  
+}
+*/
