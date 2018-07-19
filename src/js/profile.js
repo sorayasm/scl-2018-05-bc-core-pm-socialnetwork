@@ -88,7 +88,8 @@ function sendText() {
         creatorName: currentUser.displayName ||
             currentUser.providerData[0].email,
         creator: currentUser.uid,
-        photoUrl: currentUser.photoURL
+        photoUrl: currentUser.photoURL||
+        currentUser.photoUrl // --> modificar
     });
 }
 

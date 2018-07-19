@@ -9,6 +9,7 @@ function registerWithFirebase() {
                 mail: userData.user.email, // guarda quien creo la solicitud de amistad
                 uid: userData.user.uid, // persona asociada a la amistad (amigo 1)
                 username: userData.user.email, //persona asociada a la amistad (amigo 2)
+                photoUrl: "https://www.pekoda.com/images/default.png" //guarda imagen de perfil por defecto a cuenta creada por mail
 
             });
             console.log("usuario se creo"); // mail de confirmacion y login
