@@ -3,15 +3,19 @@ window.onload = () => {
         
     
     //Base de datos para consultar 1 vez
+
     firebase.database().ref("publicaciones")
         .once("value")
         .then((publicaciones) => {
-            var myUserId = firebase.auth().currentUser.uid;
-            console.log("Publicaciones >" + JSON.stringify(publicaciones + myUserId))
+           
+            const wall = JSON.stringify(publicaciones);
+            console.log("Publicaciones >" + wall);
         })
         .catch((error) => {
             console.log("Database error >" + error);
-        });
+        })
+
+
 
 
     //Base de datos para consultar MAS veces
@@ -27,6 +31,11 @@ window.onload = () => {
                     <div class="col-6 myNameInpublications">
                         <p>${newPublicacion.val().creatorName}</p>
                     </div>
+                    <div class="col trashIcon text-right">
+                        <button onclick="deleteText('${newPublicacion.key}')">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-12 col-lg-8 myStatusPublished">
@@ -37,11 +46,6 @@ window.onload = () => {
                     <div class="col">
                         <button onclick="paintHeart('${newPublicacion.key}')">
                             <i class="far fa-heart" id="cora-${newPublicacion.key}"></i>
-                        </button>
-                    </div>
-                    <div class="col trashIcon text-right">
-                        <button onclick="deleteText('${newPublicacion.key}')">
-                            <i class="far fa-trash-alt"></i>
                         </button>
                     </div>
                 </div>
@@ -107,4 +111,3 @@ function deleteText(key) {
     const publi = document.getElementById("publicacion-" + key);
     publi.remove();
 }
-
