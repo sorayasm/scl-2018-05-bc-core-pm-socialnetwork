@@ -14,22 +14,23 @@ window.onload = () => {
             contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
-                    <div class="col ">
+                    <div class="col-2 myPublishedPhoto ">
                         <div class="imageInProfileMessage">
                         <img width="60px" class="float-left img-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
                         </div>
                     </div>
-                    <div class="col-6 myNameInpublications">
+                    <div class="col-10 myNameInpublications">
                         <p>${newPublicacion.val().creatorName}</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-lg-8 myStatusPublished">
-                        <p class="parrafo">${newPublicacion.val().publicacionURL}</p>
+                    <div class="col-12 col-lg-12 myStatusPublished">
+                        <p>${newPublicacion.val().publicacionURL}</p>
+                   
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col myLikePublished">
                         <button onclick="paintHeart('${newPublicacion.key}')">
                             <i class="far fa-heart" id="cora-${newPublicacion.key}"></i>
                         </button>
