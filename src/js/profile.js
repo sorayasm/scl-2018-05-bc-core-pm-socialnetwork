@@ -1,5 +1,7 @@
 window.onload = () => {
 
+        
+    
     //Base de datos para consultar 1 vez
     firebase.database().ref("publicaciones")
         .once("value")
@@ -20,7 +22,7 @@ window.onload = () => {
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
                     <div class="imageInProfileMessage">
-                        <img class="float-left img-circle" src="${newPublicacion.val().photoUrl}"></img>
+                        <img width="60px" class="float-left img-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
                     </div>
                     <div class="col-6 myNameInpublications">
                         <p>${newPublicacion.val().creatorName}</p>
@@ -48,6 +50,14 @@ window.onload = () => {
             </div>
         ` + contenido.innerHTML;
     });
+
+
+        const currentUser = firebase.auth().currentUser;
+        console.log(currentUser.uid);
+        /*firebase.database().ref(`${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}`)*/
+        document.getElementById("imageInProfile").value = firebase.auth().currentUser;
+       
+        console.log("Holi");
 
 };
 
@@ -97,3 +107,4 @@ function deleteText(key) {
     const publi = document.getElementById("publicacion-" + key);
     publi.remove();
 }
+

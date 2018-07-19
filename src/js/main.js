@@ -5,11 +5,23 @@ window.onload = () => {
         } else {
             window.location = "index.html";
         }
+
+
+    var myUsermail = firebase.auth().currentUser.providerData[0].email;
+    var myUsername = firebase.auth().currentUser.displayName ;
+
+   
+    console.log(myUsermail);
+    console.log(myUsername);
+    if (myUsername===null){
+        document.getElementById("myName").innerHTML=myUsermail;
+
+    }else{document.getElementById("myName").innerHTML=myUsername;}
     });
 
-    function ads() {
 
-    }
+    
+
 }
 
 //Logout
