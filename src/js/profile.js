@@ -51,6 +51,7 @@ window.onload = () => {
         ` + contenido.innerHTML;
     });
 
+
         const currentUser = firebase.auth().currentUser;
         console.log(currentUser.uid);
         /*firebase.database().ref(`${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}`)*/
@@ -106,3 +107,4 @@ function deleteText(key) {
     const publi = document.getElementById("publicacion-" + key);
     publi.remove();
 }
+
