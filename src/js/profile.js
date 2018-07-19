@@ -13,14 +13,19 @@ window.onload = () => {
 
     const myUsermail = firebase.auth().currentUser.providerData[0].email;
     const myUsername = firebase.auth().currentUser.displayName ;
+    const myPicture = firebase.auth().currentUser.photoURL;
 
    
     console.log(myUsermail);
     console.log(myUsername);
+    console.log(myPicture);
     if (myUsername===null){
         document.getElementById("myName").innerHTML=myUsermail;
-
-    }else{document.getElementById("myName").innerHTML=myUsername;}
+        document.getElementById("imageInProfile").innerHTML=`<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
+    }else{
+        document.getElementById("myName").innerHTML=myUsername;
+        document.getElementById("imageInProfile").innerHTML=`<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
+    }
     });
 
 
@@ -130,17 +135,27 @@ function sendText() {
 
 // funcion borrar publicaciones
 function deleteText(key) {
-    firebase.database().ref(`publicaciones/${key}`).remove()
-    const publi = document.getElementById("publicacion-" + key);
-    publi.remove();
+    swal({
+        title: "¿Estás seguro que deseas eliminar esta publicación?",
+        text: "Una vez borrado, no la podrás ver nunca más",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                firebase.database().ref(`publicaciones/${key}`).remove()
+                const publi = document.getElementById("publicacion-" + key);
+                publi.remove();
+                swal("Poof! ¡Tu comentario ha sido eliminado!", {
+                    icon: "success",
+                });
+            } else {
+                swal("¡Tu comentario no se ha borrado!");
+            }
+        });
 }
 
-<<<<<<< HEAD
-
-module.exports = validarTexto;
-=======
-
 
 module.exports = validarTexto;
 
->>>>>>> 65bacefc7c5051f74441ca7ea27a15630d363474
