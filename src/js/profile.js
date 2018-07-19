@@ -1,24 +1,22 @@
 window.onload = () => {
 
     //Base de datos para consultar 1 vez
-    /*firebase.database().ref("publicaciones")
+    firebase.database().ref("publicaciones")
         .once("value")
         .then((publicaciones) => {
-            console.log("Publicaciones >" + JSON.stringify(publicaciones))
+            var myUserId = firebase.auth().currentUser.uid;
+            console.log("Publicaciones >" + JSON.stringify(publicaciones + myUserId))
         })
         .catch((error) => {
             console.log("Database error >" + error);
         });
-    firebase.database().ref("publicaciones").on("child_removed", (deletedPublicacion) => {
-        console.log(deletedPublicacion);
-    });*/
 
 
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
-        //.then()
-        .on("child_added", (newPublicacion) => {
-            contenido.innerHTML = `
+
+    .on("child_added", (newPublicacion) => {
+        contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
                     <div class="imageInProfileMessage">
@@ -49,7 +47,7 @@ window.onload = () => {
                 </div>
             </div>
         ` + contenido.innerHTML;
-        });
+    });
 
 };
 
@@ -88,8 +86,8 @@ function sendText() {
         creatorName: currentUser.displayName ||
             currentUser.providerData[0].email,
         creator: currentUser.uid,
-        photoUrl: currentUser.photoURL||
-        currentUser.photoUrl // --> modificar
+        photoUrl: currentUser.photoURL ||
+            currentUser.photoUrl // --> modificar
     });
 }
 
