@@ -14,19 +14,13 @@ window.onload = () => {
 
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
-        .then((publicaciones) => {
-            var myUserId = firebase.auth().currentUser.uid;
-            var publRef = firebase.database().ref("publicaciones/");
-            publRef.orderByChild("name").equalTo(myUserId).on("child_added", function(data) {
-                console.log("Equal to filter: " + data.val().name);
-            });
-        })
-        .on("child_added", (newPublicacion) => {
-            contenido.innerHTML = `
+
+    .on("child_added", (newPublicacion) => {
+        contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
                     <div class="imageInProfileMessage">
-                    <img width="60px" class="float-left img-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
+                        <img class="float-left img-circle" src="${newPublicacion.val().photoUrl}"></img>
                     </div>
                     <div class="col-6 myNameInpublications">
                         <p>${newPublicacion.val().creatorName}</p>
@@ -53,7 +47,7 @@ window.onload = () => {
                 </div>
             </div>
         ` + contenido.innerHTML;
-        });
+    });
 
 };
 
@@ -92,7 +86,8 @@ function sendText() {
         creatorName: currentUser.displayName ||
             currentUser.providerData[0].email,
         creator: currentUser.uid,
-        photoUrl: currentUser.photoURL
+        photoUrl: currentUser.photoURL ||
+            currentUser.photoUrl // --> modificar
     });
 }
 
