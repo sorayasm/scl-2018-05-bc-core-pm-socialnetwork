@@ -6,10 +6,8 @@ window.onload = () => {
             window.location = "index.html";
         }
 
-
-        var myUsermail = firebase.auth().currentUser.providerData[0].email;
-        var myUsername = firebase.auth().currentUser.displayName;
-
+        const myUsermail = firebase.auth().currentUser.providerData[0].email;
+        const myUsername = firebase.auth().currentUser.displayName;
 
         console.log(myUsermail);
         console.log(myUsername);
