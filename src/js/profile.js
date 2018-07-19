@@ -106,3 +106,6 @@ function deleteText(key) {
     const publi = document.getElementById("publicacion-" + key);
     publi.remove();
 }
+
+
+module.exports = validarTexto;

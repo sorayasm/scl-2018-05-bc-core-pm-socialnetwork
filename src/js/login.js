@@ -88,3 +88,5 @@ function facebookLoginWithFirebase() {
           minimumVersion: '12'
         }
       };*/
+
+module.exports = loginWithFirebase
