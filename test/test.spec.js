@@ -14,7 +14,7 @@ describe("loginWithFirebase()", () =>{
     })
 });
 describe("registerWithFirebase()", () =>{
-    it ("Debe haber una función de logearse con firebase", ()=>{
+    it ("Debe haber una función de registrarse con firebase", ()=>{
         assert.ok(registerWithFirebase);
     })
 })
