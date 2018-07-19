@@ -1,28 +1,32 @@
 window.onload = () => {
 
     //Base de datos para consultar 1 vez
-    /*firebase.database().ref("publicaciones")
+    firebase.database().ref("publicaciones")
         .once("value")
         .then((publicaciones) => {
-            console.log("Publicaciones >" + JSON.stringify(publicaciones))
+            var myUserId = firebase.auth().currentUser.uid;
+            console.log("Publicaciones >" + JSON.stringify(publicaciones + myUserId))
         })
         .catch((error) => {
             console.log("Database error >" + error);
         });
-    firebase.database().ref("publicaciones").on("child_removed", (deletedPublicacion) => {
-        console.log(deletedPublicacion);
-    });*/
 
 
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
-        //.then()
+        .then((publicaciones) => {
+            var myUserId = firebase.auth().currentUser.uid;
+            var publRef = firebase.database().ref("publicaciones/");
+            publRef.orderByChild("name").equalTo(myUserId).on("child_added", function(data) {
+                console.log("Equal to filter: " + data.val().name);
+            });
+        })
         .on("child_added", (newPublicacion) => {
             contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
                     <div class="imageInProfileMessage">
-                        <img class="float-left img-circle" src="${newPublicacion.val().photoUrl}"></img>
+                    <img width="60px" class="float-left img-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
                     </div>
                     <div class="col-6 myNameInpublications">
                         <p>${newPublicacion.val().creatorName}</p>
@@ -88,8 +92,7 @@ function sendText() {
         creatorName: currentUser.displayName ||
             currentUser.providerData[0].email,
         creator: currentUser.uid,
-        photoUrl: currentUser.photoURL||
-        currentUser.photoUrl // --> modificar
+        photoUrl: currentUser.photoURL
     });
 }
 

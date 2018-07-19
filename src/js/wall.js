@@ -16,7 +16,7 @@ window.onload = () => {
                 <div class="row myPublishedData">
                     <div class="col ">
                         <div class="imageInProfileMessage">
-                        <img class="float-left img-circle" src="${newPublicacion.val().photoUrl}"></img>
+                        <img width="60px" class="float-left img-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
                         </div>
                     </div>
                     <div class="col-6 myNameInpublications">
