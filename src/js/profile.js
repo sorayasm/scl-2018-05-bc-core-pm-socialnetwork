@@ -1,5 +1,4 @@
 window.onload = () => {
-
     //Base de datos para consultar 1 vez
     firebase.database().ref("publicaciones")
         .once("value")
@@ -11,44 +10,65 @@ window.onload = () => {
             console.log("Database error >" + error);
         });
 
-
     //Base de datos para consultar MAS veces
-    firebase.database().ref("publicaciones")
-
-    .on("child_added", (newPublicacion) => {
-        contenido.innerHTML = `
-            <div id="publicacion-${newPublicacion.key}">
-                <div class="row myPublishedData">
-                    <div class="imageInProfileMessage">
-                        <img class="float-left img-circle" src="${newPublicacion.val().photoUrl}"></img>
-                    </div>
-                    <div class="col-6 myNameInpublications">
-                        <p>${newPublicacion.val().creatorName}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-lg-8 myStatusPublished">
-                        <p>${newPublicacion.val().publicacionURL}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <button onclick="paintHeart('${newPublicacion.key}')">
-                            <i class="far fa-heart" id="cora-${newPublicacion.key}"></i>
-                        </button>
-                    </div>
-                    <div class="col trashIcon text-right">
-                        <button onclick="deleteText('${newPublicacion.key}')">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="menuSeparador">
+    firebase.database().ref("usuarios")
+    .on("child_added",(newProfile)=>{
+            myProfile.innerHTML =`
+            <div class="row">
+            <div class="col-12  informationInProfile">
+                <div class="imageInProfile">
+                    <img width="60px" class="float-left img-circle" src="${newProfile.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
                 </div>
             </div>
+            <div class="col-12  informationInProfile">
+                <div class="myName">
+                <p>${newProfile.val().creatorName}</p>
+                </div>
+            </div>
+            <div class="col-12  informationInProfile">
+                <div class="myInterests">
+                    <p>Intereses, intereses, intereses</p>
+                </div>
+            </div>
+        </div>`
+        });
+    firebase.database().ref("publicaciones")
+        .on("child_added", (newPublicacion) => {
+            contenido.innerHTML = `
+        <div id="publicacion-${newPublicacion.key}">
+            <div class="row myPublishedData">
+                <div class="col-2 myPublishedPhoto ">
+                    <div class="imageInProfileMessage">
+                        <img width="60px" class="float-left img-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
+                    </div>
+                </div>
+                <div class="col-8 myNameInpublications">
+                    <p>${newPublicacion.val().creatorName}</p>
+                </div>
+                <div class="col-2 trashIcon text-right">
+                    <button onclick="deleteText('${newPublicacion.key}')">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-12 myStatusPublished">
+                    <p>${newPublicacion.val().publicacionURL}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col myLikePublished">
+                    <button onclick="paintHeart('${newPublicacion.key}')">
+                        <i class="far fa-heart" id="cora-${newPublicacion.key}"></i>
+                    </button>
+                </div>
+            </div>        
+        </div>
+        <div class="menuSeparador">
+        </div>
+        </div>
         ` + contenido.innerHTML;
-    });
-
+        });
 };
 
 // Para pintar el corazon
@@ -75,6 +95,16 @@ function validarTexto() {
     }
 };
 
+function mostrarPerfil(){
+    const descrValue = profileDescr.value;
+ firebase.database().ref(`usuarios`).set({
+    creatorName: currentUser.displayName ||
+    currentUser.providerData[0].email,
+    creatorDescr: descrValue,
+    photoUrl: currentUser.photoURL ||
+            currentUser.photoUrl
+ });   
+}
 // Para publicar texto
 function sendText() {
     const textValue = textArea.value;
@@ -90,7 +120,6 @@ function sendText() {
             currentUser.photoUrl // --> modificar
     });
 }
-
 // funcion borrar publicaciones
 function deleteText(key) {
     firebase.database().ref(`publicaciones/${key}`).remove()
