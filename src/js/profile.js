@@ -135,5 +135,12 @@ function deleteText(key) {
     publi.remove();
 }
 
+<<<<<<< HEAD
 
 module.exports = validarTexto;
+=======
+
+
+module.exports = validarTexto;
+
+>>>>>>> 65bacefc7c5051f74441ca7ea27a15630d363474
