@@ -1,13 +1,5 @@
 /* Para Quitarle el borde de color a los iconos en navbar */
 
-.navbar-light .navbar-toggler {
-    color: rgba(0, 0, 0, 0);
-    border-color: rgba(0, 0, 0, 0);
-}
-
-.navbar {
-    margin-bottom: 0px;
-}
 
 
 /*Color blanco para los links de nav */
@@ -156,6 +148,12 @@ nav {
     background-color: #00A6B2;
     display: flex;
     align-items: center;
+}
+.myPublishedPhoto{
+    display: flex;
+    justify-content: center;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .navbarIconos {
@@ -407,6 +405,8 @@ p.signin {
     text-align: left;
     display: flex;
     align-items: center;
+    padding-right: 0px;
+    padding-left: 10px;
 }
 
 .myInterests {
@@ -470,6 +470,10 @@ p.signin {
     line-height: 16.5px;
     width: 321.5px;
     text-align: left;
+    padding-left: 7%;
+}
+.myLikePublished{
+    padding-left: 6%;
 }
 
 .myPublishedData {
