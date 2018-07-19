@@ -3,28 +3,26 @@ window.onload = () => {
         
     
     //Base de datos para consultar 1 vez
-    /*firebase.database().ref("publicaciones")
+    firebase.database().ref("publicaciones")
         .once("value")
         .then((publicaciones) => {
-            console.log("Publicaciones >" + JSON.stringify(publicaciones))
+            var myUserId = firebase.auth().currentUser.uid;
+            console.log("Publicaciones >" + JSON.stringify(publicaciones + myUserId))
         })
         .catch((error) => {
             console.log("Database error >" + error);
         });
-    firebase.database().ref("publicaciones").on("child_removed", (deletedPublicacion) => {
-        console.log(deletedPublicacion);
-    });*/
 
 
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
-        //.then()
-        .on("child_added", (newPublicacion) => {
-            contenido.innerHTML = `
+
+    .on("child_added", (newPublicacion) => {
+        contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
                     <div class="imageInProfileMessage">
-                    <img width="60px" class="float-left img-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
+                        <img class="float-left img-circle" src="${newPublicacion.val().photoUrl}"></img>
                     </div>
                     <div class="col-6 myNameInpublications">
                         <p>${newPublicacion.val().creatorName}</p>
@@ -51,7 +49,7 @@ window.onload = () => {
                 </div>
             </div>
         ` + contenido.innerHTML;
-        });
+    });
 
         const currentUser = firebase.auth().currentUser;
         console.log(currentUser.uid);
@@ -95,9 +93,10 @@ function sendText() {
     firebase.database().ref(`publicaciones/${newTextKey}`).set({
         publicacionURL: textValue,
         creatorName: currentUser.displayName ||
-                     currentUser.providerData[0].email,
+            currentUser.providerData[0].email,
         creator: currentUser.uid,
-        photoUrl: currentUser.photoURL
+        photoUrl: currentUser.photoURL ||
+            currentUser.photoUrl // --> modificar
     });
 }
 
@@ -107,6 +106,3 @@ function deleteText(key) {
     const publi = document.getElementById("publicacion-" + key);
     publi.remove();
 }
-
-
-
