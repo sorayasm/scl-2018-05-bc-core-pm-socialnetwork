@@ -16,7 +16,11 @@
     color: white;
 }
 
-
+.iconGroup{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
 /* Tamaño del icono 4 */
 
 #imgFour {
@@ -177,7 +181,6 @@ nav {
 #menu {
     font-size: 30px;
     color: #333333;
-    margin-left: 15px;
 }
 
 
@@ -556,4 +559,8 @@ p.signin {
 .accordion {
     padding-top: 15px;
     width: 100%;
+}
+
+.parrafo{
+    padding-left: 20px;
 }
