@@ -26,7 +26,7 @@ window.onload = () => {
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
                     <div class="imageInProfileMessage">
-                        <img class="float-left img-circle" src="${newPublicacion.val().photoUrl}"></img>
+                    <img width="60px" class="float-left img-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
                     </div>
                     <div class="col-6 myNameInpublications">
                         <p>${newPublicacion.val().creatorName}</p>
@@ -92,8 +92,7 @@ function sendText() {
         creatorName: currentUser.displayName ||
             currentUser.providerData[0].email,
         creator: currentUser.uid,
-        photoUrl: currentUser.photoURL ||
-            currentUser.photoUrl // --> modificar
+        photoUrl: currentUser.photoURL
     });
 }
 

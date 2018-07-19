@@ -2,6 +2,7 @@ function sendInfo() {
     const nameValue = profileName.value;
     const descrValue = profileDescr.value;
     const dateOfBirthValue = DateOfBirth.value;
+    const photoURL = escogeUnaFoto.files[0];;
 
     const newProfileInfo = firebase.database().ref().child("profiles").push().key;
     const currentUser = firebase.auth().currentUser;
@@ -10,11 +11,35 @@ function sendInfo() {
         creatorEmail: currentUser.displayName || currentUser.providerData[0].email,
         creatorDescr: descrValue,
         creatorBirth: dateOfBirthValue,
+        photoUrl: photoURL
+        
        // creatorPhoto: photoFile
+    });
+    console.log(photoUrl);
+};
+function sendPhoto(){
+    const imageValue = imageInProfile.value;
+
+    const newPhotoKey = firebase.database().ref().child("fotoUrl").push().key; //key permite que se generen llaves nuevas para guardar los gif 
+    const currentUser = firebase.auth().currentUser; //Si estamos logueados, siempre podremos acceder a los datos, en este caso, a los gif
+    firebase.database().ref(`fotoUrl/${newPhotoKey}`).set({
+        photoURL : imageValue, 
+        creatorName : currentUser.displayName,/* ||
+                      currentUser.providerData[0].email */
+        creator : currentUser.uid
     });
 }
 
-function agregarFotoLoaclStoragre(foto){
+function updateInfo(){
+    var updates = {};
+  updates['/profiles/' + newPostKey] = postData;
+  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+  return firebase.database().ref().update(updates);
+}
+
+
+/*function agregarFotoLoaclStoragre(foto){
     let fotoPerfil;
     fotoPerfil = obtenerFotoLocalStorage();
     fotoPerfil.push(foto);
@@ -74,5 +99,5 @@ function agregarFotoLoaclStoragre(fotoPerfil){
     foto.push(fotoPerfil);
     localStorage.setItem("fotoPerfil", JSON.stringify(foto));
 
-}
+}*/
 
