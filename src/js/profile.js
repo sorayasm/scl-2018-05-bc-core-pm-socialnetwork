@@ -144,4 +144,3 @@ function deleteText(key) {
         });
 }
 
-module.exports = validarTexto;
