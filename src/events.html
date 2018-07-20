@@ -74,7 +74,7 @@
                 </div>
                 <div class="col iconGroup">
                     <a href="events.html">
-                        <i class="far fa-calendar-alt"></i>
+                        <i class="far fa-calendar-alt activado"></i>
                     </a>
                     <p class="events">Eventos</p>
                 </div>
@@ -89,22 +89,20 @@
         </div>
 
     </header>
-    <section class="container" id="content">
-        <div id="login-logout">
-            <!--Logout-->
-            <div id="loggedIn">
-                <p id="username"></p>
-                <input id="logout" type="button" onclick="logoutWithFirebase()" value="LOGOUT">
+
+    <section class="container" id="escribirMensajePerfil">
+        <div class="row">
+            <div class="col-12 areaPublicar">
+                <textarea class="publicarEstado" id="textArea" type="text" placeholder="Comentanos Dónde y Cuándo"></textarea>
             </div>
-            <!--Autenticacion-->
-            <div id="loggedOut">
-                <input type="email" id="email">
-                <input type="password" id="password">
-                <input type="button" id="registerbutton" onclick="registerWithFirebase()" value="REGISTER">
-                <input type="button" id="loginbutton" onclick="loginWithFirebase()" value="LOGIN">
-                <input type="button" id="facebookbutton" onclick="facebookLoginWithFirebase()" value="FACEBOOK LOGIN">
+            <div class="col-12 areaBotonPublicar">
+                <input class="botonPublicar" id="sendText" onclick="validarTexto()" type="button" value="PUBLICAR" data-="publicaciones">
             </div>
+        </div>
+        <br>
     </section>
+
+    <section class="container" id="contenido"></section>
 
 
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
@@ -126,8 +124,8 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
         crossorigin="anonymous"></script>
-
-    <script src="js/login.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/events.js"></script>
 </body>
 
 </html>
