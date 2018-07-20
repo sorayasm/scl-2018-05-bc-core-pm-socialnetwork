@@ -89,3 +89,5 @@ function sendText() {
         photoUrl: currentUser.photoURL
     });
 }
+
+module.exports = validarTexto;

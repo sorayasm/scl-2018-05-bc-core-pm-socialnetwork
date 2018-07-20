@@ -1,8 +1,5 @@
 window.onload = () => {
-
-    //Base de datos para consultar 1 vez
-
-
+    // para mostrar nombre y mail
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
@@ -10,18 +7,24 @@ window.onload = () => {
             window.location = "index.html";
         }
 
-
     const myUsermail = firebase.auth().currentUser.providerData[0].email;
     const myUsername = firebase.auth().currentUser.displayName ;
+    const myPicture = firebase.auth().currentUser.photoURL;
 
    
     console.log(myUsermail);
     console.log(myUsername);
+    console.log(myPicture);
     if (myUsername===null){
         document.getElementById("myName").innerHTML=myUsermail;
+        document.getElementById("imageInProfile").innerHTML=`<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
+    }else{
+        document.getElementById("myName").innerHTML=myUsername;
+        document.getElementById("imageInProfile").innerHTML=`<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
+    }
 
-    }else{document.getElementById("myName").innerHTML=myUsername;}
     });
+
 
     firebase.database().ref("publicaciones")
         .once("value")
@@ -37,8 +40,11 @@ window.onload = () => {
 
 
     //Base de datos para consultar MAS veces
+
     firebase.database().ref("publicaciones")
         .on("child_added", (newPublicacion) => {
+            const wall = newPublicacion.val().creator;
+            console.log(wall)
             contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
@@ -100,14 +106,6 @@ function validarTexto() {
     }
 };
 
-function validarTexto() {
-    const entradaDeTexto = textArea.value;
-    if (!entradaDeTexto.replace(/\s/g, '').length) {
-        alert("Tu mensaje no puede estar vacío")
-    } else {
-        sendText()
-    }
-};
 // Para publicar texto
 function sendText() {
     const textValue = textArea.value;
@@ -123,12 +121,27 @@ function sendText() {
     });
 };
 
-
-
 // funcion borrar publicaciones
 function deleteText(key) {
-    firebase.database().ref(`publicaciones/${key}`).remove()
-    const publi = document.getElementById("publicacion-" + key);
-    publi.remove();
+    swal({
+        title: "¿Estás seguro que deseas eliminar esta publicación?",
+        text: "Una vez borrado, no la podrás ver nunca más",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                firebase.database().ref(`publicaciones/${key}`).remove()
+                const publi = document.getElementById("publicacion-" + key);
+                publi.remove();
+                swal("Poof! ¡Tu comentario ha sido eliminado!", {
+                    icon: "success",
+                });
+            } else {
+                swal("¡Tu comentario no se ha borrado!");
+            }
+        });
 }
 
+module.exports = validarTexto;
