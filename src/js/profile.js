@@ -27,12 +27,13 @@ window.onload = () => {
         }
     });
 
-    //Base de datos 
+    //Base de datos
     firebase.database().ref("publicaciones")
         .on("child_added", (newPublicacion) => {
-            const wall = newPublicacion.val().creator;
 
-            console.log(wall)
+            //const wall = newPublicacion.val().creator;
+            //console.log(wall)
+
             contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
@@ -95,15 +96,8 @@ function validarTexto() {
         sendText()
     }
 };
+module.exports = validarTexto;
 
-function validarTexto() {
-    const entradaDeTexto = textArea.value;
-    if (!entradaDeTexto.replace(/\s/g, '').length) {
-        alert("Tu mensaje no puede estar vacío")
-    } else {
-        sendText()
-    }
-};
 // Para publicar texto
 function sendText() {
     const textValue = textArea.value;
@@ -141,5 +135,3 @@ function deleteText(key) {
             }
         });
 }
-
-module.exports = validarTexto;
