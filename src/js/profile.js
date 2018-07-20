@@ -9,38 +9,29 @@ window.onload = () => {
 
         const myUsermail = firebase.auth().currentUser.providerData[0].email;
         const myUsername = firebase.auth().currentUser.displayName;
+        const myPicture = firebase.auth().currentUser.photoURL;
+        const myUserId = firebase.auth().currentUser.uid;
 
-<<<<<<< HEAD
 
         console.log(myUsermail);
         console.log(myUsername);
+        console.log(myPicture);
+        console.log(myUserId);
+
         if (myUsername === null) {
             document.getElementById("myName").innerHTML = myUsermail;
-
-        } else { document.getElementById("myName").innerHTML = myUsername; }
-=======
-    const myUsermail = firebase.auth().currentUser.providerData[0].email;
-    const myUsername = firebase.auth().currentUser.displayName ;
-    const myPicture = firebase.auth().currentUser.photoURL;
-
-   
-    console.log(myUsermail);
-    console.log(myUsername);
-    console.log(myPicture);
-    if (myUsername===null){
-        document.getElementById("myName").innerHTML=myUsermail;
-        document.getElementById("imageInProfile").innerHTML=`<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
-    }else{
-        document.getElementById("myName").innerHTML=myUsername;
-        document.getElementById("imageInProfile").innerHTML=`<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
-    }
->>>>>>> 1413066196f7de11d574a1ea0a37aa0abfec3f0b
+            document.getElementById("imageInProfile").innerHTML = `<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
+        } else {
+            document.getElementById("myName").innerHTML = myUsername;
+            document.getElementById("imageInProfile").innerHTML = `<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
+        }
     });
 
     //Base de datos 
     firebase.database().ref("publicaciones")
         .on("child_added", (newPublicacion) => {
             const wall = newPublicacion.val().creator;
+
             console.log(wall)
             contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
@@ -76,6 +67,8 @@ window.onload = () => {
    
         ` + contenido.innerHTML;
         });
+
+
 
 };
 
@@ -129,12 +122,12 @@ function sendText() {
 // funcion borrar publicaciones
 function deleteText(key) {
     swal({
-        title: "¿Estás seguro que deseas eliminar esta publicación?",
-        text: "Una vez borrado, no la podrás ver nunca más",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-    })
+            title: "¿Estás seguro que deseas eliminar esta publicación?",
+            text: "Una vez borrado, no la podrás ver nunca más",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
         .then((willDelete) => {
             if (willDelete) {
                 firebase.database().ref(`publicaciones/${key}`).remove()
@@ -149,18 +142,4 @@ function deleteText(key) {
         });
 }
 
-
-<<<<<<< HEAD
-// convertir objeto en array
-function objectToArray(object) {
-    const array2d = [];
-    const properties = Object.keys(object);
-    for (i = 0; i < properties.length; i++) {
-        array2d.push([properties[i], object[properties[i]]]);
-    }
-    return array2d;
-}
-=======
 module.exports = validarTexto;
-
->>>>>>> 1413066196f7de11d574a1ea0a37aa0abfec3f0b
