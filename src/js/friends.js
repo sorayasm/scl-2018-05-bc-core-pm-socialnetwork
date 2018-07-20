@@ -6,6 +6,7 @@ window.onload= () => {
       .on('child_added', (friendList) => {
           contenedor.innerHTML += `
              
+              
               <p>${friendList.val().username}<p>
               
           `;
