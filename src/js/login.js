@@ -18,7 +18,7 @@ function registerWithFirebase() {
         .catch((error) => {
             console.log("Error de Firebase > Codigo > " + error.code); // alert error
             console.log("Error de Firebase > Mensaje > " + error.message);
-            alert("Revisa todos los datos ingresados. La contraseña debe tener al menos 6 caracteres.");
+            
 
         });
 }
