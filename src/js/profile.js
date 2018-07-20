@@ -7,41 +7,29 @@ window.onload = () => {
             window.location = "index.html";
         }
 
-    const myUsermail = firebase.auth().currentUser.providerData[0].email;
-    const myUsername = firebase.auth().currentUser.displayName ;
-    const myPicture = firebase.auth().currentUser.photoURL;
+        const myUsermail = firebase.auth().currentUser.providerData[0].email;
+        const myUsername = firebase.auth().currentUser.displayName;
+        const myPicture = firebase.auth().currentUser.photoURL;
+        const myUserId = JSON.stringify(firebase.auth().currentUser.uid);
 
-   
-    console.log(myUsermail);
-    console.log(myUsername);
-    console.log(myPicture);
-    if (myUsername===null){
-        document.getElementById("myName").innerHTML=myUsermail;
-        document.getElementById("imageInProfile").innerHTML=`<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
-    }else{
-        document.getElementById("myName").innerHTML=myUsername;
-        document.getElementById("imageInProfile").innerHTML=`<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
-    }
 
+        console.log(myUsermail);
+        console.log(myUsername);
+        console.log(myPicture);
+        console.log(myUserId);
+
+        if (myUsername === null) {
+            document.getElementById("myName").innerHTML = myUsermail;
+            document.getElementById("imageInProfile").innerHTML = `<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
+        } else {
+            document.getElementById("myName").innerHTML = myUsername;
+            document.getElementById("imageInProfile").innerHTML = `<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
+        }
     });
 
+    // consultar base de datos
 
-    firebase.database().ref("publicaciones")
-        .once("value")
-        .then((publicaciones) => {
-            const myUserId = JSON.stringify(firebase.auth().currentUser.uid);
-            const wall = JSON.stringify(publicaciones);
-
-            console.log("Publicaciones >" + wall);
-        })
-        .catch((error) => {
-            console.log("Database error >" + error);
-        })
-
-
-    //Base de datos para consultar MAS veces
-
-    firebase.database().ref("publicaciones")
+    firebase.database().ref("publicaciones").orderByChild("creator").equalTo("Fpa7j6MX6Bc02lTlf7qPuuJWZg62")
         .on("child_added", (newPublicacion) => {
             const wall = newPublicacion.val().creator;
             console.log(wall)
@@ -124,12 +112,12 @@ function sendText() {
 // funcion borrar publicaciones
 function deleteText(key) {
     swal({
-        title: "¿Estás seguro que deseas eliminar esta publicación?",
-        text: "Una vez borrado, no la podrás ver nunca más",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-    })
+            title: "¿Estás seguro que deseas eliminar esta publicación?",
+            text: "Una vez borrado, no la podrás ver nunca más",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
         .then((willDelete) => {
             if (willDelete) {
                 firebase.database().ref(`publicaciones/${key}`).remove()

@@ -17,12 +17,12 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
-<body>
+<body onload="show()">
     <header>
         <div class="navbarFondo">
             <div class="container ">
                 <div class="row navbarPropiedades">
-                    <div class="col-7 col-sm-8 col-md-10 col-lg-10">
+                    <div class="col-8 col-sm-8 col-md-10 col-lg-10">
                         <img id="imgFour" src="img/four_resize.png" alt="" srcset="">
                     </div>
                     <div class="col-4 col-lg-3 navbarIconos">
@@ -89,16 +89,14 @@
             <div class="col-12  informationInProfile">
                 <div class="myName" id="myName">
                     <!--aqui deberia tratar de salir el user-->
-
                 </div>
-
             </div>
         <div class="menuSeparador"></div>
     </section>
     <section class="container" id="escribirMensajePerfil">
         <div class="row">
             <div class="col-12 areaPublicar">
-                <textarea class="publicarEstado" id="textArea" type="text"></textarea>
+                <textarea class="publicarEstado" id="textArea" type="text" placeholder="Comparte tus ideas..."></textarea>
             </div>
             <div class="col-12 areaBotonPublicar">
                 <input class="botonPublicar" id="sendText" onclick="validarTexto()" type="button" value="PUBLICAR" data-="publicaciones">

@@ -1,6 +1,6 @@
 window.onload = () => {
     //Base de datos para consultar 1 vez
-    firebase.database().ref("eventos")
+    firebase.database().ref("eventos").orderByChild("creator").equalTo("Fpa7j6MX6Bc02lTlf7qPuuJWZg62")
         .once("value")
         .then((eventos) => {
             console.log("eventos >" + JSON.stringify(eventos))
@@ -9,7 +9,7 @@ window.onload = () => {
             console.log("Database error >" + error);
         });
     //Base de datos para consultar MAS veces
-    firebase.database().ref("eventos")
+    firebase.database().ref("eventos").orderByChild("creator").equalTo("Fpa7j6MX6Bc02lTlf7qPuuJWZg62")
         .on("child_added", (newEventos) => {
             contenido.innerHTML = `
             <div id="publicacion-${newEventos.key}">
