@@ -33,6 +33,11 @@ function loginWithFirebase() {
             console.log("Usuario inició sesión con éxito");
             window.location = "wall.html";
         })
+        .then(() => {
+            if (passwordValue.length <= 6) {
+                alert("Revisa todos los datos ingresados. Hubo un problema con el registro de Facebook.");
+            }
+        })
         .catch((error) => {
             console.log("Error de firebase > Código > " + error.code);
             console.log("Error de firebase > Mensaje > " + error.message);
@@ -60,6 +65,7 @@ function facebookLoginWithFirebase() {
             console.log("Error de firebase > Mensaje > " + error.message);
 
         })
+        return;
 };
 
 
@@ -88,3 +94,7 @@ function facebookLoginWithFirebase() {
           minimumVersion: '12'
         }
       };*/
+
+module.exports = facebookLoginWithFirebase;
+module.exports = loginWithFirebase;
+module.exports = registerWithFirebase;
