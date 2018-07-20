@@ -7,18 +7,6 @@ window.onload = () => {
             window.location = "index.html";
         }
 
-        const myUsermail = firebase.auth().currentUser.providerData[0].email;
-        const myUsername = firebase.auth().currentUser.displayName;
-
-<<<<<<< HEAD
-
-        console.log(myUsermail);
-        console.log(myUsername);
-        if (myUsername === null) {
-            document.getElementById("myName").innerHTML = myUsermail;
-
-        } else { document.getElementById("myName").innerHTML = myUsername; }
-=======
     const myUsermail = firebase.auth().currentUser.providerData[0].email;
     const myUsername = firebase.auth().currentUser.displayName ;
     const myPicture = firebase.auth().currentUser.photoURL;
@@ -34,7 +22,7 @@ window.onload = () => {
         document.getElementById("myName").innerHTML=myUsername;
         document.getElementById("imageInProfile").innerHTML=`<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
     }
->>>>>>> 1413066196f7de11d574a1ea0a37aa0abfec3f0b
+
     });
 
     //Base de datos 
@@ -103,14 +91,6 @@ function validarTexto() {
     }
 };
 
-function validarTexto() {
-    const entradaDeTexto = textArea.value;
-    if (!entradaDeTexto.replace(/\s/g, '').length) {
-        alert("Tu mensaje no puede estar vacío")
-    } else {
-        sendText()
-    }
-};
 // Para publicar texto
 function sendText() {
     const textValue = textArea.value;
@@ -149,18 +129,4 @@ function deleteText(key) {
         });
 }
 
-
-<<<<<<< HEAD
-// convertir objeto en array
-function objectToArray(object) {
-    const array2d = [];
-    const properties = Object.keys(object);
-    for (i = 0; i < properties.length; i++) {
-        array2d.push([properties[i], object[properties[i]]]);
-    }
-    return array2d;
-}
-=======
 module.exports = validarTexto;
-
->>>>>>> 1413066196f7de11d574a1ea0a37aa0abfec3f0b
