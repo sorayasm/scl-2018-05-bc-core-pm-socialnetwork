@@ -1,15 +1,11 @@
 window.onload = () => {
-
-    //Base de datos para consultar 1 vez
-
-
+    // para mostrar nombre y mail
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
         } else {
             window.location = "index.html";
         }
-
 
     const myUsermail = firebase.auth().currentUser.providerData[0].email;
     const myUsername = firebase.auth().currentUser.displayName ;
@@ -26,27 +22,14 @@ window.onload = () => {
         document.getElementById("myName").innerHTML=myUsername;
         document.getElementById("imageInProfile").innerHTML=`<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
     }
+
     });
 
-
-
-
-
-    firebase.database().ref("publicaciones")
-        .once("value")
-        .then((publicaciones) => {
-            const myUserId = JSON.stringify(firebase.auth().currentUser.uid);
-            const wall = JSON.stringify(publicaciones);
-
-            console.log("Publicaciones >" + wall);
-        })
-        .catch((error) => {
-            console.log("Database error >" + error);
-        })
-
-    //Base de datos para consultar MAS veces
+    //Base de datos 
     firebase.database().ref("publicaciones")
         .on("child_added", (newPublicacion) => {
+            const wall = newPublicacion.val().creator;
+            console.log(wall)
             contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
@@ -123,8 +106,6 @@ function sendText() {
     });
 };
 
-
-
 // funcion borrar publicaciones
 function deleteText(key) {
     swal({
@@ -148,6 +129,4 @@ function deleteText(key) {
         });
 }
 
-
-
-
+module.exports = validarTexto;
