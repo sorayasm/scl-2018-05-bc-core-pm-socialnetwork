@@ -6,7 +6,7 @@ window.onload= () => {
       .on('child_added', (friendList) => {
           contenedor.innerHTML += `
              
-          <div class="row myPublishedData">
+          <div class="row myPublishedData whContainer ">
           <div class="col-2 myPublishedPhoto ">
               <div class="imageInProfileMessage">
               <img width="60px" class="float-left img-circle" src="${friendList.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
@@ -16,9 +16,9 @@ window.onload= () => {
               <p>${friendList.val().username}</p>
           </div>
 
-          <div class="col-1 myPublishedPhoto ">
+          <div class="col-1">
               <div>
-              <i class="fas fa-times"></i>
+              <i class="far fa-times-circle btnDeleteFriend"></i>
               </div>
       </div>
             
@@ -26,4 +26,5 @@ window.onload= () => {
           `;
       });
 }
+
 

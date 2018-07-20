@@ -588,3 +588,12 @@ h6{
 #publicarEvento{
     padding-top: 6%;
 }
+
+.btnDeleteFriend{
+    font-size: 2em;
+    color: cadetblue;
+}
+
+.btnDeleteFriend:hover{
+    color:red;
+}
