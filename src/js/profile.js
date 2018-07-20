@@ -38,6 +38,7 @@ window.onload = () => {
         .catch((error) => {
             console.log("Database error >" + error);
         })
+        
 
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
