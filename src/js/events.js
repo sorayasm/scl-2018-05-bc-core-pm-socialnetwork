@@ -44,7 +44,6 @@ window.onload = () => {
                 </div>
                 <div class="menuSeparador"></div>
             </div>
-   
         ` + contenido.innerHTML;
         });
 
