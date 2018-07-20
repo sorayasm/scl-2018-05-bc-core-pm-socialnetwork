@@ -31,8 +31,6 @@ window.onload = () => {
 
     firebase.database().ref("publicaciones").orderByChild("creator").equalTo("Fpa7j6MX6Bc02lTlf7qPuuJWZg62")
         .on("child_added", (newPublicacion) => {
-            const wall = newPublicacion.val().creator;
-            console.log(wall)
             contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
@@ -94,6 +92,7 @@ function validarTexto() {
     }
 };
 
+
 // Para publicar texto
 function sendText() {
     const textValue = textArea.value;
@@ -108,6 +107,8 @@ function sendText() {
         photoUrl: currentUser.photoURL
     });
 };
+
+
 
 // funcion borrar publicaciones
 function deleteText(key) {
@@ -130,6 +131,6 @@ function deleteText(key) {
                 swal("¡Tu comentario no se ha borrado!");
             }
         });
+
 }
 
-module.exports = validarTexto;
