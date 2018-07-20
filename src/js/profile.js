@@ -108,6 +108,8 @@ function sendText() {
     });
 };
 
+
+
 // funcion borrar publicaciones
 function deleteText(key) {
     swal({
