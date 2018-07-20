@@ -25,7 +25,22 @@ window.onload = () => {
 
     });
 
-    //Base de datos 
+
+    firebase.database().ref("publicaciones")
+        .once("value")
+        .then((publicaciones) => {
+            const myUserId = JSON.stringify(firebase.auth().currentUser.uid);
+            const wall = JSON.stringify(publicaciones);
+
+            console.log("Publicaciones >" + wall);
+        })
+        .catch((error) => {
+            console.log("Database error >" + error);
+        })
+
+
+    //Base de datos para consultar MAS veces
+
     firebase.database().ref("publicaciones")
         .on("child_added", (newPublicacion) => {
             const wall = newPublicacion.val().creator;
