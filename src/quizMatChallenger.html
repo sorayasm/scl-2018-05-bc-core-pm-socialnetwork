@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>4edu - Configurar perfil</title>
+    <title>4edu - Desafío Matemáticas </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="css/configProfile.css">
+    <link rel="stylesheet" href="css/challenger.css">
 </head>
 
 <body>
@@ -79,77 +79,110 @@
             <div class="menuSeparador"></div>
         </div>
     </header>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="title">
-                        <p>Configurar Mi Perfil</p>
-                    </div>
-                </div>
 
-                <div class="col-12  informationInProfile">
-                    <div class="imageInProfile" id="imageInProfile">
-                    </div>
-                </div>
-                <div class="col-12  informationInProfile">
-                    <div id="myName" class="myName">
-                        <p>Nombre Apellido Apellido</p>
-                    </div>
-                </div>
+    <section class="container">
+        <div class="row">
+            <div class="col-3 imagenMat">
+                <img class="iconMat" src="https://image.flaticon.com/icons/svg/148/148787.svg" alt="">
+            </div>
+            <div class="col-9 subTitle ">
+                <h2>Matemáticas</h2>
+                <h2>Desafío 1</h2>
             </div>
         </div>
+        <div class="menuSeparador"></div>
     </section>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <label class="choosePicture" for="escogeUnaFoto">Escoge una Imagen</label>
-                    <input class="" type="file" name="" id="escogeUnaFoto">
-                    <div class="input-group-append">
-                        <span class="botonSubirImagen" id="sendPhoto">Subir</span>
-                    </div>
-                </div>
-        
+    <section class="container">
+        <div class="row">
+            <div class="col">
+                <h3>1.- Realiza la siguiente operación: 2-3-5</h3>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <form name="profileinfo" method="get" action="javascript:sendInfo()">
-                        <!-- Cambiar info del perfil -->
-                    </form>
-                </div>
-                <div class="col-12">
-                    <div class="input-group input-group-sm mb-3">
-                        <input id="profileName" name="profileName" type="text" placeholder="Nombre a mostrar:" class="form-control" maxlength="140" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                </div>
-                <div class="col-12">
-                <div class="col-12">
-                    <button class="botonConfigurarPerfil" onclick="updateInfo()"id="SendInfo" type="submit" value="Enviar"> Enviar </button>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="radio" id="answerOne" name="questionOne" value="6" checked="checked"> 6
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="radio" id="answerTwo" name="questionOne" value="4"> 4
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="radio" id="answerThree" name="questionOne" value="-6"> -6
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3>2.- Resuelve: (3-5)-(-2)-(1-3)</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="radio" id="answerFour" name="questionTwo" value="-2" checked="checked"> -2
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="radio" id="answerFive" name="questionTwo" value="6"> 6
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="radio" id="answerSix" name="questionTwo" value="2"> 2
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3>3.- El resultado de: 3+2 (3-5)</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="radio" id="answerSeven" name="questionThree" value="3" checked="checked"> 3
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="radio" id="answerEight" name="questionThree" value="-1">-1
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="radio" id="answerNine" name="questionThree" value="-3"> -3
+
             </div>
         </div>
 
+        <div class="row">
+            <div class="col">
+                <input class="botonResponder" onclick="reply()" id="clickMe" type="button" value="Responder">
+            </div>
+        </div>
 
-        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-        <script>
-            // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyDayZJ-EwSaKDG0008qD3o0DwwBWiTxVTY",
-                authDomain: "edu-ad4d1.firebaseapp.com",
-                databaseURL: "https://edu-ad4d1.firebaseio.com",
-                projectId: "edu-ad4d1",
-                storageBucket: "edu-ad4d1.appspot.com",
-                messagingSenderId: "129112114743"
-            };
-            firebase.initializeApp(config);
-        </script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-        <script src="js/main.js"></script>
-        <script src="js/configprofile.js"></script>
+    </section>
 
+
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDayZJ-EwSaKDG0008qD3o0DwwBWiTxVTY",
+            authDomain: "edu-ad4d1.firebaseapp.com",
+            databaseURL: "https://edu-ad4d1.firebaseio.com",
+            projectId: "edu-ad4d1",
+            storageBucket: "edu-ad4d1.appspot.com",
+            messagingSenderId: "129112114743"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
+    <script src="js/login.js"></script>
+    <script src="js/challenge.js"></script>
 </body>
 
 </html>

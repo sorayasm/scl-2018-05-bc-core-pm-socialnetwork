@@ -18,7 +18,6 @@ function registerWithFirebase() {
         .catch((error) => {
             console.log("Error de Firebase > Codigo > " + error.code); // alert error
             console.log("Error de Firebase > Mensaje > " + error.message);
-            
 
         });
 }
@@ -67,7 +66,6 @@ function facebookLoginWithFirebase() {
         })
         return;
 };
-
 
 // Validacion de cuenta por correo electronico
 /*firebase.auth().sendSignInLinkToEmail(emailValue, actionCodeSettings)

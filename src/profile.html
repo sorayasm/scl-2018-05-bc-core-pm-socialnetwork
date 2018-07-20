@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bienvenida a 4edu - Mi perfil </title>
+    <title>Bienvenida a 4edu - Mi Perfil </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -15,14 +15,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/about.css">
 </head>
 
-<body>
+<body onload="show()">
     <header>
         <div class="navbarFondo">
             <div class="container ">
                 <div class="row navbarPropiedades">
-                    <div class="col-7 col-sm-8 col-md-10 col-lg-10">
+                    <div class="col-8 col-sm-8 col-md-10 col-lg-10">
                         <img id="imgFour" src="img/four_resize.png" alt="" srcset="">
                     </div>
                     <div class="col-4 col-lg-3 navbarIconos">
@@ -36,8 +37,8 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="configprofile.html">Configurar Perfil</a>
                                 <a class="dropdown-item" href="friends.html">Mis Amigos</a>
-                                <a class="dropdown-item" href="profile.html">Mi Muro</a>
-                                <a class="dropdown-item" href="wall.html">Muro Publico</a>
+                                <a class="dropdown-item" href="profile.html">Mi Perfil</a>
+                                <a class="dropdown-item" href="wall.html">Muro</a>
                                 <a class="dropdown-item" href="myEventsFav.html">Mis Eventos Favoritos</a>
                                 <a class="dropdown-item" href="about.html">Acerca de 4edu</a>
                                 <a class="dropdown-item" onclick="window.logoutWithFirebase()" href="">Salir de 4edu </a>
@@ -80,10 +81,17 @@
     </header>
 
     <section class="myProfile container">
+        <br>
+        <div class="row">
+            <div class="col title">
+                <p>Mi perfil</p>
+            </div>
+        </div>
+        <br>
         <div class="row">
             <div class="col-12  informationInProfile">
-                <div  id="imageInProfile">
-                    
+                <div id="imageInProfile">
+
                 </div>
             </div>
             <div class="col-12  informationInProfile">
@@ -91,7 +99,7 @@
                     <!--aqui deberia tratar de salir el user-->
                 </div>
             </div>
-        <div class="menuSeparador"></div>
+            <div class="menuSeparador"></div>
     </section>
     <section class="container" id="escribirMensajePerfil">
         <div class="row">
