@@ -10,7 +10,7 @@ window.onload = () => {
         const myUsermail = firebase.auth().currentUser.providerData[0].email;
         const myUsername = firebase.auth().currentUser.displayName;
         const myPicture = firebase.auth().currentUser.photoURL;
-        const myUserId = firebase.auth().currentUser.uid;
+        const myUserId = JSON.stringify(firebase.auth().currentUser.uid);
 
 
         console.log(myUsermail);
@@ -27,13 +27,10 @@ window.onload = () => {
         }
     });
 
-    //Base de datos
-    firebase.database().ref("publicaciones")
+    // consultar base de datos
+
+    firebase.database().ref("publicaciones").orderByChild("creator").equalTo("Fpa7j6MX6Bc02lTlf7qPuuJWZg62")
         .on("child_added", (newPublicacion) => {
-
-            //const wall = newPublicacion.val().creator;
-            //console.log(wall)
-
             contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
                 <div class="row myPublishedData">
@@ -69,8 +66,6 @@ window.onload = () => {
         ` + contenido.innerHTML;
         });
 
-
-
 };
 
 // Para pintar el corazon
@@ -96,7 +91,7 @@ function validarTexto() {
         sendText()
     }
 };
-module.exports = validarTexto;
+
 
 // Para publicar texto
 function sendText() {
