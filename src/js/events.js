@@ -48,7 +48,7 @@ function paintCalendar(key) {
     const heart = document.getElementById("cora-" + key);
     heart.classList.toggle('green');
 
-}
+};
 
 //Para que al publicar se borre lo escrito en text área
 const boton = document.getElementById('sendText');
@@ -80,4 +80,4 @@ function sendText() {
         creator: currentUser.uid,
         photoUrl: currentUser.photoURL
     });
-}
+};
