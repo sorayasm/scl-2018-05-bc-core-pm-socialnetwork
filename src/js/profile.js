@@ -23,10 +23,6 @@ window.onload = () => {
     }else{document.getElementById("myName").innerHTML=myUsername;}
     });
 
-
-
-
-
     firebase.database().ref("publicaciones")
         .once("value")
         .then((publicaciones) => {
@@ -38,7 +34,7 @@ window.onload = () => {
         .catch((error) => {
             console.log("Database error >" + error);
         })
-        
+
 
     //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
