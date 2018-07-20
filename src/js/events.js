@@ -46,7 +46,6 @@ window.onload = () => {
             </div>
         ` + contenido.innerHTML;
         });
-
 };
 
 // Para pintar el corazon
