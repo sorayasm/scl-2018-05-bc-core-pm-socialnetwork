@@ -1,6 +1,38 @@
 window.onload = () => {
 
     //Base de datos para consultar 1 vez
+
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+        } else {
+            window.location = "index.html";
+        }
+
+
+    const myUsermail = firebase.auth().currentUser.providerData[0].email;
+    const myUsername = firebase.auth().currentUser.displayName ;
+    const myPicture = firebase.auth().currentUser.photoURL;
+
+   
+    console.log(myUsermail);
+    console.log(myUsername);
+    console.log(myPicture);
+    if (myUsername===null){
+        document.getElementById("myName").innerHTML=myUsermail;
+        document.getElementById("imageInProfile").innerHTML=`<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
+
+    }else{
+        document.getElementById("myName").innerHTML=myUsername;
+        document.getElementById("imageInProfile").innerHTML=`<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
+    }
+    });
+
+
+
+
+
     firebase.database().ref("publicaciones")
         .once("value")
         .then((publicaciones) => {
@@ -14,27 +46,6 @@ window.onload = () => {
         })
 
     //Base de datos para consultar MAS veces
-    firebase.database().ref("usuarios")
-    .on("child_added",(newProfile)=>{
-            myProfile.innerHTML =`
-            <div class="row">
-            <div class="col-12  informationInProfile">
-                <div class="imageInProfile">
-                    <img width="60px" class="float-left img-circle" src="${newProfile.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
-                </div>
-            </div>
-            <div class="col-12  informationInProfile">
-                <div class="myName">
-                <p>${newProfile.val().creatorName}</p>
-                </div>
-            </div>
-            <div class="col-12  informationInProfile">
-                <div class="myInterests">
-                    <p>Intereses, intereses, intereses</p>
-                </div>
-            </div>
-        </div>`
-        });
     firebase.database().ref("publicaciones")
         .on("child_added", (newPublicacion) => {
             contenido.innerHTML = `
@@ -121,9 +132,30 @@ function sendText() {
     });
 };
 
+
+
 // funcion borrar publicaciones
 function deleteText(key) {
-    firebase.database().ref(`publicaciones/${key}`).remove()
-    const publi = document.getElementById("publicacion-" + key);
-    publi.remove();
+    swal({
+        title: "¿Estás seguro que deseas eliminar esta publicación?",
+        text: "Una vez borrado, no la podrás ver nunca más",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                firebase.database().ref(`publicaciones/${key}`).remove()
+                const publi = document.getElementById("publicacion-" + key);
+                publi.remove();
+                swal("Poof! ¡Tu comentario ha sido eliminado!", {
+                    icon: "success",
+                });
+            } else {
+                swal("¡Tu comentario no se ha borrado!");
+            }
+        });
 }
+
+
+module.exports = validarTexto;
