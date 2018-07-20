@@ -6,8 +6,25 @@ window.onload= () => {
       .on('child_added', (friendList) => {
           contenedor.innerHTML += `
              
-              <p>${friendList.val().username}<p>
+          <div class="row myPublishedData whContainer ">
+          <div class="col-2 myPublishedPhoto ">
+              <div class="imageInProfileMessage">
+              <img width="60px" class="float-left img-circle" src="${friendList.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
+              </div>
+          </div>
+          <div class="col-6 myNameInpublications">
+              <p>${friendList.val().username}</p>
+          </div>
+
+          <div class="col-1">
+              <div>
+              <i class="far fa-times-circle btnDeleteFriend"></i>
+              </div>
+      </div>
+            
               
           `;
       });
 }
+
+

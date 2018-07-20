@@ -6,10 +6,10 @@ function registerWithFirebase() {
     firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
         .then((userData) => {
             firebase.database().ref(`usuarios/${userData.user.uid}`).set({ //set guarda los valores (me serviría para guardar datos de una imagen)
-                mail: userData.user.email, // guarda quien creo la solicitud de amistad
-                uid: userData.user.uid, // persona asociada a la amistad (amigo 1)
-                username: userData.user.email, //persona asociada a la amistad (amigo 2)
-                photoUrl: "https://www.pekoda.com/images/default.png" //guarda imagen de perfil por defecto a cuenta creada por mail
+                mail: userData.user.email, 
+                uid: userData.user.uid, 
+                username: userData.user.email, 
+                photoUrl: "https://www.pekoda.com/images/default.png", //guarda imagen de perfil por defecto a cuenta creada por mail
 
             });
             console.log("usuario se creo"); // mail de confirmacion y login
