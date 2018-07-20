@@ -129,4 +129,6 @@ function deleteText(key) {
                 swal("¡Tu comentario no se ha borrado!");
             }
         });
+
 }
+

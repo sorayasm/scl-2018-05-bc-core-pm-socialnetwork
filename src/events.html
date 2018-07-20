@@ -87,14 +87,29 @@
             </div>
             <div class="menuSeparador"></div>
         </div>
-
     </header>
 
-    <section class="container" id="escribirMensajePerfil">
+    <section class="container" id="publicarEvento">
         <div class="row">
-            <div class="col-12 areaPublicar">
-                <textarea class="publicarEstado" id="textArea" type="text" placeholder="Comentanos Dónde y Cuándo"></textarea>
+            <div class="col-12">
+                <div class="input-group input-group-sm mb-3">
+                    <input id="eventoName" name="profileName" type="text" placeholder="Nombre del Evento:" class="form-control" maxlength="140"
+                        aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                </div>
             </div>
+            <div class="col-12">
+                <div class="input-group input-group-sm mb-3">
+                    <input id="fechaEvento" name="DateOfBirth" type="date" placeholder="Fecha:" class="form-control" maxlength="140"
+                        aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="input-group input-group-sm mb-3">
+                    <input id="descEvento" name="profileDescr" type="text" placeholder="Descripción del Evento:" class="form-control" maxlength="140"
+                        aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                </div>
+            </div>
+
             <div class="col-12 areaBotonPublicar">
                 <input class="botonPublicar" id="sendText" onclick="validarTexto()" type="button" value="PUBLICAR" data-="publicaciones">
             </div>

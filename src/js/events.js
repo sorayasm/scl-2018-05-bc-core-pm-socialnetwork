@@ -24,23 +24,28 @@ window.onload = () => {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-lg-12 myStatusPublished">
+                    <div class="col-6 col-lg-6 myEventName">
+                        <h6>NOMBRE EVENTO</h6>
+                        <h4>${newEventos.val().nameURL}</h4>   
+                    </div>
+                    <div class="col-6 col-lg-6 myDateEvent">
+                        <h6>¿CUÁNDO?</h6>
+                        <h5>${newEventos.val().dateURL}</h5>   
+                    </div>
+                    <div class="col-6 col-lg-6 myPublishedEvent">
+                        <h6>DESCRIPCIÓN DEL EVENTO</h6>
                         <p>${newEventos.val().publicacionURL}</p>      
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col myLikePublished">
-                        <button onclick="paintCalendar('${newEventos.key}')">
+                    <div class="col-6 col-lg-6 myLikePublished">
+                        <button class="cal" onclick="paintCalendar('${newEventos.key}')">
                             <i class="far fa-calendar-check" id="cora-${newEventos.key}"></i>
                         </button>
                     </div>
                 </div>
                 <div class="menuSeparador"></div>
             </div>
-   
         ` + contenido.innerHTML;
         });
-
 };
 
 // Para pintar el corazon
@@ -53,13 +58,15 @@ function paintCalendar(key) {
 //Para que al publicar se borre lo escrito en text área
 const boton = document.getElementById('sendText');
 boton.addEventListener('click', () => {
-    let comments = document.getElementById('textArea').value;
-    document.getElementById('textArea').value = '';
+    let comments = document.getElementById('descEvento').value;
+    document.getElementById('descEvento').value = '';
+    document.getElementById('eventoName').value = '';
+    document.getElementById('fechaEvento').value = '';
 });
 
 // Para validar texto
 function validarTexto() {
-    const entradaDeTexto = textArea.value;
+    const entradaDeTexto = descEvento.value;
     if (!entradaDeTexto.replace(/\s/g, '').length) {
         alert("Tu mensaje no puede estar vacío")
     } else {
@@ -69,12 +76,16 @@ function validarTexto() {
 
 // Para publicar texto
 function sendText() {
-    const textValue = textArea.value;
+    const dateEvento = fechaEvento.value;
+    const nameEvento = eventoName.value;
+    const textEvento = descEvento.value;
     const newTextKey = firebase.database().ref().child("eventos").push().key;
     const currentUser = firebase.auth().currentUser;
 
     firebase.database().ref(`eventos/${newTextKey}`).set({
-        publicacionURL: textValue,
+        publicacionURL: textEvento,
+        nameURL: nameEvento,
+        dateURL: dateEvento,
         creatorName: currentUser.displayName ||
             currentUser.providerData[0].email,
         creator: currentUser.uid,
