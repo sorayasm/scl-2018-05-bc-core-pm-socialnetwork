@@ -93,13 +93,8 @@
                     </div>
                 </div>
                 <div class="col-12  informationInProfile">
-                    <div id="username" class="myName">
+                    <div id="myName" class="myName">
                         <p>Nombre Apellido Apellido</p>
-                    </div>
-                </div>
-                <div class="col-12  informationInProfile">
-                    <div class="myInterests">
-                        <p>Intereses, intereses, intereses</p>
                     </div>
                 </div>
             </div>
@@ -109,16 +104,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-
-                    <label class="" for="escogeUnaFoto">Escoge una Imagen</label>
+                    <label class="choosePicture" for="escogeUnaFoto">Escoge una Imagen</label>
                     <input class="" type="file" name="" id="escogeUnaFoto">
-
-
                     <div class="input-group-append">
                         <span class="botonSubirImagen" id="sendPhoto">Subir</span>
                     </div>
                 </div>
-
+        
             </div>
             <div class="row">
                 <div class="col-12">
@@ -132,18 +124,8 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <div class="input-group input-group-sm mb-3">
-                        <input id="profileDescr" name="profileDescr" type="text" placeholder="Descripción breve de ti:" class="form-control" maxlength="140" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                </div>
                 <div class="col-12">
-                    <div class="input-group input-group-sm mb-3">
-                        <input id="DateOfBirth" name="DateOfBirth" type="date" placeholder="Fecha de nacimiento:" class="form-control" maxlength="140" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-
-                </div>
-                <div class="col-12">
-                    <button class="botonConfigurarPerfil" onclick="sendInfo()" id="SendInfo" type="submit" value="Enviar"> Enviar </button>
+                    <button class="botonConfigurarPerfil" onclick="updateInfo()"id="SendInfo" type="submit" value="Enviar"> Enviar </button>
                 </div>
             </div>
         </div>
