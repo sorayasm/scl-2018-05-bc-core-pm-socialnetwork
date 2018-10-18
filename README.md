@@ -1,6 +1,6 @@
 # Red Social
 4edu es una red social educativa sencilla. Que permite compartir información, eventos y realizar desafíos educativos.
-![VistaPrevia](https://raw.githubusercontent.com/sorayasm/scl-2018-05-bc-core-pm-socialnetwork/master/src/img/4edu.png)
+![4edu](https://user-images.githubusercontent.com/18310311/47162666-cbd8a600-d2ca-11e8-969d-4365e8575932.png)
 
 ## Preámbulo
 
