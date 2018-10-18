@@ -1,4 +1,5 @@
 # Red Social
+4edu es una red social educativa sencilla. Que permite compartir información, eventos y realizar desafíos educativos.
 
 ## Preámbulo
 
