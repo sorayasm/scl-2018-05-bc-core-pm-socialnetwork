@@ -1,14 +1,4 @@
 window.onload = () => {
-    //Base de datos para consultar 1 vez
-    /*firebase.database().ref("publicaciones")
-        .once("value")
-        .then((publicaciones) => {
-            console.log("Publicaciones >" + JSON.stringify(publicaciones))
-        })
-        .catch((error) => {
-            console.log("Database error >" + error);
-        });*/
-    //Base de datos para consultar MAS veces
     firebase.database().ref("publicaciones")
         .on("child_added", (newPublicacion) => {
             contenido.innerHTML = `

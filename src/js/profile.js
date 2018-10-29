@@ -12,7 +12,8 @@ window.onload = () => {
         const myPicture = firebase.auth().currentUser.photoURL;
         let myUserId = firebase.auth().currentUser.uid;
         console.log(myUserId);
-
+        printWall();
+        
         if (myUsername === null) {
             document.getElementById("myName").innerHTML = myUsermail;
             document.getElementById("imageInProfile").innerHTML = `<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
@@ -21,47 +22,51 @@ window.onload = () => {
             document.getElementById("imageInProfile").innerHTML = `<img class="imageInProfile" src="${myPicture || 'https://www.pekoda.com/images/default.png'}"></img>`;
         }
     });
+};
 
-    // consultar base de datos
-    let myUserId = firebase.auth().currentUser.uid;
-    firebase.database().ref("publicaciones").orderByChild("creator").equalTo(myUserId)
-        .on("child_added", (newPublicacion) => {
-            contenido.innerHTML = `
-            <div id="publicacion-${newPublicacion.key}">
-                <div class="row myPublishedData">
-                    <div class="col-2 myPublishedPhoto ">
-                        <div class="imageInProfileMessage">
-                        <img width="60px" class="float-left img-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
+// Para ver el Muro
+
+function printWall() {
+        // consultar base de datos
+        let myUserId = firebase.auth().currentUser.uid;
+        firebase.database().ref("publicaciones").orderByChild("creator").equalTo(myUserId)
+            .on("child_added", (newPublicacion) => {
+                contenido.innerHTML = `
+                <div id="publicacion-${newPublicacion.key}">
+                    <div class="row myPublishedData">
+                        <div class="col-2 myPublishedPhoto ">
+                            <div class="imageInProfileMessage">
+                            <img width="60px" class="float-left img-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>
+                            </div>
+                        </div>
+                        <div class="col-8 myNameInpublications">
+                            <p>${newPublicacion.val().creatorName}</p>
+                        </div>
+                        <div class="col-2 trashIcon text-right">
+                            <button onclick="deleteText('${newPublicacion.key}')">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
                         </div>
                     </div>
-                    <div class="col-8 myNameInpublications">
-                        <p>${newPublicacion.val().creatorName}</p>
+                    <div class="row">
+                        <div class="col-12 col-lg-12 myStatusPublished">
+                            <p>${newPublicacion.val().publicacionURL}</p>      
+                        </div>
                     </div>
-                    <div class="col-2 trashIcon text-right">
-                        <button onclick="deleteText('${newPublicacion.key}')">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
+                    <div class="row">
+                        <div class="col myLikePublished">
+                            <button onclick="paintHeart('${newPublicacion.key}')">
+                                <i class="far fa-heart" id="cora-${newPublicacion.key}"></i>
+                            </button>
+                        </div>
                     </div>
+                    <div class="menuSeparador"></div>
                 </div>
-                <div class="row">
-                    <div class="col-12 col-lg-12 myStatusPublished">
-                        <p>${newPublicacion.val().publicacionURL}</p>      
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col myLikePublished">
-                        <button onclick="paintHeart('${newPublicacion.key}')">
-                            <i class="far fa-heart" id="cora-${newPublicacion.key}"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="menuSeparador"></div>
-            </div>
-   
-        ` + contenido.innerHTML;
-        });
+       
+            ` + contenido.innerHTML;
+            });
+}
 
-};
 
 // Para pintar el corazon
 function paintHeart(key) {

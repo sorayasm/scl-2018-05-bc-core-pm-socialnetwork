@@ -3,10 +3,9 @@ window.onload = () => {
         if (user) {
             // User is signed in.
         } else {
-            window.location = "index.html";
+            window.location = "../index.html";
         }
     });
-
 }
 
 //Logout
@@ -14,8 +13,8 @@ window.onload = () => {
 function logoutWithFirebase() {
     firebase.auth().signOut()
         .then(() => {
-            console.log("Sesion finalizada")
-            window.location = "index.html";
+            console.log("Sesión finalizada")
+            window.location = "../index.html";
         })
         .catch((error) => {
             console.log("Error de Firebase > Codigo > " + error.code)
