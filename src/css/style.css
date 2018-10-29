@@ -1,4 +1,7 @@
-/* Para Quitarle el borde de color a los iconos en navbar */
+/* Estilos generales */
+input {
+    margin: 10px auto;
+}
 
 
 

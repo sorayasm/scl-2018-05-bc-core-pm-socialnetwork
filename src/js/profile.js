@@ -1,4 +1,5 @@
 window.onload = () => {
+
     // para mostrar nombre y mail
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -6,16 +7,10 @@ window.onload = () => {
         } else {
             window.location = "index.html";
         }
-
         const myUsermail = firebase.auth().currentUser.providerData[0].email;
         const myUsername = firebase.auth().currentUser.displayName;
         const myPicture = firebase.auth().currentUser.photoURL;
-        const myUserId = JSON.stringify(firebase.auth().currentUser.uid);
-
-
-        console.log(myUsermail);
-        console.log(myUsername);
-        console.log(myPicture);
+        let myUserId = firebase.auth().currentUser.uid;
         console.log(myUserId);
 
         if (myUsername === null) {
@@ -28,8 +23,8 @@ window.onload = () => {
     });
 
     // consultar base de datos
-
-    firebase.database().ref("publicaciones").orderByChild("creator").equalTo("Fpa7j6MX6Bc02lTlf7qPuuJWZg62")
+    let myUserId = firebase.auth().currentUser.uid;
+    firebase.database().ref("publicaciones").orderByChild("creator").equalTo(myUserId)
         .on("child_added", (newPublicacion) => {
             contenido.innerHTML = `
             <div id="publicacion-${newPublicacion.key}">
