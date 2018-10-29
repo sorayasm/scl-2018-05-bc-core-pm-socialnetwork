@@ -54,7 +54,7 @@ window.onload = () => {
         });
 };
 
-// Para pintar el corazon
+// Para pintar el corazón
 function paintCalendar(key) {
     const heart = document.getElementById("cora-" + key);
     heart.classList.toggle('green');
