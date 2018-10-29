@@ -1,15 +1,19 @@
 window.onload = () => {
-    //Base de datos para consultar 1 vez
-    firebase.database().ref("eventos").orderByChild("creator").equalTo("Fpa7j6MX6Bc02lTlf7qPuuJWZg62")
-        .once("value")
-        .then((eventos) => {
-            console.log("eventos >" + JSON.stringify(eventos))
-        })
-        .catch((error) => {
-            console.log("Database error >" + error);
-        });
-    //Base de datos para consultar MAS veces
-    firebase.database().ref("eventos").orderByChild("creator").equalTo("Fpa7j6MX6Bc02lTlf7qPuuJWZg62")
+      // para mostrar nombre y mail
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+        } else {
+            window.location = "../index.html";
+        }
+        let myUserId = firebase.auth().currentUser.uid;
+        myEvents(myUserId);
+    });
+};
+
+// Mostrar mis eventos
+function myEvents(myUserId){
+    firebase.database().ref("eventos").orderByChild("creator").equalTo(myUserId)
         .on("child_added", (newEventos) => {
             contenido.innerHTML = `
             <div id="publicacion-${newEventos.key}">
@@ -46,7 +50,7 @@ window.onload = () => {
             </div>
         ` + contenido.innerHTML;
         });
-};
+}
 
 // Para pintar el corazon
 function paintCalendar(key) {

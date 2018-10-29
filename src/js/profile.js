@@ -5,7 +5,7 @@ window.onload = () => {
         if (user) {
             // User is signed in.
         } else {
-            window.location = "index.html";
+            window.location = "../index.html";
         }
         const myUsermail = firebase.auth().currentUser.providerData[0].email;
         const myUsername = firebase.auth().currentUser.displayName;
@@ -43,8 +43,8 @@ function printWall() {
             publiRow.appendChild(publiCol2);
 
             const imgProfile = document.createElement("div");
-            imgProfile.className="imageInProfileMessage";
-            imgProfile.innerHTML =`<img width="60px" class="float-left img-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>`;
+            imgProfile.className="imageInProfileMessage rounded";
+            imgProfile.innerHTML =`<img width="60px" class="float-left img-circle rounded-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>`;
             publiCol2.appendChild(imgProfile);  
             
             const publiCol8 = document.createElement("div");
@@ -54,7 +54,7 @@ function printWall() {
 
             const publiTrashDiv = document.createElement("div");
             publiTrashDiv.className = "col-2 trashIcon text-right";
-            publiTrashDiv.innerHTML = `<button onclick="deleteText('${newPublicacion.key}')"><i class="far fa-trash-alt"></i></button>`;
+            publiTrashDiv.innerHTML = `<button onclick="paintHeart('${newPublicacion.key}')"><i class="far fa-heart" id="cora-${newPublicacion.key}"></i></button> <button onclick="deleteText('${newPublicacion.key}')"><i class="far fa-trash-alt"></i></button>`;
             publiRow.appendChild(publiTrashDiv);
 
             const publiRow2 = document.createElement("div");
@@ -67,10 +67,10 @@ function printWall() {
 
             const publiRow3 = document.createElement("div");
             publiRow3.className = "row";
-            const myLikeCol = document.createElement("div");
-            myLikeCol.className = "col myLikePublished";
-            myLikeCol.innerHTML = `<button onclick="paintHeart('${newPublicacion.key}')"><i class="far fa-heart" id="cora-${newPublicacion.key}"></i></button>`
-            publiRow3.appendChild(myLikeCol);
+            const dateCol = document.createElement("div");
+            dateCol.className = "col myLikePublished";
+            dateCol.innerHTML = `<p>${newPublicacion.val().date}</p>`
+            publiRow3.appendChild(dateCol);
             publiDiv.appendChild(publiRow3);   
 
             const separator = document.createElement("div");

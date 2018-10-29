@@ -3,8 +3,6 @@ input {
     margin: 10px auto;
 }
 
-
-
 /*Color blanco para los links de nav */
 
 .navbar-light .navbar-nav .nav-link {
@@ -195,6 +193,7 @@ nav {
     height: 1px;
     width: auto;
     background-color: #5A6978;
+    margin: 7px auto;
 }
 
 .whContainer {

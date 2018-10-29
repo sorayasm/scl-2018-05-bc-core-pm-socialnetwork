@@ -6,7 +6,7 @@ window.onload = () => {
             contenido.appendChild(publiDiv);   
 
             const publiRow =document.createElement("div");
-            publiRow.className="row myPublishedData";
+            publiRow.className="row myPublishedLika";
             publiDiv.appendChild(publiRow);
 
             const publiCol2 = document.createElement("div");
@@ -15,7 +15,7 @@ window.onload = () => {
 
             const imgProfile = document.createElement("div");
             imgProfile.className="imageInProfileMessage";
-            imgProfile.innerHTML =`<img width="60px" class="float-left img-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>`;
+            imgProfile.innerHTML =`<img width="60px" class="float-left img-circle rounded-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>`;
             publiCol2.appendChild(imgProfile);  
             
             const publiCol8 = document.createElement("div");
@@ -23,10 +23,10 @@ window.onload = () => {
             publiCol8.innerHTML =`<p>${newPublicacion.val().creatorName}</p>`;
             publiRow.appendChild(publiCol8);
 
-            const publiTrashDiv = document.createElement("div");
-            publiTrashDiv.className = "col-2 trashIcon text-right";
-            // publiTrashDiv.innerHTML = `<button onclick="deleteText('${newPublicacion.key}')"><i class="far fa-trash-alt"></i></button>`;
-            publiRow.appendChild(publiTrashDiv);
+            const publiLikeDiv = document.createElement("div");
+            publiLikeDiv.className = "col-2 text-right";
+            publiLikeDiv.innerHTML = `<button onclick="paintHeart('${newPublicacion.key}')"><i class="far fa-heart" id="cora-${newPublicacion.key}"></i></button>`;
+            publiRow.appendChild(publiLikeDiv);
 
             const publiRow2 = document.createElement("div");
             publiRow2.className = "row";
@@ -38,10 +38,10 @@ window.onload = () => {
 
             const publiRow3 = document.createElement("div");
             publiRow3.className = "row";
-            const myLikeCol = document.createElement("div");
-            myLikeCol.className = "col myLikePublished";
-            myLikeCol.innerHTML = `<button onclick="paintHeart('${newPublicacion.key}')"><i class="far fa-heart" id="cora-${newPublicacion.key}"></i></button>`
-            publiRow3.appendChild(myLikeCol);
+            const dateCol = document.createElement("div");
+            dateCol.className = "col myLikePublished";
+            dateCol.innerHTML = `<p>${newPublicacion.val().date}</p>`
+            publiRow3.appendChild(dateCol);
             publiDiv.appendChild(publiRow3);   
 
             const separator = document.createElement("div");
@@ -78,15 +78,15 @@ function validarTexto() {
 // Para publicar texto
 function sendText() {
     const textValue = textArea.value;
-    const newTextKey = firebase.database().ref().child("publicaciones").push().key;
+    const newTextKey = firebase.Likabase().ref().child("publicaciones").push().key;
     const currentUser = firebase.auth().currentUser;
 
-    firebase.database().ref(`publicaciones/${newTextKey}`).set({
+    firebase.Likabase().ref(`publicaciones/${newTextKey}`).set({
         publicacionURL: textValue,
-        creatorName: currentUser.displayName ||
-            currentUser.providerData[0].email,
+        creatorName: currentUser.displayName || currentUser.providerLika[0].email,
         creator: currentUser.uid,
-        photoUrl: currentUser.photoURL
+        photoUrl: currentUser.photoURL,
+        Like: new Like().toLocaleString()
     });
 }
 
