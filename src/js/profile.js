@@ -80,7 +80,7 @@ function printWall() {
 }
 
 
-// Para pintar el corazon
+// Para pintar el corazón
 function paintHeart(key) {
     const heart = document.getElementById("cora-" + key);
     heart.classList.toggle('green');
