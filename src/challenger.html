@@ -1,145 +1,127 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>4edu - Desafíos</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Roboto"> 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style.css" /> <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="css/challenger.css">
-</head>
-
-<body>
-    <header>
-        <div class="navbarFondo">
-            <div class="container ">
-                <div class="row navbarPropiedades">
-                    <div class="col-7 col-sm-8 col-md-10 col-lg-10">
-                        <img id="imgFour" src="img/four_resize.png" alt="" srcset="">
-                    </div>
-                    <div class="col-4 col-lg-3 navbarIconos">
-                        <a href="help.html">
-                            <i class="far fa-question-circle"></i>
-                        </a>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bars"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="configprofile.html">Configurar Perfil</a>
-                                <a class="dropdown-item" href="profile.html">Mi Perfil</a>
-                                <a class="dropdown-item" href="myEventsFav.html">Mis Eventos</a>
-                                <a class="dropdown-item" href="friends.html">Mis Amigos</a>
-                                <a class="dropdown-item" href="wall.html">Muro</a>
-                                <a class="dropdown-item" href="events.html">Eventos</a>
-                                <a class="dropdown-item" href="about.html">Acerca de 4edu</a>
-                                <a class="dropdown-item" id="logout" onclick="window.logoutWithFirebase()" value="LOGOUT" href="">Salir de 4edu </a>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>4edu - Desafíos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Roboto"> 
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/style.css" /> <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="css/challenger.css">
+    </head>
+    <body>
+        <header>
+            <div class="navbarFondo">
+                <div class="container ">
+                    <div class="row navbarPropiedades">
+                        <div class="col-7 col-sm-8 col-md-10 col-lg-10">
+                            <img id="imgFour" src="img/four_resize.png" alt="" srcset="">
+                        </div>
+                        <div class="col-4 col-lg-3 navbarIconos">
+                            <a href="help.html">
+                                <i class="far fa-question-circle"></i>
+                            </a>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-bars"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="configprofile.html">Configurar Perfil</a>
+                                    <a class="dropdown-item" href="profile.html">Mi Perfil</a>
+                                    <a class="dropdown-item" href="myEventsFav.html">Mis Eventos</a>
+                                    <a class="dropdown-item" href="friends.html">Mis Amigos</a>
+                                    <a class="dropdown-item" href="wall.html">Muro</a>
+                                    <a class="dropdown-item" href="events.html">Eventos</a>
+                                    <a class="dropdown-item" href="about.html">Acerca de 4edu</a>
+                                    <a class="dropdown-item" id="logout" onclick="window.logoutWithFirebase()" value="LOGOUT" href="">Salir de 4edu </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <div id="menu" class="row justify-content-md-center">
-                <div class="col iconGroup">
-                    <a href="wall.html">
-                        <i class="fas fa-home"></i>
-                    </a>
-                    <p class="inicio">Inicio</p>
+            <div class="container">
+                <div id="menu" class="row justify-content-md-center">
+                    <div class="col iconGroup">
+                        <a href="wall.html">
+                            <i class="fas fa-home"></i>
+                        </a>
+                        <p class="inicio">Inicio</p>
+                    </div>
+                    <div class="col iconGroup">
+                        <a href="friends.html">
+                            <i class="fas fa-user-friends"></i>
+                        </a>
+                        <p class="friends">Amigos</p>
+                    </div>
+                    <div class="col iconGroup">
+                        <a href="events.html">
+                            <i class="far fa-calendar-alt"></i>
+                        </a>
+                        <p class="events">Eventos</p>
+                    </div>
+                    <div class="col iconGroup">
+                        <a href="challenger.html">
+                            <i class="fas fa-medal"></i>
+                        </a>
+                        <p class="challenge">Desafíos</p>
+                    </div>
                 </div>
-                <div class="col iconGroup">
-                    <a href="friends.html">
-                        <i class="fas fa-user-friends"></i>
-                    </a>
-                    <p class="friends">Amigos</p>
-                </div>
-                <div class="col iconGroup">
-                    <a href="events.html">
-                        <i class="far fa-calendar-alt"></i>
-                    </a>
-                    <p class="events">Eventos</p>
-                </div>
-                <div class="col iconGroup">
-                    <a href="challenger.html">
-                        <i class="fas fa-medal"></i>
-                    </a>
-                    <p class="challenge">Desafíos</p>
+                <div class="menuSeparador"></div>
+            </div>
+        </header>
+        <section class="container" id="publicarEvento">
+            <div class="row">
+                <div class="col title text-center">
+                    <p>Desafíos</p>
                 </div>
             </div>
-            <div class="menuSeparador"></div>
-        </div>
-    </header>
-
-    <section class="container">
-        <br>
-        <div class="row">
-            <div class="col title">
-                <p>Desafíos</p>
+            <div class="row boxChallenger">
+                <div class="col-5 showChallenger">
+                    <a href="quizMatChallenger.html">
+                        <p class="textInBox">Matemáticas</p>
+                    </a>
+                </div>
+                <div class="col-5 showChallenger">
+                    <p class="textInBox">Historia</p>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row boxChallenger">
-            <div class="col-5 showChallenger">
-                <a href="quizMatChallenger.html">
-                    <p class="textInBox">Matemáticas</p>
-                </a>
-
+            <div class="row boxChallenger">
+                <div class="col-5 showChallenger">
+                    <p class="textInBox">Biología</p>
+                </div>
+                <div class="col-5 showChallenger">
+                    <p class="textInBox">Lenguaje</p>
+                </div>
             </div>
-            <div class="col-5 showChallenger">
-
-                <p class="textInBox">Historia</p>
-
+            <div class="row boxChallenger">
+                <div class="col-5 showChallenger">
+                    <p class="textInBox">Inglés</p>
+                </div>
+                <div class="col-5 showChallenger">
+                    <p class="textInBox">Fisica</p>
+                </div>
             </div>
-        </div>
-        <div class="row boxChallenger">
-            <div class="col-5 showChallenger">
+        </section>
+        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyDayZJ-EwSaKDG0008qD3o0DwwBWiTxVTY",
+                authDomain: "edu-ad4d1.firebaseapp.com",
+                databaseURL: "https://edu-ad4d1.firebaseio.com",
+                projectId: "edu-ad4d1",
+                storageBucket: "edu-ad4d1.appspot.com",
+                messagingSenderId: "129112114743"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 
-                <p class="textInBox">Biología</p>
-
-            </div>
-            <div class="col-5 showChallenger">
-
-                <p class="textInBox">Lenguaje</p>
-
-            </div>
-        </div>
-        <div class="row boxChallenger">
-            <div class="col-5 showChallenger">
-
-                <p class="textInBox">Inglés</p>
-
-            </div>
-            <div class="col-5 showChallenger">
-
-                <p class="textInBox">Fisica</p>
-
-            </div>
-        </div>
-
-    </section>
-    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyDayZJ-EwSaKDG0008qD3o0DwwBWiTxVTY",
-            authDomain: "edu-ad4d1.firebaseapp.com",
-            databaseURL: "https://edu-ad4d1.firebaseio.com",
-            projectId: "edu-ad4d1",
-            storageBucket: "edu-ad4d1.appspot.com",
-            messagingSenderId: "129112114743"
-        };
-        firebase.initializeApp(config);
-    </script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-
-    <script src="js/login.js"></script>
-</body>
-
+        <script src="js/login.js"></script>
+    </body>
 </html>

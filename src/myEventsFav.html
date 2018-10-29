@@ -73,34 +73,22 @@
             </div>
         </header>
         <section class="container" id="publicarEvento">
-            <br>
             <div class="row">
                 <div class="col title">
                     <p>Mis Eventos</p>
                 </div>
             </div>
-            <br>
             <div class="row">
                 <div class="col-12">
-                    <div class="input-group input-group-sm mb-3">
-                        <input id="eventoName" name="profileName" type="text" placeholder="Nombre del Evento:" class="form-control" maxlength="140" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="input-group input-group-sm mb-3">
-                        <input id="fechaEvento" name="DateOfBirth" type="date" placeholder="Fecha:" class="form-control" maxlength="140" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="input-group input-group-sm mb-3">
-                        <input id="descEvento" name="profileDescr" type="text" placeholder="Descripción del Evento:" class="form-control" maxlength="140" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                    </div>
+                    <p class="text-center">Completa los siguientes campos para publicar un evento:</p>
+                    <input id="eventName" name="profileName" type="text" placeholder="Nombre del Evento:" class="form-control" maxlength="140" aria-label="Small" >
+                    <input id="dateEvent" name="dateOfEvent" type="date" placeholder="Fecha:" class="form-control" maxlength="140" aria-label="Small" >
+                    <input id="descEvent" name="eventDescr" type="text" placeholder="Descripción del Evento:" class="form-control" maxlength="140" aria-label="Small" >
                 </div>
                 <div class="col-12 areaBotonPublicar">
                     <input class="botonPublicar" id="sendText" onclick="validarTexto()" type="button" value="PUBLICAR" data-="publicaciones">
                 </div>
             </div>
-            <br>
         </section>
         <section class="container" id="contenido"></section>
         <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
