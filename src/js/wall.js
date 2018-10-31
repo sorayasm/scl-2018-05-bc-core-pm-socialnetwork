@@ -1,5 +1,18 @@
 window.onload = () => {
-    let posts = firebase.database().ref("publicaciones");
+ // para mostrar nombre y mail
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+        } else {
+            window.location = "../index.html";
+        }}
+    );
+    getpost();
+};
+
+// Para mostrar los post
+function getpost() {
+let posts = firebase.database().ref("publicaciones");
     posts.on("child_added", (newPublicacion) => {
         const publiDiv = document.createElement("div");
         publiDiv.id=`publicacion-${newPublicacion.key}`;
@@ -48,7 +61,7 @@ window.onload = () => {
         separator.className = "menuSeparador";
         publiDiv.appendChild(separator);
         });
-};
+    }
 
 // Para pintar el corazon
 function paintHeart(key) {

@@ -1,4 +1,17 @@
 window.onload = () => {
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+        } else {
+            window.location = "../index.html";
+        }
+    });
+    getEvents();
+};
+
+// Para mostrar los eventos 
+function getEvents(){
     //Base de datos para consultar MAS veces
     firebase.database().ref("eventos")
         .on("child_added", (newEventos) => {
@@ -52,7 +65,7 @@ window.onload = () => {
             separador.className = "menuSeparador";
             eventsDiv.appendChild(separador);
         });
-};
+}
 
 // Para pintar el corazón
 function paintCalendar(key) {
