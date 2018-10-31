@@ -8,6 +8,13 @@ input {
     flex-direction: column-reverse;
 }
 
+textarea {
+    padding: 10px;
+    border-radius: 15px;
+    resize: none;
+    border: none;
+    margin: 10px auto;
+}
 /*Color blanco para los links de nav */
 
 .navbar-light .navbar-nav .nav-link {
@@ -168,10 +175,10 @@ nav {
 
 .fa-trash-alt, .fa-heart, .fa-calendar-check, .fa-edit {
     color: #00A6B2;
-    font-size: 25px;
+    font-size: 20px;
 }
 
-.trashIcon {
+.btnIcons {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -580,7 +587,6 @@ h6{
 
 .cal{
     margin-top: 10px;
-    margin-left: 40px;
 }
 #publicarEvento{
     padding-top: 6%;

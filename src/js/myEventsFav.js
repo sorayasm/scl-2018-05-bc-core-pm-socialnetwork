@@ -13,6 +13,7 @@ window.onload = () => {
 
 // Mostrar mis eventos
 function myEvents(myUserId){
+    contenido.innerHTML = "";
     firebase.database().ref("eventos").orderByChild("creator").equalTo(myUserId)
         .on("child_added", (newEventos) => {
             const eventsDiv = document.createElement("div");
@@ -60,9 +61,10 @@ function myEvents(myUserId){
 
             const colEventButtons = document.createElement("div");
             colEventButtons.className = "col-4 col-lg-4 myLikePublished text-center";
-            colEventButtons.innerHTML = `<button onclick="edit('${newEventos.key}')"><i class="far fa-edit"></i></button>
-            <button class="cal" onclick="paintCalendar('${newEventos.key}')"><i class="far fa-calendar-check" id="cora-${newEventos.key}"></i></button>
-            <button onclick="deleteText('${newEventos.key}')"><i class="far fa-trash-alt"></i></button>`;
+            colEventButtons.innerHTML = `
+            <button class="cal" onclick="edit('${newEventos.key}')"><i class="far fa-edit"></i></button>
+            <button class="cal" onclick="paintCalendar('${newEventos.key}')"><i class="far fa-calendar-check" id="cora-${newEventos.key}"></i> ${newEventos.val().likes}</button>
+            <button class="cal" onclick="deleteText('${newEventos.key}')"><i class="far fa-trash-alt"></i></button>`;
             eventsRow2.appendChild(colEventButtons);
 
             const separador = document.createElement("div");
@@ -73,9 +75,12 @@ function myEvents(myUserId){
 
 // Para pintar el corazon
 function paintCalendar(key) {
-    const heart = document.getElementById("cora-" + key);
-    heart.classList.toggle('green');
-
+    let ref = firebase.database().ref(`eventos/${key}`)
+    ref.once("value", (post) => {
+    let postLikes = (post.val().likes) + 1;
+    ref.update({ likes: postLikes });
+    })
+    myEvents(firebase.auth().currentUser.uid);
 };
 
 //Para que al publicar se borre lo escrito en text área
@@ -110,7 +115,8 @@ function sendText() {
         dateURL: dateEvent,
         creatorName: currentUser.displayName || currentUser.providerData[0].email,
         creator: currentUser.uid,
-        photoUrl: currentUser.photoURL
+        photoUrl: currentUser.photoURL,
+        likes: 0
     });
 };
 

@@ -12,6 +12,7 @@ window.onload = () => {
 
 // Para mostrar los eventos 
 function getEvents(){
+    contenido.innerHTML = "";
     //Base de datos para consultar MAS veces
     firebase.database().ref("eventos")
         .on("child_added", (newEventos) => {
@@ -58,7 +59,7 @@ function getEvents(){
 
             const colEventLike = document.createElement("div");
             colEventLike.className = "col-4 col-lg-4 myLikePublished text-center";
-            colEventLike.innerHTML = `<button class="cal" onclick="paintCalendar('${newEventos.key}')"><i class="far fa-calendar-check" id="cora-${newEventos.key}"></i></button>`;
+            colEventLike.innerHTML = `<button class="cal" onclick="paintCalendar('${newEventos.key}')"><i class="far fa-calendar-check" id="cora-${newEventos.key}"></i> ${newEventos.val().likes}</button>`;
             eventsRow2.appendChild(colEventLike);
 
             const separador = document.createElement("div");
@@ -69,9 +70,12 @@ function getEvents(){
 
 // Para pintar el corazón
 function paintCalendar(key) {
-    const heart = document.getElementById("cora-" + key);
-    heart.classList.toggle('green');
-
+    let ref = firebase.database().ref(`eventos/${key}`)
+    ref.once("value", (post) => {
+    let postLikes = (post.val().likes) + 1;
+    ref.update({ likes: postLikes });
+    })
+    getEvents();
 };
 
 //Para que al publicar se borre lo escrito en text área
@@ -108,7 +112,8 @@ function sendText() {
         creatorName: currentUser.displayName ||
             currentUser.providerData[0].email,
         creator: currentUser.uid,
-        photoUrl: currentUser.photoURL
+        photoUrl: currentUser.photoURL,
+        likes: 0
     });
 };
 

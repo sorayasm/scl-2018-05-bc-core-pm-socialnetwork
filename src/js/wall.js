@@ -12,7 +12,8 @@ window.onload = () => {
 
 // Para mostrar los post
 function getpost() {
-let posts = firebase.database().ref("publicaciones");
+    contenido.innerHTML = "";
+    let posts = firebase.database().ref("publicaciones");
     posts.on("child_added", (newPublicacion) => {
         const publiDiv = document.createElement("div");
         publiDiv.id=`publicacion-${newPublicacion.key}`;
@@ -28,7 +29,7 @@ let posts = firebase.database().ref("publicaciones");
 
         const imgProfile = document.createElement("div");
         imgProfile.className="imageInProfileMessage";
-        imgProfile.innerHTML =`<img width="60px" class="float-left img-circle rounded-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>`;
+        imgProfile.innerHTML =`<img width="60px" class="float-left img-circle rounded-circle" src="${newPublicacion.val().photoUrl || "https://www.pekoda.com/images/default.png"}"></img>`;
         publiCol2.appendChild(imgProfile);  
 
         const publiCol8 = document.createElement("div");
@@ -38,7 +39,7 @@ let posts = firebase.database().ref("publicaciones");
 
         const publiLikeDiv = document.createElement("div");
         publiLikeDiv.className = "col-2 text-right";
-        publiLikeDiv.innerHTML = `<button onclick="paintHeart('${newPublicacion.key}')"><i class="far fa-heart" id="cora-${newPublicacion.key}"></i></button>`;
+        publiLikeDiv.innerHTML = `<button onclick="paintHeart('${newPublicacion.key}')"><i class="far fa-heart" id="cora-${newPublicacion.key}"></i> ${newPublicacion.val().likes}</button>`;
         publiRow.appendChild(publiLikeDiv);
 
         const publiRow2 = document.createElement("div");
@@ -63,24 +64,26 @@ let posts = firebase.database().ref("publicaciones");
         });
     }
 
-// Para pintar el corazon
+// Para likes
 function paintHeart(key) {
-    const heart = document.getElementById("cora-" + key);
-    heart.classList.toggle('green');
-
-}
+    let ref = firebase.database().ref(`publicaciones/${key}`)
+    ref.once("value", (post) => {
+        let postLikes = (post.val().likes) + 1;
+        ref.update({ likes: postLikes });
+    }) 
+    getpost();
+};
 
 //Para que al publicar se borre lo escrito en text área
-const boton = document.getElementById('sendText');
-boton.addEventListener('click', () => {
-    let comments = document.getElementById('textArea').value;
-    document.getElementById('textArea').value = '';
+const boton = document.getElementById("sendText");
+boton.addEventListener("click", () => {
+    document.getElementById("textArea").value = "";
 });
 
 // Para validar texto
 function validarTexto() {
     const entradaDeTexto = textArea.value;
-    if (!entradaDeTexto.replace(/\s/g, '').length) {
+    if (!entradaDeTexto.replace(/\s/g, "").length) {
         alert("Tu mensaje no puede estar vacío")
     } else {
         sendText()
@@ -98,7 +101,8 @@ function sendText() {
         creatorName: currentUser.displayName || currentUser.providerData[0].email,
         creator: currentUser.uid,
         photoUrl: currentUser.photoURL,
-        date: new Date().toLocaleString()
+        date: new Date().toLocaleString(),
+        likes: 0
     });
 }
 
