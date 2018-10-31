@@ -45,7 +45,7 @@ window.onload = () => {
 
             const colEventLike = document.createElement("div");
             colEventLike.className = "col-4 col-lg-4 myLikePublished text-center";
-            colEventLike.innerHTML = `<p>¿Asistirás?<button class="cal" onclick="paintCalendar('${newEventos.key}')"><i class="far fa-calendar-check" id="cora-${newEventos.key}"></i></button></p>`;
+            colEventLike.innerHTML = `<button class="cal" onclick="paintCalendar('${newEventos.key}')"><i class="far fa-calendar-check" id="cora-${newEventos.key}"></i></button>`;
             eventsRow2.appendChild(colEventLike);
 
             const separador = document.createElement("div");
@@ -64,15 +64,15 @@ function paintCalendar(key) {
 //Para que al publicar se borre lo escrito en text área
 const boton = document.getElementById('sendText');
 boton.addEventListener('click', () => {
-    let comments = document.getElementById('descEvento').value;
-    document.getElementById('descEvento').value = '';
-    document.getElementById('eventoName').value = '';
-    document.getElementById('fechaEvento').value = '';
+    let comments = document.getElementById('descEvent').value;
+    document.getElementById('descEvent').value = '';
+    document.getElementById('eventName').value = '';
+    document.getElementById('eventDate').value = '';
 });
 
 // Para validar texto
 function validarTexto() {
-    const entradaDeTexto = descEvento.value;
+    const entradaDeTexto = descEvent.value;
     if (!entradaDeTexto.replace(/\s/g, '').length) {
         alert("Tu mensaje no puede estar vacío")
     } else {
@@ -82,19 +82,20 @@ function validarTexto() {
 
 // Para publicar texto
 function sendText() {
-    const dateEvento = fechaEvento.value;
-    const nameEvento = eventoName.value;
-    const textEvento = descEvento.value;
+    const dateEvent = eventDate.value;
+    const nameEvent = eventName.value;
+    const textEvent = descEvent.value;
     const newTextKey = firebase.database().ref().child("eventos").push().key;
     const currentUser = firebase.auth().currentUser;
 
     firebase.database().ref(`eventos/${newTextKey}`).set({
-        publicacionURL: textEvento,
-        nameURL: nameEvento,
-        dateURL: dateEvento,
+        publicacionURL: textEvent,
+        nameURL: nameEvent,
+        dateURL: dateEvent,
         creatorName: currentUser.displayName ||
             currentUser.providerData[0].email,
         creator: currentUser.uid,
         photoUrl: currentUser.photoURL
     });
 };
+

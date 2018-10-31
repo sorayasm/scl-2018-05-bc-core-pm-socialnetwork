@@ -16,7 +16,7 @@ function myEvents(myUserId){
     firebase.database().ref("eventos").orderByChild("creator").equalTo(myUserId)
         .on("child_added", (newEventos) => {
             const eventsDiv = document.createElement("div");
-            eventsDiv.id=`publicacion-${newEventos.key}`;
+            eventsDiv.id=`evento-${newEventos.key}`;
             contenido.appendChild(eventsDiv);
 
             const eventsRow = document.createElement("div");
@@ -58,14 +58,15 @@ function myEvents(myUserId){
 
             const colEventLike = document.createElement("div");
             colEventLike.className = "col-4 col-lg-4 myLikePublished text-center";
-            colEventLike.innerHTML = `<p>¿Asistirás?<button class="cal" onclick="paintCalendar('${newEventos.key}')"><i class="far fa-calendar-check" id="cora-${newEventos.key}"></i></button></p>`;
+            colEventLike.innerHTML = `<button class="cal" onclick="paintCalendar('${newEventos.key}')"><i class="far fa-calendar-check" id="cora-${newEventos.key}"></i></button>
+            <button onclick="deleteText('${newEventos.key}')"><i class="far fa-trash-alt"></i></button>`;
             eventsRow2.appendChild(colEventLike);
 
             const separador = document.createElement("div");
             separador.className = "menuSeparador";
             eventsDiv.appendChild(separador);
         });
-}
+};
 
 // Para pintar el corazon
 function paintCalendar(key) {
@@ -77,15 +78,14 @@ function paintCalendar(key) {
 //Para que al publicar se borre lo escrito en text área
 const boton = document.getElementById('sendText');
 boton.addEventListener('click', () => {
-    let comments = document.getElementById('descEvent').value;
     document.getElementById('descEvent').value = '';
     document.getElementById('eventName').value = '';
-    document.getElementById('dateEvent').value = '';
+    document.getElementById('eventDate').value = '';
 });
 
 // Para validar texto
 function validarTexto() {
-    const entradaDeTexto = descEvento.value;
+    const entradaDeTexto = descEvent.value;
     if (!entradaDeTexto.replace(/\s/g, '').length) {
         alert("Tu mensaje no puede estar vacío")
     } else {
@@ -95,7 +95,7 @@ function validarTexto() {
 
 // Para publicar texto
 function sendText() {
-    const dateEvent = dateEvent.value;
+    const dateEvent = eventDate.value;
     const nameEvent = eventName.value;
     const textEvent = descEvent.value;
     const newTextKey = firebase.database().ref().child("eventos").push().key;
@@ -105,9 +105,32 @@ function sendText() {
         publicacionURL: textEvent,
         nameURL: nameEvent,
         dateURL: dateEvent,
-        creatorName: currentUser.displayName ||
-            currentUser.providerData[0].email,
+        creatorName: currentUser.displayName || currentUser.providerData[0].email,
         creator: currentUser.uid,
         photoUrl: currentUser.photoURL
     });
+};
+
+// funcion borrar eventos
+function deleteText(key) {
+    swal({
+            title: "¿Estás seguro que deseas eliminar este evento?",
+            text: "Una vez borrado, no la podrás ver nunca más",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                firebase.database().ref(`eventos/${key}`).remove()
+                const events = document.getElementById("evento-" + key);
+                events.remove();
+                swal("Poof! ¡Tu evento ha sido eliminado!", {
+                    icon: "success",
+                });
+            } else {
+                swal("¡Tu evento no se ha borrado!");
+            }
+        });
+
 };

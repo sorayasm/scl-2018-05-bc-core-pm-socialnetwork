@@ -11,8 +11,7 @@ window.onload = () => {
         const myUsername = firebase.auth().currentUser.displayName;
         const myPicture = firebase.auth().currentUser.photoURL;
         let myUserId = firebase.auth().currentUser.uid;
-        console.log(myUserId);
-        printWall();
+        printWall(myUserId);
 
         if (myUsername === null) {
             document.getElementById("myName").innerHTML = myUsermail;
@@ -25,9 +24,8 @@ window.onload = () => {
 };
 
 // Para imprimir el Muro
-function printWall() {
+function printWall(myUserId) {
     // consultar base de datos
-    let myUserId = firebase.auth().currentUser.uid;
     firebase.database().ref("publicaciones").orderByChild("creator").equalTo(myUserId)
         .on("child_added", (newPublicacion) => {
             const publiDiv = document.createElement("div");
