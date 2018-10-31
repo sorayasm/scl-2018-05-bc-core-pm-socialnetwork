@@ -1,54 +1,53 @@
 window.onload = () => {
-    firebase.database().ref("publicaciones")
-        .on("child_added", (newPublicacion) => {
-            const publiDiv = document.createElement("div");
-            publiDiv.id=`publicacion-${newPublicacion.key}`;
-            contenido.appendChild(publiDiv);   
+    let posts = firebase.database().ref("publicaciones");
+    posts.on("child_added", (newPublicacion) => {
+        const publiDiv = document.createElement("div");
+        publiDiv.id=`publicacion-${newPublicacion.key}`;
+        contenido.appendChild(publiDiv);   
 
-            const publiRow =document.createElement("div");
-            publiRow.className="row myPublishedLika";
-            publiDiv.appendChild(publiRow);
+        const publiRow =document.createElement("div");
+        publiRow.className="row myPublishedData";
+        publiDiv.appendChild(publiRow);
 
-            const publiCol2 = document.createElement("div");
-            publiCol2.className="col-2 myPublishedPhoto";
-            publiRow.appendChild(publiCol2);
+        const publiCol2 = document.createElement("div");
+        publiCol2.className="col-2 myPublishedPhoto";
+        publiRow.appendChild(publiCol2);
 
-            const imgProfile = document.createElement("div");
-            imgProfile.className="imageInProfileMessage";
-            imgProfile.innerHTML =`<img width="60px" class="float-left img-circle rounded-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>`;
-            publiCol2.appendChild(imgProfile);  
-            
-            const publiCol8 = document.createElement("div");
-            publiCol8.className="col-8 myNameInpublications";
-            publiCol8.innerHTML =`<p>${newPublicacion.val().creatorName}</p>`;
-            publiRow.appendChild(publiCol8);
+        const imgProfile = document.createElement("div");
+        imgProfile.className="imageInProfileMessage";
+        imgProfile.innerHTML =`<img width="60px" class="float-left img-circle rounded-circle" src="${newPublicacion.val().photoUrl || 'https://www.pekoda.com/images/default.png'}"></img>`;
+        publiCol2.appendChild(imgProfile);  
 
-            const publiLikeDiv = document.createElement("div");
-            publiLikeDiv.className = "col-2 text-right";
-            publiLikeDiv.innerHTML = `<button onclick="paintHeart('${newPublicacion.key}')"><i class="far fa-heart" id="cora-${newPublicacion.key}"></i></button>`;
-            publiRow.appendChild(publiLikeDiv);
+        const publiCol8 = document.createElement("div");
+        publiCol8.className="col-8 myNameInpublications";
+        publiCol8.innerHTML =`<p>${newPublicacion.val().creatorName}</p>`;
+        publiRow.appendChild(publiCol8);
 
-            const publiRow2 = document.createElement("div");
-            publiRow2.className = "row";
-            const colMyStatus = document.createElement("div");
-            colMyStatus.className = "col-12 col-lg-12 myStatusPublished";
-            colMyStatus.innerHTML = `<p>${newPublicacion.val().publicacionURL}</p>`;
-            publiRow2.appendChild(colMyStatus);
-            publiDiv.appendChild(publiRow2);
+        const publiLikeDiv = document.createElement("div");
+        publiLikeDiv.className = "col-2 text-right";
+        publiLikeDiv.innerHTML = `<button onclick="paintHeart('${newPublicacion.key}')"><i class="far fa-heart" id="cora-${newPublicacion.key}"></i></button>`;
+        publiRow.appendChild(publiLikeDiv);
 
-            const publiRow3 = document.createElement("div");
-            publiRow3.className = "row";
-            const dateCol = document.createElement("div");
-            dateCol.className = "col myLikePublished";
-            dateCol.innerHTML = `<p>${newPublicacion.val().date}</p>`
-            publiRow3.appendChild(dateCol);
-            publiDiv.appendChild(publiRow3);   
+        const publiRow2 = document.createElement("div");
+        publiRow2.className = "row";
+        const colMyStatus = document.createElement("div");
+        colMyStatus.className = "col-12 col-lg-12 myStatusPublished";
+        colMyStatus.innerHTML = `<p>${newPublicacion.val().publicacionURL}</p>`;
+        publiRow2.appendChild(colMyStatus);
+        publiDiv.appendChild(publiRow2);
 
-            const separator = document.createElement("div");
-            separator.className = "menuSeparador";
-            publiDiv.appendChild(separator);
+        const publiRow3 = document.createElement("div");
+        publiRow3.className = "row";
+        const dateCol = document.createElement("div");
+        dateCol.className = "col myDatePublished";
+        dateCol.innerHTML = `<p>${newPublicacion.val().date}</p>`
+        publiRow3.appendChild(dateCol);
+        publiDiv.appendChild(publiRow3);   
+
+        const separator = document.createElement("div");
+        separator.className = "menuSeparador";
+        publiDiv.appendChild(separator);
         });
-
 };
 
 // Para pintar el corazon
@@ -78,15 +77,15 @@ function validarTexto() {
 // Para publicar texto
 function sendText() {
     const textValue = textArea.value;
-    const newTextKey = firebase.Likabase().ref().child("publicaciones").push().key;
+    const newTextKey = firebase.database().ref().child("publicaciones").push().key;
     const currentUser = firebase.auth().currentUser;
 
-    firebase.Likabase().ref(`publicaciones/${newTextKey}`).set({
+    firebase.database().ref(`publicaciones/${newTextKey}`).set({
         publicacionURL: textValue,
-        creatorName: currentUser.displayName || currentUser.providerLika[0].email,
+        creatorName: currentUser.displayName || currentUser.providerData[0].email,
         creator: currentUser.uid,
         photoUrl: currentUser.photoURL,
-        Like: new Like().toLocaleString()
+        date: new Date().toLocaleString()
     });
 }
 

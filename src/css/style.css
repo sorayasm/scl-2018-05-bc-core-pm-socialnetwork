@@ -3,6 +3,11 @@ input {
     margin: 10px auto;
 }
 
+.reverse {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 /*Color blanco para los links de nav */
 
 .navbar-light .navbar-nav .nav-link {
