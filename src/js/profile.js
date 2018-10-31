@@ -50,16 +50,19 @@ function printWall(myUserId) {
             publiCol8.innerHTML =`<p>${newPublicacion.val().creatorName}</p>`;
             publiRow.appendChild(publiCol8);
 
-            const publiTrashDiv = document.createElement("div");
-            publiTrashDiv.className = "col-2 trashIcon text-right";
-            publiTrashDiv.innerHTML = `<button onclick="paintHeart('${newPublicacion.key}')"><i class="far fa-heart" id="cora-${newPublicacion.key}"></i></button> <button onclick="deleteText('${newPublicacion.key}')"><i class="far fa-trash-alt"></i></button>`;
-            publiRow.appendChild(publiTrashDiv);
+            const publiButtonsDiv = document.createElement("div");
+            publiButtonsDiv.className = "col-2 trashIcon text-right";
+            publiButtonsDiv.innerHTML = `<button onclick="edit('${newPublicacion.key}')"><i class="far fa-edit"></i></button>
+            <button onclick="paintHeart('${newPublicacion.key}')"><i class="far fa-heart" id="cora-${newPublicacion.key}"></i></button>
+            <button onclick="deleteText('${newPublicacion.key}')"><i class="far fa-trash-alt"></i></button>
+            `;
+            publiRow.appendChild(publiButtonsDiv);
 
             const publiRow2 = document.createElement("div");
             publiRow2.className = "row";
             const colMyStatus = document.createElement("div");
             colMyStatus.className = "col-12 col-lg-12 myStatusPublished";
-            colMyStatus.innerHTML = `<p>${newPublicacion.val().publicacionURL}</p>`;
+            colMyStatus.innerHTML = `<textarea id="${newPublicacion.key}" class="col" style="height:auto" disabled>${newPublicacion.val().publicacionURL}</textarea>`;
             publiRow2.appendChild(colMyStatus);
             publiDiv.appendChild(publiRow2);
 
@@ -113,7 +116,8 @@ function sendText() {
         creatorName: currentUser.displayName ||
             currentUser.providerData[0].email,
         creator: currentUser.uid,
-        photoUrl: currentUser.photoURL
+        photoUrl: currentUser.photoURL,
+        date: new Date().toLocaleString()
     });
 };
 
@@ -141,3 +145,12 @@ function deleteText(key) {
 
 }
 
+// Para editar post
+function edit(key) {
+    let input = document.getElementById(key);
+    input.disabled = false;
+    input.addEventListener("change", function() {
+        firebase.database().ref(`publicaciones/${key}`).update({ publicacionURL: input.value });
+        input.disabled =true;
+    });
+}

@@ -3,7 +3,7 @@ window.onload = () => {
     firebase.database().ref("eventos")
         .on("child_added", (newEventos) => {
             const eventsDiv = document.createElement("div");
-            eventsDiv.id=`publicacion-${newEventos.key}`;
+            eventsDiv.id=`evento-${newEventos.key}`;
             contenido.appendChild(eventsDiv);
 
             const eventsRow = document.createElement("div");

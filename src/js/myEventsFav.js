@@ -43,7 +43,8 @@ function myEvents(myUserId){
 
             const colEventName = document.createElement("div");
             colEventName.className = "col-8 col-lg-8 myEventName";
-            colEventName.innerHTML = `<h6>NOMBRE EVENTO</h6><h4>${newEventos.val().nameURL}</h4><br>`;
+            colEventName.innerHTML = `<h6>NOMBRE EVENTO</h6>
+            <h4>${newEventos.val().nameURL}</h4>`;
             eventsRow2.appendChild(colEventName);
 
             const colEventDate = document.createElement("div");
@@ -53,14 +54,16 @@ function myEvents(myUserId){
 
             const colEventPubl= document.createElement("div");
             colEventPubl.className = "col-8 col-lg-8 myPublishedEvent";
-            colEventPubl.innerHTML = `<h6>DESCRIPCIÓN DEL EVENTO</h6><p>${newEventos.val().publicacionURL}</p><br>`;
+            colEventPubl.innerHTML = `<h6>DESCRIPCIÓN DEL EVENTO</h6>
+            <textarea id="${newEventos.key}" class="col" style="height:auto" disabled>${newEventos.val().publicacionURL}</textarea>`;
             eventsRow2.appendChild(colEventPubl);
 
-            const colEventLike = document.createElement("div");
-            colEventLike.className = "col-4 col-lg-4 myLikePublished text-center";
-            colEventLike.innerHTML = `<button class="cal" onclick="paintCalendar('${newEventos.key}')"><i class="far fa-calendar-check" id="cora-${newEventos.key}"></i></button>
+            const colEventButtons = document.createElement("div");
+            colEventButtons.className = "col-4 col-lg-4 myLikePublished text-center";
+            colEventButtons.innerHTML = `<button onclick="edit('${newEventos.key}')"><i class="far fa-edit"></i></button>
+            <button class="cal" onclick="paintCalendar('${newEventos.key}')"><i class="far fa-calendar-check" id="cora-${newEventos.key}"></i></button>
             <button onclick="deleteText('${newEventos.key}')"><i class="far fa-trash-alt"></i></button>`;
-            eventsRow2.appendChild(colEventLike);
+            eventsRow2.appendChild(colEventButtons);
 
             const separador = document.createElement("div");
             separador.className = "menuSeparador";
@@ -133,4 +136,16 @@ function deleteText(key) {
             }
         });
 
+};
+
+
+// Para editar eventos
+function edit(key) {
+    let input = document.getElementById(key);
+    input.disabled = false;
+    input.addEventListener("change", function() {
+        firebase.database().ref(`eventos/${key}`)
+        .update({ publicacionURL: input.value });
+        input.disabled = true;
+    })
 };

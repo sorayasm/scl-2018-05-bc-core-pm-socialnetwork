@@ -166,18 +166,9 @@ nav {
     display: contents;
 }
 
-.fa-trash-alt {
+.fa-trash-alt, .fa-heart, .fa-calendar-check, .fa-edit {
     color: #00A6B2;
     font-size: 25px;
-}
-
-.fa-heart {
-    font-size: 25px;
-    color: #00A6B2;
-}
-.fa-calendar-check{
-    font-size: 25px;
-    color: #00A6B2;
 }
 
 .trashIcon {
@@ -379,7 +370,6 @@ p.signin {
 
 .imageInProfile {
     border-radius: 50px;
-
     width: 93px;
     height: 93px;
 }
